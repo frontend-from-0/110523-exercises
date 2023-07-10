@@ -1,0 +1,247 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    color: #000;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    border-bottom: 1px solid #c9c8c3;
+    box-shadow: 0 0 15px 0 #d2dfdf;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+  }
+  
+  .header-ul {
+    display: flex;
+  }
+  
+  .header-ul li {
+    padding: 8px 15px 8px 15px;
+  }
+  .header-a,
+  .nav-a {
+    color: #000;
+  }
+  
+  .nav-a:hover, .footer-a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    min-height: 100vh;
+    margin-bottom: 25px;
+  }
+  
+  .main-h {
+    font-size: 2.7em;
+    font-weight: 100;
+  }
+  
+  .main-p {
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .top-text {
+    width: 50vw;
+    margin: 0 auto;
+    padding-bottom: 35px;
+  }
+  
+  .price {
+    font-size: 2.2em;
+    font-weight: 600;
+  }
+  
+  .mo {
+    font-size: 1.7em;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    margin-left: 7px;
+  }
+  .card > ul {
+    padding: 0;
+  }
+  
+  .flex-cards {
+    width: 70vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card {
+    border: 1px solid #75746f85;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 32%;
+    padding-bottom: 20px;
+  }
+  
+  .card-heading {
+    border-bottom: 1px solid #75746f85;
+    background-color: #f0f5f7;
+    margin-top: 0;
+    height: 45px;
+    padding-top: 6px;
+    font-size: 1.3em;
+  }
+  
+  .sign-up {
+    border: 1px solid #05afe3;
+    color: #098cad;
+    border-radius: 4px;
+  }
+  
+  .sign-up:hover {
+    background-color: #05afe3;
+    color: #fff;
+  }
+  
+  .signup-header {
+    padding: 8px;
+  }
+  
+  .signup-card,
+  .main-a {
+    padding: 7px;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 1.2em;
+  }
+  
+  .main-a {
+    background-color: #05afe3;
+    border-radius: 4px;
+    color: #fff;
+  }
+  
+  .main-a:hover {
+    background-color: #049bc9;
+  }
+  
+  footer {
+    width: 70vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    border-top: 1px solid #c9c8c3;
+    padding-top: 25px;
+  }
+  
+  .footer-h {
+    font-weight: 700;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #000;
+  }
+  
+  .footer-div, .footer-d {
+    flex: 1;
+  }
+  
+  .footer-ul {
+    padding: 0;
+  }
+  .fa-regular {
+    background-color: #6c2482;
+    color: #fff;
+    font-size: 1.3em;
+    padding: 5px;
+    min-width: 10%;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .footer-a,
+  .date {
+    color: #000;
+    font-size: 0.85em;
+  }
+  
+  @media all and (max-width: 1000px) {
+    header {
+      flex-direction: column;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  
+    }
+    
+    .header-ul {
+      margin:0;
+      padding:0;
+    }
+  
+    nav {
+      flex-direction: column;
+    }
+  
+    .top-text {
+      padding-left: 0.4em;
+      padding-right: 0.4em;
+      width: 90%;
+    }
+  
+    .flex-cards {
+      flex-wrap: wrap;
+    }
+  
+    .card {
+      flex: 1 1 45%;
+      margin-bottom: 15px;
+      margin-right: 15px;
+    }
+  
+    footer {
+      flex-wrap: wrap;
+    }
+    
+    .footer-d {
+      flex-basis:100%;
+    }
+  
+    .footer-div {
+      flex: 1 1 50%;
+  
+    }
+  }
+  
+  @media all and (max-width: 600px) {
+    .flex-cards {
+      flex-direction: column;
+    }
+    
+    .card {
+      margin-bottom: 15px; 
+    }
+    .top-text {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+  
