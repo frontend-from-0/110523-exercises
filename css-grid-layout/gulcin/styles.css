@@ -10,18 +10,26 @@ body {
 
 .header {
   background-color: #006c67;
+  /*grid-column: 1 / -1;*/
+  grid-area: header;
 }
 .sidebar-left {
   background-color: #003844;
+  /*grid-row: 2 / -1;*/
+  grid-area: sidebar-left;
 }
 .sidebar-right {
   background-color: #ffb100;
+  grid-area: sidebar-right;
 }
 .content {
   background-color: #ffebc6;
+  grid-area: content;
 }
 .footer {
   background-color: #006c67;
+  /*grid-column: 2 / -1;*/
+  grid-area: footer;
 }
 
 .content > div {
@@ -31,4 +39,11 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-columns: 150px 1fr 150px;
+  grid-template-rows: 100px 1fr 500px;
+  grid-template-areas: 
+  "header header header"
+  "sidebar-left content sidebar-right"
+  "sidebar-left footer footer"
 }
