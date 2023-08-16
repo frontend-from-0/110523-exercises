@@ -18,7 +18,7 @@
     <nav>
       <div class="left-nav">
         <div class="medium-icon">
-          <a href="#"><img src="iconn.jpg" alt="Medium Icon"></a>
+          <a href="#"><img src="images/iconn.jpg" alt="Medium Icon"></a>
         </div>
         <div class="search">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -46,10 +46,10 @@
     <article class="main-article">
       <h1>Time-saving CSS techniques to create responsive images</h1>
       <div class="user-top">
-        <img class="user-img" src="puppy.jpg" alt="user picture">
-        <div class="text"><a href="#">Andry Zaganel</a><a href="#" class="text-a">Follow</a></div>
-        <div class="text1">
-          <span>Published in &nbsp;<a href="#">We've moved to freeCodeCamp.org/news</a><span>&nbsp; &nbsp; &nbsp; 3 min read
+        <img class="user-img" src="images/iconn.jpg" alt="user picture">
+        <div class="user-text"><a href="#" class="underline">Andry Zaganel</a><a href="#" class="user-text-a">Follow</a></div>
+        <div class="user-text1">
+          <span>Published in &nbsp;<a href="#" class="underline" >We've moved to freeCodeCamp.org/news</a><span>&nbsp; &nbsp; &nbsp; 3 min read
               &nbsp; &nbsp; &nbsp; &nbsp;Aug 12, 2018</span>
         </div>
       </div>
@@ -64,38 +64,41 @@
           <a href="#"><i class="fa-solid fa-upload"></i></a>
         </div>
       </div>
-      <picture class="large-img">
-        <source srcset="picture1.medium.jpg" media="(max-width: 768px)" >
-        <source srcset="picture1.small.jpg" media="(max-width: 568px)">
-        <img src="picture1.jpg" alt="Photo by Kevin Ku on Unsplash" loading="lazy">
-      </picture>
+      <figure class="large-img">
+        <picture>
+          <source srcset="images/picture1.medium.jpg" media="(max-width: 768px)" >
+          <source srcset="images/picture1.small.jpg" media="(max-width: 568px)">
+          <img src="images/picture1.jpg" alt="Photo by Kevin Ku on Unsplash" loading="lazy">
+        </picture>
+        <figcaption>Photo by Kevin Ku on Unsplash</figcaption>
+      </figure>
 
-      <p>As a web developer, there is a high probability that you have encountered the two enemies of this article:
+      <p class="text-content">As a web developer, there is a high probability that you have encountered the two enemies of this article:
         <strong>images</strong> and <strong> deadlines.</strong>Sometimes, for some reasons, your images won't fit the
         layout and you don't want to wrap your head around this for hours.
       </p>
-      <p>This situation has happened to me many times and I have learned from my mistakes. No more black magic hacks —
+      <p  class="text-content">This situation has happened to me many times and I have learned from my mistakes. No more black magic hacks —
         here are my five favorites techniques to handle image resizing.</p>
-      <h3>the “OMG I NEED THIS ASAP” way</h3>
-      <p class="no-gap">It's 5:00 pm on Friday, you have to finish this page, but the images won't fit the layout. It's
+      <h3  class="text-content">the “OMG I NEED THIS ASAP” way</h3>
+      <p class="text-content no-gap">It's 5:00 pm on Friday, you have to finish this page, but the images won't fit the layout. It's
         time to use your magic trick!</p>
       <picture>
-        <source srcset="code4.medium.jpg" media="(max-width: 768px)" >
-        <source srcset="code4.small.jpg" media="(max-width: 568px)">
-        <img src="code4.jpg" alt="Code Explanation" loading="lazy">
+        <source srcset="images/code4.medium.jpg" media="(max-width: 768px)" >
+        <source srcset="images/code4.small.jpg" media="(max-width: 568px)">
+        <img src="images/code4.jpg" alt="Code Explanation" loading="lazy">
       </picture>
-      <p>Sounds familiar? We've all done it once, doesn't it feel like cheating to you?</p>
-      <p>Using <span class="highlighted"> background </span>properties is very useful, they just work. Yet, remember
+      <p  class="text-content">Sounds familiar? We've all done it once, doesn't it feel like cheating to you?</p>
+      <p  class="text-content">Using <span class="highlighted"> background </span>properties is very useful, they just work. Yet, remember
         that you should use them only for non-content images or as a replacement of text and in <span
           class="underlined">some particular cases.</span></p>
-      <h3>The way from the future</h3>
-      <p class="no-gap">What if I told you this kind of magic exists also for <span class="highlighted"> img </span>
+      <h3 class="text-content">The way from the future</h3>
+      <p class="no-gap text-content">What if I told you this kind of magic exists also for <span class="highlighted"> img </span>
         elements? Say “hi” to the <span class="highlighted"> object-fit </span> property — which also works for videos,
         by the way!</p>
       <picture>
-        <source srcset="code5.medium.jpg" media="(max-width: 768px)" >
-        <source srcset="code5.small.jpg" media="(max-width: 568px)">
-        <img src="code5.jpg" alt="Code Explanation" loading="lazy">
+        <source srcset="images/code5.medium.jpg" media="(max-width: 768px)" >
+        <source srcset="images/code5.small.jpg" media="(max-width: 568px)">
+        <img src="images/code5.jpg" alt="Code Explanation" loading="lazy">
       </picture>
       <div class="codepen-container">
         <div class="upper-part">
@@ -104,7 +107,7 @@
             <a class="codepen-a" href="#">CSS</a>
           </div>
           <a class="codepen-a" href="#">Result</a>
-          <img class="codepen-img" src="codepen.jpg" alt="Codepen Picture">
+          <img class="codepen-img" src="images/codepen.jpg" alt="Codepen Picture">
         </div>
         <div class="content">CONTENT</div>
         <div class="down-part">
@@ -117,35 +120,38 @@
           <a class="codepen-a small" href="#">Rerun</a>
         </div>
       </div>
-      <p>That's all folks! See how when we retrieve the friendly value <span class="highlighted"> cover </span>, we can
+      <p  class="text-content">That's all folks! See how when we retrieve the friendly value <span class="highlighted"> cover </span>, we can
         also use <span class="highlighted"> contain. </span></p>
-      <h3>Okay what's the trap?</h3>
-      <p class="no-gap">Unfortunately object-fit will not work on IE and older versions of Safari, but there is a <span
+      <h3  class="text-content">Okay what's the trap?</h3>
+      <p class="text-content no-gap">Unfortunately object-fit will not work on IE and older versions of Safari, but there is a <span
           class="underlined">polyfill.</span></p>
       <picture>
-        <img src="desktop.jpg" alt="example image" loading="lazy" >
+        <img src="images/desktop.jpg" alt="example image" loading="lazy" >
       </picture>
-      <h3>The “Netflix” way</h3>
-      <p class="no-gap">You may think “nice trick man, one more way that doesn't work in old browsers like IE 😔”. Don't
+      <h3  class="text-content">The “Netflix” way</h3>
+      <p class="text-content no-gap">You may think “nice trick man, one more way that doesn't work in old browsers like IE 😔”. Don't
         worry, this one works everywhere and it is my favorite! You'll need to wrap your image with a relative padded
         parent.</p>
-      <p>We will keep the image ratio with a percentage on the <span class="highlighted">padding</span> property. Your
+      <p class="text-content">We will keep the image ratio with a percentage on the <span class="highlighted">padding</span> property. Your
         image will be a full size absolute child.</p>
-      <p>The code looks like this:</p>
+      <p class="text-content">The code looks like this:</p>
       <picture>
-        <source srcset="code1.medium.jpg" media="(max-width: 768px)" >
-        <source srcset="code1.small.jpg" media="(max-width: 568px)">
-        <img src="code1.jpg" alt="Code Explanation" loading="lazy">
+        <source srcset="images/code1.medium.jpg" media="(max-width: 768px)" >
+        <source srcset="images/code1.small.jpg" media="(max-width: 568px)">
+        <img src="images/code1.jpg" alt="Code Explanation" loading="lazy">
       </picture>
-      <p>“Hey man, it looks complicated.”</p>
-      <p>Once you get the concept, the technique is simple and <span class="underlined">widely used</span>. Netflix uses
+      <p class="text-content">“Hey man, it looks complicated.”</p>
+      <p class="text-content">Once you get the concept, the technique is simple and <span class="underlined">widely used</span>. Netflix uses
         it!</p>
-      <picture class="large-img">
-        <source srcset="picture2medium.jpg" media="(max-width: 768px)" >
-        <source srcset="picture2small.jpg" media="(max-width: 568px)">
-        <img src="picture2.jpg" alt="some picture" loading="lazy">
-      </picture>
-      <p>A little demo:</p>
+      <figure class="large-img">
+        <picture>
+          <source srcset="images/picture2medium.jpg" media="(max-width: 768px)" >
+          <source srcset="images/picture2small.jpg" media="(max-width: 568px)">
+          <img src="images/picture2.jpg" alt="some picture" loading="lazy">
+        </picture>
+        <figcaption>Take a look at the class names !</figcaption>
+     </figure>
+      <p class="text-content">A little demo:</p>
       <div class="codepen-container">
         <div class="upper-part">
           <div>
@@ -153,7 +159,7 @@
             <a class="codepen-a" href="#">CSS</a>
           </div>
           <a class="codepen-a" href="#">Result</a>
-          <img class="codepen-img" src="codepen.jpg" alt="Codepen Picture">
+          <img class="codepen-img" src="images/codepen.jpg" alt="Codepen Picture">
         </div>
         <div class="content">CONTENT</div>
         <div class="down-part">
@@ -166,14 +172,14 @@
           <a class="codepen-a small" href="#">Rerun</a>
         </div>
       </div>
-      <h3>The Simple way</h3>
-      <p class="no-gap">You may already know this one:</p>
+      <h3 class="text-content">The Simple way</h3>
+      <p class="tex-content no-gap">You may already know this one:</p>
       <picture>
-        <source srcset="code2.medium.jpg" media="(max-width: 768px)" >
-        <source srcset="code2.small.jpg" media="(max-width: 568px)">
-        <img src="code2.jpg" alt="Code Explanation">
+        <source srcset="images/code2.medium.jpg" media="(max-width: 768px)" >
+        <source srcset="images/code2.small.jpg" media="(max-width: 568px)">
+        <img src="images/code2.jpg" alt="Code Explanation">
       </picture>
-      <p>If your layout isn't too complicated, it works in most cases.</p>
+      <p class="text-content">If your layout isn't too complicated, it works in most cases.</p>
       <div class="codepen-container">
         <div class="upper-part">
           <div>
@@ -181,7 +187,7 @@
             <a class="codepen-a" href="#">CSS</a>
           </div>
           <a class="codepen-a" href="#">Result</a>
-          <img class="codepen-img" src="codepen.jpg" alt="Codepen Picture">
+          <img class="codepen-img" src="images/codepen.jpg" alt="Codepen Picture">
         </div>
         <div class="content">CONTENT</div>
         <div class="down-part">
@@ -194,22 +200,22 @@
           <a class="codepen-a small" href="#">Rerun</a>
         </div>
       </div>
-      <h3>The Performance way (Advanced)</h3>
-      <p class="no-gap">By performance, I mean load times. A big hero image can ruin it and make your page feel slow,
+      <h3 class="text-content">The Performance way (Advanced)</h3>
+      <p class="text-content no-gap">By performance, I mean load times. A big hero image can ruin it and make your page feel slow,
         especially on mobile.</p>
-      <p>Did you know that in <span class="underlined"> modern browsers </span> you can change an image source depending
+      <p class="text-content">Did you know that in <span class="underlined"> modern browsers </span> you can change an image source depending
         on your page width? That's what <span class="highlighted"> srcset </span> is made for!</p>
-      <p>You can combine them with the HTML 5 picture tag, which gracefully degrades with an img</p>
+      <p class="text-content">You can combine them with the HTML 5 picture tag, which gracefully degrades with an img</p>
       <picture>
-        <source srcset="code3.medium.jpg" media="(max-width: 768px)" >
-        <source srcset="code3.small.jpg" media="(max-width: 568px)">
-        <img src="code3.jpg" alt="Code Explanation" loading="lazy">
+        <source srcset="images/code3.medium.jpg" media="(max-width: 768px)" >
+        <source srcset="images/code3.small.jpg" media="(max-width: 568px)">
+        <img src="images/code3.jpg" alt="Code Explanation" loading="lazy">
       </picture>
       <div class="codepen-container">
         <div class="upper-part">
           <a class="codepen-a" href="#">CSS</a>
           <a class="codepen-a" href="#">Result</a>
-          <img class="codepen-img" src="codepen.jpg" alt="Codepen Picture">
+          <img class="codepen-img" src="images/codepen.jpg" alt="Codepen Picture">
         </div>
         <div class="content">CONTENT</div>
         <div class="down-part">
@@ -222,8 +228,8 @@
           <a class="codepen-a small" href="#">Rerun</a>
         </div>
       </div>
-      <h3>To Recap</h3>
-      <ol class="no-gap">
+      <h3 class="text-content">To Recap</h3>
+      <ol class="no-gap text-content">
         <li>Use <span class="highlighted">background-image</span> if your image is not part of the page's content.</li>
         <li>Use <span class="highlighted">object-fit</span> if you don't care about IE.</li>
         <li>The padded container technique, used by Netflix, works everywhere.</li>
@@ -231,7 +237,7 @@
         <li>If you need fast load times, use <span class="highlighted"> srcset</span> to load smaller images on mobile.
         </li>
       </ol>
-      <ul class="last-ul">
+      <ul class="last-ul text-content">
         <li class="last-li"><a href="#" class="last-a">CSS</a></li>
         <li class="last-li"><a href="#" class="last-a">Coding</a></li>
         <li class="last-li"><a href="#" class="last-a">Responsive Design</a></li>
