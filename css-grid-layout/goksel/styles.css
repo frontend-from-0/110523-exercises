@@ -10,18 +10,26 @@ body {
 
 .header {
   background-color: #006c67;
+  grid-area: header;
+  
 }
 .sidebar-left {
   background-color: #003844;
+  grid-area: sidebar-left;
+  
 }
 .sidebar-right {
   background-color: #ffb100;
+  grid-area: sidebar-right;
 }
 .content {
   background-color: #ffebc6;
+  grid-area: content;
 }
 .footer {
   background-color: #006c67;
+  grid-area: footer;
+  
 }
 
 .content > div {
@@ -31,4 +39,11 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-columns: [side-start] 150px [content-start] 1fr [content-end] 150px [side-end];
+  grid-template-rows:[header-start] 100px [header-end] 1fr [footer-start] 500px [footer-end];
+  grid-template-areas: 
+  "header header header"
+  "sidebar-left content sidebar-right"
+  "sidebar-left footer footer";
 }
