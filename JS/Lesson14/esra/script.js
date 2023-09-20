@@ -1,53 +1,74 @@
-// 1. Declare a variable x and initialize it to 5.
-// Declare a variable y and initialize it to 3.
+// 1. Declare a variable x and initialize it to 6.
+// Declare a variable y and initialize it to 4.
 // Declare a variable z and initialize it to the sum of x and y.
 // var, const, let
 
-const x = 5;
-const y = 3;
+const x = 6;
+const y = 4;
 const z = x + y;
 
 console.log('Exercise 1:', z);
 
 console.log('------------------------');
+
 // 2. Declare a variable name and initialize it to your name as a string.
-const myName = 'Gülçin';
+const myName = 'Esra';
+
 // Declare a variable age and initialize it to your age as a number.
-const age = 30;
+const age = 32;
+
 // Declare a variable phrase and initialize it to the string "Hello, world!".
 const phrase = 'Hello, world!';
+
 // Add name and age to the sentence above. "Hello, world! My name is (name). I'm (age) years old.".
 
 console.log(`${phrase} My name is ${myName}. I am ${age} years old.`);
 console.log(phrase + ' My name is ' + myName + '. I am ' + age + ' years old.');
 console.log('------------------------');
-// 3. Declare a variable number1 and initialize it to 10.
-const number1 = 10;
 
-// Declare a variable number2 and initialize it to 3.
-const number2 = 3;
+// 3. Declare a variable number1 and initialize it to 20.
+const number1 = 20;
+
+// Declare a variable number2 and initialize it to 5.
+const number2 = 5;
+
 // Declare a variable result and initialize it to the quotient of number1 divided by number2.
-const result = number1/number2;
+const result = number1 / number2;
+console.log(result);
+
 // Declare a variable number3 and initialize it to the difference between number1 and number2.
-const number3= number1-number2 ;
+const number3= number1 - number2 ;
 
 // Toplama +
+const sum= number1 + number2 ;
+
 // Carpi *
+const product= number1 * number2 ;
 
 console.log('Exercise 3.1:', result);
+
 console.log('Exercise 3.2:', number3);
 
 console.log('------------------------');
+
 // 4. Declare a variable firstName and initialize it to your first name as a string.
+const myFirstName = "Esra";
+
 // Declare a variable lastName and initialize it to your last name as a string.
+const myLastName = "Uzun";
 // Declare a variable fullName and initialize it to the concatenation of firstName and lastName.
+const myFullName = myFirstName + myLastName;
 
 console.log('Exercise 4:' /* Result here */);
 
 console.log('------------------------');
+
 // 5. Declare a variable number4 and initialize it to 7.
+const number4 = 7;
 // Declare a variable number5 and initialize it to 2.
+const number5 = 2;
 // Declare a variable result2 and initialize it to the product of number4 and number5 (multiply numbers).
+const result2 = number4 * number5;
 
 console.log('Exercise 5:'  /* Result here */);
  
@@ -77,10 +98,15 @@ console.log('Exercise 7.7:', counter);
 console.log('------------------------');
 // 8. Declare a variable temperature and initialize it to 20.
 // Increase the value of temperature by 5 and log the result to console.
+let temperature = 20 ;
+ temperature + 5;
+console.log('Exercise 8', temperature);
+
 
 console.log('Exercise 8:'  /* Result here */);
 
 console.log('------------------------');
+
 // 9. Declare a variable TODAY_DATE and initialize it to the current date using the built in Date object.
 const date1 = new Date ();
 const date2 = new Date ('January 1, 2000');
@@ -115,14 +141,20 @@ console.log('Exercise11:', number10, number11);
 console.log('------------------------');
 
 // 12. Declare a variable number10 and initialize it to -3. Use the postfix ++ operator to increment the value of num by 1, then multiply the result by 2 and log it to the console.
+let numberEx12 = -3;
+numberEx12++;
+let resultEx12 = numberEx12 * 2;
 
-console.log('Exercise 12:'  /* Result here */);
+console.log('Exercise 12:', resultEx12);
 
 console.log('------------------------');
 // 13. Declare two variables a and b and initialize them to 2 and 3, respectively. Use the prefix ++ operator to increment the value of a by 1, then add b to the result and log it to the console.
+let a = 2;
+let b = 3;
+a++;
+let resultEx13 = a++ + b;
 
-
-console.log('Exercise 13:'  /* Result here */);
+console.log('Exercise 13:', resultEx13);
 
 console.log('------------------------');
 
