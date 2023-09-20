@@ -33,17 +33,17 @@ const number1 = 20;
 const number2 = 5;
 
 // Declare a variable result and initialize it to the quotient of number1 divided by number2.
-const result = number1/number2;
+const result = number1 / number2;
 console.log(result);
 
 // Declare a variable number3 and initialize it to the difference between number1 and number2.
-const number3= number1-number2 ;
+const number3= number1 - number2 ;
 
 // Toplama +
-const number3= number1+number2 ;
+const sum= number1 + number2 ;
 
 // Carpi *
-const number3= number1 * number2 ;
+const product= number1 * number2 ;
 
 console.log('Exercise 3.1:', result);
 
@@ -98,8 +98,8 @@ console.log('Exercise 7.7:', counter);
 console.log('------------------------');
 // 8. Declare a variable temperature and initialize it to 20.
 // Increase the value of temperature by 5 and log the result to console.
-const temperature = 20 ;
-const temperature = temperature + 5;
+let temperature = 20 ;
+ temperature + 5;
 console.log('Exercise 8', temperature);
 
 
@@ -141,20 +141,20 @@ console.log('Exercise11:', number10, number11);
 console.log('------------------------');
 
 // 12. Declare a variable number10 and initialize it to -3. Use the postfix ++ operator to increment the value of num by 1, then multiply the result by 2 and log it to the console.
-let number10 = -3;
-number10++;
-let result = number10++ * 2;
+let numberEx12 = -3;
+numberEx12++;
+let resultEx12 = numberEx12 * 2;
 
-console.log('Exercise 12:'  /* Result here */);
+console.log('Exercise 12:', resultEx12);
 
 console.log('------------------------');
 // 13. Declare two variables a and b and initialize them to 2 and 3, respectively. Use the prefix ++ operator to increment the value of a by 1, then add b to the result and log it to the console.
 let a = 2;
 let b = 3;
 a++;
-let result = a++ + b;
+let resultEx13 = a++ + b;
 
-console.log('Exercise 13:'  /* Result here */);
+console.log('Exercise 13:', resultEx13);
 
 console.log('------------------------');
 
