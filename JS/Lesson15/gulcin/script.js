@@ -170,7 +170,7 @@ const string2Exercise23 = 'I like apple and banana';
 const string3Exercise23 = 'I like Apple and banana';
 const result1 = string1Exercise23.toLowerCase().includes('apple') && string1Exercise23.toLowerCase().includes('banana');
 const result2 = string2Exercise23.toLowerCase().includes('apple') && string2Exercise23.toLowerCase().includes('banana');
-const result3 = string3Exercise23.toLowerCase().includes('apple') && string2Exercise23.toLowerCase().includes('banana');
+const result3 = string3Exercise23.toLowerCase().includes('apple') && string3Exercise23.toLowerCase().includes('banana');
 
 console.log('Exercise23: ', result1);
 console.log('Exercise23: ', result2);
