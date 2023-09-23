@@ -37,7 +37,7 @@ console.log('Exercise5.b: ', stringExercise5.indexOf("language"));
 console.log('------------------------');
 // 6. Use the `lastIndexOf` method to find the last index of of "l" character in the string stringExercise5 and print it to the console.
 
-console.log('Exercise6: ', stringExercise5.lastIndexOf(l));
+console.log('Exercise6: ', stringExercise5.lastIndexOf("l"));
 console.log('------------------------');
 // 7. Use the `charAt` method to retrieve first, 10th, 3rd from the end and the last
 // characters from the string stringExercise7 and print them to the console.
@@ -79,8 +79,8 @@ const string1Exercise12 = '$9.99 - Sale! 50% off all items in store';
 const string2Exercise12 =
 	'Bundle deal: Save $50 when you buy two products together!';
 
-console.log('Exercise12: ', string1Exercise12.endsWith(!));
-console.log('Exercise12: ', string2Exercise12.endsWith(!));
+console.log('Exercise12: ', string1Exercise12.endsWith(""));
+console.log('Exercise12: ', string2Exercise12.endsWith(""));
 
 console.log('------------------------');
 // 13. Use the `includes` method to check if a string includes a "%" character and print
@@ -130,7 +130,12 @@ console.log('Exercise18: ', string1Exercise18.concat(' ', string2Exercise18, str
 console.log('------------------------');
 // 19. Use the `split` and `join` methods to reverse the words in the string stringExercise28 and print the result to the console.
 const stringExercise19 = 'This is a sample sentence.';
-console.log('Exercise19: ', stringExercise19.split(' '), stringExercise19.join(' '));
+const stringArray = stringExercise19.split(' ');
+console.log(stringArray);
+const reversedArray = stringArray.reverse();
+console.log(reversedArray);
+const reversedSentence =reversedArray.join(" ");
+console.log('Exercise19: ', reversedSentence);
 
 console.log('------------------------');
 
@@ -140,10 +145,10 @@ const stringExercise20 = 'JavaScript';
 console.log('Exercise20: ', stringExercise20.charAt(0, 10), stringExercise20.toUpperCase());
 
 console.log('------------------------');
-// 21. Use the `substring` method to extract the substring "quick brown fox" from the string stringExercise32 based on two indices and print it to the console.
+// 21. Use the `substring` method to extract the substring "quick brown fox" from the string stringExercise21 based on two indices and print it to the console.
 const stringExercise21 = 'The quick brown fox jumps over the lazy dog.';
-
-console.log('Exercise21: ', extractedSubstringExercise32);
+stringExercise21.substring(4, 15);
+console.log('Exercise21', stringExercise21.substring(4, 19));
 
 console.log('------------------------');
 // 22. Use the `endsWith` method to check if a string ends with ".com" or ".org" (case-insensitive), and print the result to the console.
@@ -158,6 +163,7 @@ console.log('------------------------');
 const string1Exercise23 = 'I like apple and Banana';
 const string2Exercise23 = 'I like apple and banana';
 const string3Exercise23 = 'I like Apple and banana';
+const condition1 = '';
 const result = condition1 && condition2;
 console.log('Exercise23: ', string1Exercise23.includes("apple, Banana"), string2Exercise23.includes("banana", "apple"), string3Exercise23.includes("Apple", "banana"));
 
