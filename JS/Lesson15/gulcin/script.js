@@ -99,7 +99,7 @@ console.log('------------------------');
 // based on two indices and print it to the console.
 const stringExercise14 =
 	'Databases are an essential component of many applications.';
-console.log('Exercise14: ', stringExercise14.substring(0, 9));
+console.log('Exercise14: ', stringExercise14.substring(stringExercise14.indexOf('Databases'), stringExercise14.indexOf('Databases') + 'Databases'.length));
 console.log('Exercise14: ', stringExercise14.slice(0, 9));
 // console.log('Exercise14: ', stringExercise14.substring(
 //   stringExercise14.indexOf('searchString'), -1)
@@ -112,12 +112,12 @@ console.log('------------------------');
 // 15. Remove extra spaces from the string stringExercise15 and print the result to the console.
 const stringExercise15 = '    Hello world    ';
 
-console.log('Exercise15: ', stringExercise15, stringExercise15.trim());
+console.log('Exercise15: ', stringExercise15.trim());
 console.log('------------------------');
 // 16. Extract the price and currency from a string below using "slice" method and print it to console.
 const planPriceString = 'Premium plan - 9.99 USD/month.'; // Should return "9.99 USD"
 
-console.log('Exercise16: ' , planPriceString.slice(planPriceString.indexOf('9'), -7));
+console.log('Exercise16: ' , planPriceString.slice(planPriceString.indexOf('9'), planPriceString.indexOf('/')));
 console.log('------------------------');
 
 // 17. Use the `repeat` method to create a string of asterisks (*) that forms a horizontal line with a length of 10 and print it to the console.
@@ -134,7 +134,7 @@ console.log('Exercise18: ', string1Exercise18.concat(string2Exercise18, string3E
 console.log('------------------------');
 // 19. Use the `split` and `join` methods to reverse the words in the string stringExercise28 and print the result to the console.
 const stringExercise19 = 'This is a sample sentence.';
-console.log('Exercise19: ', stringExercise19.split('').reverse().join(''));
+console.log('Exercise19: ', stringExercise19.split(' ').reverse().join(' '));
 
 console.log('------------------------');
 
@@ -149,7 +149,7 @@ console.log('Exercise20: ', newStr.toUpperCase());
 console.log('------------------------');
 // 21. Use the `substring` method to extract the substring "quick brown fox" from the string stringExercise32 based on two indices and print it to the console.
 const stringExercise21 = 'The quick brown fox jumps over the lazy dog.';
-const extractedSubstringExercise32 = stringExercise21.substring(4, 19);
+const extractedSubstringExercise32 = stringExercise21.substring(stringExercise21.indexOf('quick'), stringExercise21.indexOf('quick brown fox') + 'quick brown fox'.length);
 
 console.log('Exercise21: ', extractedSubstringExercise32);
 
