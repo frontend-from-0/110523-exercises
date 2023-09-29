@@ -76,11 +76,10 @@ console.log('Exercise11: ', string2Exercise11.startsWith(priceSymbol));
 console.log('------------------------');
 // 12. Use the `endsWith` method to check if a string ends with a "!" (exclamation mark), and print the result to the console.
 const string1Exercise12 = '$9.99 - Sale! 50% off all items in store';
-const string2Exercise12 =
-	'Bundle deal: Save $50 when you buy two products together!';
+const string2Exercise12 = 'Bundle deal: Save $50 when you buy two products together!';
 
-console.log('Exercise12: ', string1Exercise12.endsWith(""));
-console.log('Exercise12: ', string2Exercise12.endsWith(""));
+console.log('Exercise12: ', string1Exercise12.endsWith('!'));
+console.log('Exercise12: ', string2Exercise12.endsWith('!'));
 
 console.log('------------------------');
 // 13. Use the `includes` method to check if a string includes a "%" character and print
@@ -112,6 +111,7 @@ console.log('Exercise15: ', stringExercise15, stringExercise15.trim());
 console.log('------------------------');
 // 16. Extract the price and currency from a string below using "slice" method and print it to console.
 const planPriceString = 'Premium plan - 9.99 USD/month.'; // Should return "9.99 USD"
+console.log('Exercise16: ', planPriceString.slice(planPriceString.indexOf('- 9'), planPriceString.indexOf('/month')));
 
 console.log('Exercise16: ', planPriceString.slice(14, 23));
 console.log('------------------------');
@@ -125,16 +125,16 @@ console.log('------------------------');
 const string1Exercise18 = 'Hello, ';
 const string2Exercise18 = 'world';
 const string3Exercise18 = '!';
-console.log('Exercise18: ', string1Exercise18.concat(' ', string2Exercise18, string3Exercise18));
+console.log('Exercise18: ', string1Exercise18.concat(' ',string2Exercise18, string3Exercise18));
 
 console.log('------------------------');
 // 19. Use the `split` and `join` methods to reverse the words in the string stringExercise28 and print the result to the console.
 const stringExercise19 = 'This is a sample sentence.';
 const stringArray = stringExercise19.split(' ');
-console.log(stringArray);
+console.log('Exercise19: ', stringArray);
 const reversedArray = stringArray.reverse();
-console.log(reversedArray);
-const reversedSentence =reversedArray.join(" ");
+console.log('Exercise19: ', reversedArray);
+const reversedSentence =reversedArray.join(' ');
 console.log('Exercise19: ', reversedSentence);
 
 console.log('------------------------');
@@ -142,13 +142,18 @@ console.log('------------------------');
 // 20. Use the `charAt` method to extract the first and last characters of a string and concatenate them into a new string. Then use the `toUpperCase` method to make the new string uppercase and print the result to the console.
 const stringExercise20 = 'JavaScript';
 
-console.log('Exercise20: ', stringExercise20.charAt(0, 10), stringExercise20.toUpperCase());
+const firstChar = stringExercise20.charAt(0);
+const lastChar = stringExercise20.charAt(stringExercise20.length - 1);
+const concatenatedChars = firstChar + lastChar;
+console.log('Exercise20: ',  concatenatedChars.toUpperCase());
 
 console.log('------------------------');
 // 21. Use the `substring` method to extract the substring "quick brown fox" from the string stringExercise21 based on two indices and print it to the console.
 const stringExercise21 = 'The quick brown fox jumps over the lazy dog.';
-stringExercise21.substring(4, 15);
-console.log('Exercise21', stringExercise21.substring(4, 19));
+
+const startIndex21 = stringExercise21.indexOf('quick brown fox');
+const endIndex21 = startIndex21 + 'quick brown fox'.length;
+console.log('Exercise21: ', stringExercise21.substring(startIndex21, endIndex21));
 
 console.log('------------------------');
 // 22. Use the `endsWith` method to check if a string ends with ".com" or ".org" (case-insensitive), and print the result to the console.
@@ -163,8 +168,10 @@ console.log('------------------------');
 const string1Exercise23 = 'I like apple and Banana';
 const string2Exercise23 = 'I like apple and banana';
 const string3Exercise23 = 'I like Apple and banana';
-const condition1 = '';
-const result = condition1 && condition2;
-console.log('Exercise23: ', string1Exercise23.includes("apple, Banana"), string2Exercise23.includes("banana", "apple"), string3Exercise23.includes("Apple", "banana"));
+
+console.log('Exercise23: ', string1Exercise23.toLowerCase().includes("apple") && string1Exercise23.toLowerCase().includes("banana"),
+string2Exercise23.toLowerCase().includes("apple") && string2Exercise23.toLowerCase().includes("banana"),
+string3Exercise23.toLowerCase().includes("apple") && string3Exercise23.toLowerCase().includes("banana")
+);
 
 console.log('------------------------');
