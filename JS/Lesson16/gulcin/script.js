@@ -245,25 +245,24 @@ findAge(-45);
 
 // 10. Write a program that takes age as a number and whether they are a student (yes or no). If the age is less than 18 and the user is a student, print "You are a student and not old enough to vote". If the age is between 18 and 65 (inclusive) and the user is not a student, print "You are eligible to vote". If the age is greater than 65, print "You are a senior citizen". If the user is a student but their age is greater than or equal to 18, print "You are old enough to vote".
 
-function checkToVote(age, student = 'no') {  // I provided a default value for student parameter just for senior citizen condition, because we will pass only age argument.
-	const studentLowerCase = student.toLowerCase();
-	if (age > 0 && age < 18 && studentLowerCase === 'yes') {
+function checkToVote(age, student = false) {  // I provided a default value for student parameter just for senior citizen condition, because we will pass only age argument.
+	if (age > 0 && age < 18 && student === true) {
 		console.log(`Your age is ${age}. You are a student and not old enough to vote.`);
-	} else if (age > 18 && age <= 65 && studentLowerCase === 'no') {
+	} else if (age > 18 && age <= 65 && student === false) {
         console.log(`Your age is ${age}. You are eligible to vote.`);
 	} else if (age > 65) {
 		console.log(`Your age is ${age}. You are a senior citizen.`);
-	} else if (age >= 18 && studentLowerCase === 'yes') {
+	} else if (age >= 18 && student === true) {
 	   console.log(`Your age is ${age}. You are old enough to vote.`);
 	} else {
 	   console.log('Please enter valid entries!');
 	}
 }
 
-checkToVote(15, 'YES');
-checkToVote(25, 'No');
+checkToVote(15, true);
+checkToVote(25, false);
 checkToVote(75);
-checkToVote(22, 'yes');
+checkToVote(22, true);
 checkToVote(-21, 'gnfjg');
 
 
@@ -350,7 +349,7 @@ findSeasonName(545654);
 // 14. Write a program that asks the user to enter a grade letter (A, B, C, D, or F) and displays a message indicating whether the grade is passing (A, B, C) or failing (D, F). Use a switch statement to handle the different cases.
 
 function checkGrade(grade) {
-  const uppercaseGrade = grade.toUpperCase();
+  const uppercaseGrade = grade[0].toUpperCase();
 	switch (uppercaseGrade) {
 		case 'A':
 		case 'B':
@@ -361,7 +360,10 @@ function checkGrade(grade) {
 		case 'F':
 			console.log(uppercaseGrade + ' Failing');
 			break;
+		default:
+			console.log('Enter a valid grade.')
 	}
+
 	
 }
 checkGrade("a");
