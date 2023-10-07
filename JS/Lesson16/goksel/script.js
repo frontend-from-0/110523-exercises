@@ -205,7 +205,7 @@ function calcBodyMassIndex(weight, height){
 	else if(index > =18.5 && index =< 24.9){
 		console.log("Your BMI is " + index.toFixed(2) + " Healthy Weight.");
 	}
-	else if(index > 25 && index < 29.9){
+	else if(index > =25 && index =< 29.9){
 		console.log("Your BMI is " + index.toFixed(2) + " Overweight." );
 	}
 	else if(index >= 30){
