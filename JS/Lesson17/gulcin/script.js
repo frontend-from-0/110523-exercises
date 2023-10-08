@@ -77,11 +77,14 @@ for(let i = 10; i >= 1; i--) {
 
 console.log('- - - - - - - - - - - - - - - - - ');
 // 8. Write a while loop that generates random numbers between 1 and 10 until a number greater than 8 is generated, and then prints out the total number of iterations.
-let number = 1;
+let number = 0;
+let totalNumberofIterations = 0;
 while(number <= 8) {
+ totalNumberofIterations++;
  number = Math.floor(Math.random() * 10 + 1); // in order to exclude 0 from random number I added plus 1;
  console.log(number);
 }
+console.log(`Total number of iterations: ${totalNumberofIterations}`);
 
 
 console.log('- - - - - - - - - - - - - - - - - ');
