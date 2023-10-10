@@ -65,7 +65,7 @@ switch (day) {
    break;
   case 'Tuesday':
     console.log('It\'s Tuesday');
-    break; // Use break key word if you don't useconsole.log(key word in the statement;
+    break; '// Use break key word if you don't use return key word in the statement;'
     .... cases for other days of the week
   default:
     console.log('Unknow day');
@@ -368,7 +368,7 @@ function checkGrade(grade) {
 //    break;
 //   case 'Tuesday':
 //     console.log('It\'s Tuesday');
-//     break; // Use break key word if you don't useconsole.log(key word in the statement;
+//     break; // Use break key word if you don't use return(key word in the statement;
 //     .... cases for other days of the week
 //   default:
 //     console.log('Unknow day');
