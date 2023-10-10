@@ -241,20 +241,21 @@ function calculateages(age) {
 
 // 10. Write a program that takes age as a number and whether they are a student (yes or no). If the age is less than 18 and the user is a student, print "You are a student and not old enough to vote". If the age is between 18 and 65 (inclusive) and the user is not a student, print "You are eligible to vote". If the age is greater than 65, print "You are a senior citizen". If the user is a student but their age is greater than or equal to 18, print "You are old enough to vote".
 
+
 function checkVotingEligibility(age, isStudent) {
-	if (age < 18 && isStudent === "yes") {
+	if (age < 18 && isStudent === 1) {
 	  console.log ("You are a student and not old enough to vote.");
-	} else if (age >= 18 && age <= 65 && isStudent === "no") {
+	} else if (age >= 18 && age <= 65 && isStudent === 0) {
 	  console.log("You are eligible to vote.");
 	} else if (age > 65) {
 	  console.log("You are a senior citizen.");
-	} else if (isStudent === "yes" && age >= 18) {
+	} else if (isStudent === 1 && age >= 18) {
 		console.log ("You are old enough to vote.");
 	} else {
 		console.log("Invalid input or eligibility criteria not met.");
 	}
   }
-checkVotingEligibility(32,'no');
+checkVotingEligibility(32,1);
 
 // 11. Write a program that asks the user to enter their salary and their years of experience.
 //If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". 
