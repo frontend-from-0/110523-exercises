@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --color-primary: #007bff;
+    --color-base: #fff;
+    --color-light-grey: rgba(0,0,0,0.03);
+    --color-medium-grey: #d0d0d0;
+    --color-dark-grey: rgba(0,0,0,0.5);
+    --color-dark: #000;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Roboto' , sans-serif;
+    height: 100vh;
+    font-size: 14px;
+    
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    min-width: 48px;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+  .btn--outline {
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    max-width: fit-content;    
+  }
+  
+  .btn--outline--primary {
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+  }
+  
+  
+  .btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-base);
+  }
+  
+  header {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
+  }
+  
+  .separator {
+    width: 100%;
+    max-width: 930px;
+    height: 1px;
+    background-color: var(--color-medium-grey);
+    margin: 0 auto;
+  }
+  
+  
+  .nav__link {
+    margin: 0;
+    padding: 0;
+    box-shadow: #e5e5e5;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    line-height: 24px;
+    margin-bottom: 16px;
+    flex-direction: row;
+    text-decoration: none;
+    text-align: left;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+    color: inherit;
+  }
+  
+  nav {
+    display: flex;
+    margin: 20px 24px;
+    font-size: 16px;
+    background-color: #fff;
+    justify-content: space-between;
+  }
+  
+  .nav--left {
+    box-sizing: border-box;
+    margin: 0;
+    margin-block-end: 0px;
+    margin-block-start: 0px;
+    padding-left: 0;
+    display: block;
+    color: #343a40;
+    font-size: 20px;
+    text-align: left;
+  }
+  
+  .nav--right {
+    margin: 0;
+    padding-right: 0;
+    display: flex;
+    color: #343a40;
+    font-size: 16px;
+    
+  
+  }
+  
+  .btn btn--outline {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    border-bottom-color: rgb(0, 123, 255);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-style: solid;
+    box-sizing: border-box;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  li {
+    margin: 0 12px;
+    padding: 0;
+    display: flex;
+  
+  }
+  
+  .content {
+    box-sizing: border-box;
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 930px;
+    margin: 0 auto 80px auto;
+    
+  }
+  
+  .content__text {
+    max-width: 668px;
+  }
+  
+  .main-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .card {
+    box-sizing: border-box;
+    flex: 1;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: rgb(33, 37, 41);
+    text-align: center;
+    border: 1px solid var(--color-medium-grey);
+    border-radius: 5px;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+  }
+  
+  .card__header {
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 16px 0;
+    background-color: var(--color-light-grey);
+  }
+  
+  .card__body {
+    flex: 1;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .card__body > ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .card__body > .btn {
+    width: 100%;
+  }
+
+  .card__price {
+    font-weight: bold;
+    font-size: 30px;
+  }
+    
+  
+  footer {
+    max-width: 930px;
+    margin: 60px auto 0 auto;
+    display: flex;
+    text-align: left;
+    gap: 20px;
+    justify-content: center;
+    color: var(--color-dark-grey);
+    font-size: 1.15rem;
+    font-weight: 300;
+  }
+  
+  .footer__card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .footer__heading {
+    font-weight: 500;
+    color: var(--color-dark);
+    margin: 0;
+    
+    
+  }
+  
+  .footer__list {
+    padding: 0;
+       
+  }
+    
+  
+  
