@@ -13,7 +13,9 @@ for(let i = 1; i <= 20; i = i+2) {
 console.log('- - - - - - - - - - - - - - - - - ');
 // 3. Write a loop that prints out the even numbers from 1 to 20.
 // 2, 4, 6...
-
+for(let i = 2; i <= 20; i += 2){
+  console.log(i);
+}
 
 console.log('- - - - - - - - - - - - - - - - - ');
 // 4. Write a loop that finds the maximum number in an array of numbers.
@@ -37,6 +39,13 @@ console.log(maxNumber4);
 console.log('- - - - - - - - - - - - - - - - - ');
 // 5. Write a loop that finds the minimum number in an array of numbers.
 const findMinNumberInArray = [1, 10, 23, 42, 0, 12, 7, 0];
+let minNumber = findMinNumberInArray[0];
+for(let i = 0; i < findMinNumberInArray.length; i++){
+  if(minNumber > findMinNumberInArray[i]){
+    minNumber = findMinNumberInArray[i];
+  }
+}
+console.log(minNumber);
 
 console.log('- - - - - - - - - - - - - - - - - ');
 // 6. Write a loop that reverses a given string.
@@ -67,6 +76,15 @@ for(let i = 10; i >= 1; i--) {
 
 console.log('- - - - - - - - - - - - - - - - - ');
 // 8. Write a while loop that generates random numbers between 1 and 10 until a number greater than 8 is generated, and then prints out the total number of iterations.
+let number = 0 ;
+let iterations = 0;
+
+while(number <= 8) {
+  console.log("Iteration number is : " + iterations);
+  iterations++;
+  number = Math.floor(Math.random() * 10) + 1;
+  console.log("Random number is : " + number );
+}
 
 console.log('- - - - - - - - - - - - - - - - - ');
 // 9. Write a do-while loop that counts from 1 to 10 and prints out each number.
@@ -85,7 +103,16 @@ while (j < 11);
 
 // 10. Write a for...in loop that prints out the keys and values of an object.
 const person = {name: "John", surname: "Doe", age: 30, city: "New York"};
+for(let x in person) {
+  console.log(x + " : " + person[x]);
+}
 
 
 // 11. Write a for...in loop that sums the values of an object.
 const obj = {a: 10, b: 20, c: 30, d: 23};
+let result = 0;
+for(let x in obj){
+  result = result + obj[x];
+  
+}
+console.log(result);
