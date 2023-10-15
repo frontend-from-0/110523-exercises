@@ -4,8 +4,17 @@
 const integersEx1 = [1, 2, 3, 4];
 const integersEx1V2 = [10, 2, 30, 4];
 
+function sumArrayItems(array) {
+  let sum = 0;
+  for(let i = 0; i < array.length; i++){
+    sum += array[i];
+  }
+  return sum;
+}
 
-console.log("Exercise 1: ");
+
+console.log("Exercise 1: ", sumArrayItems(integersEx1));
+console.log("Exercise 1: ", sumArrayItems(integersEx1V2))
 console.log('----------------------------');
 // 2. Write a function that takes an array of integers and returns the average of all elements.
 //Input: [1, 2, 3, 4]
@@ -33,7 +42,11 @@ function concatenateStrings(array) {
   let sentence = '';
   // TODO: if the next character is one of ?, '.', ',', etc. do not add a space before that character
   for (let i = 0; i < array.length; i++) {
-    sentence = sentence + ' ' + array[i];
+    if(array[i] === '!' || array[i] === '?' || array[i] === '.' || array[i] === ',') { //Quick question here: is there a way to write this shorter way or do we have to repeat array[i] ?
+     sentence = sentence + array[i];
+    } else {
+     sentence = sentence + ' ' + array[i];
+    }
   }
   return sentence; 
 };
@@ -46,15 +59,35 @@ console.log('----------------------------');
 // Output: [1, 3, 7]
 let arrayEx = [1, 2, 3, 4, 7, 10];
 
-console.log("Ex4" );
+function getOddNumbers(array) {
+  let oddNumArr = [];
+  for(let i = 0; i < array.length; i++) {
+    if(array[i] % 2 === 1){
+      oddNumArr.push(array[i]);
+    }
+  }
+  return oddNumArr;
+}
+
+console.log("Ex4" , getOddNumbers(arrayEx));
 console.log('----------------------------');
 // 5. Write a function that takes an array of integers and returns a new array with even numbers only.
 // Input: [1, 2, 3, 4, 7, 10]
 // Output: [1, 2, 4, 10]
 const testArrayEx5 = [1, 2, 3, 4, 7, 10];
 
+function getEvenNumbers(array) {
+  let evenNumArr = [];
+  for(let i = 0; i < array.length; i++) {
+    if(array[i] % 2 === 0){
+      evenNumArr.push(array[i]);
+    }
+  }
+  return evenNumArr;
+}
 
-console.log('Exercise 5: ');
+
+console.log('Exercise 5: ', getEvenNumbers(testArrayEx5));
 console.log('----------------------------');
 // 6. Write a function that takes an array and a value, and returns a new array with all occurrences of the value removed.
 // Input: ([1, 2, 3, 4, 2], 2)
@@ -90,7 +123,12 @@ console.log('----------------------------');
 // Output: ["John", 30, "New York"]
 const testObjEx8 = {name: "John", age: 30, city: "New York"};
 
-console.log("exercise 8:");
+function getValuesOfObj(obj) {
+  return Object.values(obj);
+
+}
+
+console.log("exercise 8:", getValuesOfObj(testObjEx8));
 console.log('----------------------------');
 // 9. Write a function that takes an object and a key, and returns true if the key exists in the object, otherwise false.
 // Input: ({name: "John", age: 30, city: "New York"}, "age")
@@ -136,6 +174,15 @@ console.log('----------------------------');
 // Output: {name: "John", age: 30}
 const testObjEx11 = {name: "John", age: 30, city: "New York"};
 
+function deleteEntryFromObj(obj, key) {
+  delete obj[key];
+  return obj;
+}
+deleteEntryFromObj(testObjEx11, 'city');
+
+
+console.log("exercise 11:", testObjEx11);
+
 
 console.log('----------------------------');
 // 12. Write a function that takes two arrays of equal length and returns an object with the first array as keys and the second array as values.
@@ -143,6 +190,16 @@ console.log('----------------------------');
 // Output: {name: "John", age: 30, city: "New York"}
 const array1Ex12 = ["name", "age", "city"];
 const array2Ex12 = ["John", 30, "New York"];
+
+function createObj (firstArr, secondArr) {
+  let newObj = {};
+  for(let i = 0; i < firstArr.length; i++){
+    newObj[firstArr[i]] = secondArr[i];
+ }
+  return newObj;
+}
+
+console.log("exercise12",createObj(array1Ex12, array2Ex12));
 
 
 // 13. Array Destructuring
@@ -159,13 +216,19 @@ console.log('Ex13', y, y1);
 // 14. Object Destructuring
 // Given the following object, use object destructuring to assign the values of name and age to their respective variables:
 const personE14 = {
-  name: 'John Doe',
+  personName: 'John Doe',
   age: 25,
 };
+
+const { personName, age } = personE14;
+console.log("exercise14:", personName, age);
+// declaring name variable in global scope is not allowed as far as I understand,(when I declare name var, it becomes crossout) so I had to change it to personName.
 
 // 15. Array Destructuring with Default Values
 // Given the following array, use array destructuring with default values to assign the values of a, b, and c, with default values of 1, 2, and 3 respectively:
 const numbers = [4];
+const [a = 1, b = 2, c = 3] = numbers;
+console.log("exercise15:",a, b, c);
 
 
 // 16. Object Destructuring with Renaming
@@ -174,13 +237,20 @@ const personE16 = {
   name: 'John Doe',
 };
 
+const { name: fullName } = personE16;
+
+console.log("exercise16:", fullName)
 
 // 17. Nested Object Destructuring
 // Given the following nested object, use object destructuring to assign the values of name, age, and city to their respective variables:
 const personE17 = {
-  name: 'John Doe',
-  age: 25,
+  pname: 'John Doe',
+  agee: 25,
   address: {
     city: 'New York',
   },
 };
+
+const { pname, agee, address: { city } } = personE17;
+
+console.log("exercise17:", pname, age, city);
