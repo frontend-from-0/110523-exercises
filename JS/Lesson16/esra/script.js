@@ -249,7 +249,7 @@ function checkVotingEligibility(age, isStudent) {
 	  console.log("You are eligible to vote.");
 	} else if (age > 65) {
 	  console.log("You are a senior citizen.");
-	} else if (isStudent === 1 && age >= 18) {
+	} else if (isStudent && age >= 18) {
 		console.log ("You are old enough to vote.");
 	} else {
 		console.log("Invalid input or eligibility criteria not met.");
