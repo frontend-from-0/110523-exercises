@@ -88,12 +88,44 @@ console.log(vowelsInString(sentenceEx4));
 // 4. Write a recursive function to remove all occurrences of a specified character from a string.
 const sentenceEx5 = 'Hello, how are you?';
 const charToRemove = 'o';
+const resultString = removeCharacter(sentenceEx5, charToRemove);
 
+function removeCharacter(sentenceEx5, charToRemove) {
+	if (sentenceEx5.length === 0) {
+		return '';
+	} else {	
+	if (sentenceEx5[0] === charToRemove) {
+		return removeCharacter(sentenceEx5.slice(1), charToRemove);
+	} else {
+		return sentenceEx5[0] + removeCharacter(sentenceEx5.slice(1), charToRemove);
+	}
+	}
+	
+
+}
+console.log('Exercise4:', resultString);
 // 5. Write a recursive function to check if an array includes a specific value.
 const numbers = [1, 2, 3, 4, 5];
 const valueToCheck = 3;
 
+function checkToArray(arr, valueToCheck) {
+	if (arr.length === 0) {
+		return false;
+	}
+	
+	if (arr[0] === valueToCheck) {
+		return true;
+	} else {
+		return checkToArray(arr.slice(1), valueToCheck);
+	}
+	
+}
+const result = checkToArray(numbers, valueToCheck);
+
+console.log('Exercise5:', result);
+
 // 6. Write a recursive function to flatten an object with nested objects into a single-level object.
+
 const nestedObj = {
 	name: 'John',
 	age: 30,
