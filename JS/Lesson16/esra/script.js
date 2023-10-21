@@ -245,7 +245,7 @@ function calculateages(age) {
 function checkVotingEligibility(age, isStudent) {
 	if (age < 18 && isStudent) {
 	  console.log ("You are a student and not old enough to vote.");
-	} else if (age >= 18 && age <= 65 && isStudent === 0) {
+	} else if (age >= 18 && age <= 65 && !isStudent) {
 	  console.log("You are eligible to vote.");
 	} else if (age > 65) {
 	  console.log("You are a senior citizen.");
