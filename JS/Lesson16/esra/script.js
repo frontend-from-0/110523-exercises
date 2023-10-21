@@ -255,7 +255,7 @@ function checkVotingEligibility(age, isStudent) {
 		console.log("Invalid input or eligibility criteria not met.");
 	}
   }
-checkVotingEligibility(32,1);
+checkVotingEligibility(32,true);
 
 // 11. Write a program that asks the user to enter their salary and their years of experience.
 //If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". 
