@@ -141,6 +141,36 @@ const nestedObj = {
 	},
 };
 
+function singleLevelObj(obj) {
+	const result = {};
+
+	for (const key in obj) {
+		if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+		  const flattenedSubObject = singleLevelObj(obj[key]);
+		  for (const subKey in flattenedSubObject) {
+			result[`${key}.${subKey}`] = flattenedSubObject[subKey];
+		  }
+		} else if (Array.isArray(obj[key])) {
+		  result[key] = obj[key].map(item => {
+			if (typeof item === 'object') {
+			  return singleLevelObj(item);
+			} else {
+			  return item;
+			}
+		  });
+		} else {
+		  result[key] = obj[key];
+		}
+	  }
+	
+	  return result;
+	}
+
+
+console.log('Exercise6: ', result);
+
+
+
 // 7. Write a recursive function to find the maximum depth of a nested object.
 const nestedObjEx7 = {
 	a: 1,
@@ -155,10 +185,73 @@ const nestedObjEx7 = {
 	},
 	h: 5,
 };
+
+function findMaxDepth(obj) {
+if (typeof obj !== 'object') {
+	return 0;
+}
+
+let maxDepth = 0;
+
+for (const key in obj) {
+	if (obj.hasOwnProperty(key)) {
+		const depth = findMaxDepth(obj[key]) + 1;
+		maxDepth = Math.max(maxDepth, depth);
+	}
+}
+
+return maxDepth;
+}
+
+const maxDepth = findMaxDepth(nestedObjEx7);
+console.log('Exercise7: ', 'Max Depth:', maxDepth);
+
 // 8. Write a recursive function to reverse the order of words in a sentence.
 const sentenceEx8 = 'Hello, how are you?';
+
+function reverseToWords(sentence) {
+	if (sentence.endsWith(' ')) {
+		sentence = sentence.trim() + ' ';
+	}
+
+	const firstSpaceIndex = sentence.indexOf(' ');
+
+	if (firstSpaceIndex === -1) {
+		return sentence;
+	} 
+
+	return reverseToWords(sentence.substring(firstSpaceIndex + 1)) + ' ' + sentence.substring(0, firstSpaceIndex);
+
+}
+
+const reversedSentence = reverseToWords(sentenceEx8);
+console.log('Exercise8: ', reversedSentence);
+
+
 // 9. Write a recursive function to find the length of the longest word in a sentence.
 const sentenceEx9 = 'The quick brown fox jumps over the lazy dog';
+
+function findLongestWord(sentence, words = null) {
+    
+    if (!words) {
+        words = sentence.split('');
+    }
+
+    
+    if (words.length === 1) {
+        return words[0];
+    }
+
+    
+    const firstWord = words[0];
+    const longestWordInRest = findLongestWord(sentence, words.slice(1));
+
+    return firstWord.length > longestWordInRest.length ? firstWord : longestWordInRest;
+}
+
+
+console.log('Exercise9: ', findLongestWord(sentenceEx9));
+
 // 10. Write a recursive function to check if an object contains a specified property.
 const person = {
 	name: 'John',
@@ -168,3 +261,22 @@ const person = {
 		country: 'USA',
 	},
 };
+
+function checkToObject(obj, propertyToFind) {
+	if (obj.hasOwnProperty(propertyToFind)) {
+		return true;
+	}
+
+	for (const key in obj) {
+		if (typeof obj[key] === 'object') {
+			if (checkToObject(obj[key], propertyToFind)) {
+				return true;
+			}
+		}
+	}
+       return false;
+}
+
+const propertyToFind = 'country';
+const hasPropertyCountry = checkToObject(person, propertyToFind);
+console.log('Exercise10: ', `Does the object have the property '${propertyToFind}'?`, hasPropertyCountry);
