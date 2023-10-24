@@ -88,10 +88,38 @@ console.log(vowelsInString(sentenceEx4));
 // 4. Write a recursive function to remove all occurrences of a specified character from a string.
 const sentenceEx5 = 'Hello, how are you?';
 const charToRemove = 'o';
+function removeChar(sentence, charToDelete) {
+	if(sentence.length === 0) {
+		return '';
+	} else {
+		if(sentence[0] === charToDelete[0]) {
+          return removeChar(sentence.slice(1), charToDelete);
+		} else {
+		  return sentence[0] + removeChar(sentence.slice(1), charToDelete);
+		}
+	};
+}
+console.log(removeChar(sentenceEx5, charToRemove));
 
 // 5. Write a recursive function to check if an array includes a specific value.
 const numbers = [1, 2, 3, 4, 5];
-const valueToCheck = 3;
+const valueToCheck = 4;
+const valueToCheck2 = 10;
+
+function checkValInArr(arr, valToCheck) {
+	if(arr.length === 0) {
+		return `${valToCheck} is not found!`;
+	} else {
+       if(arr[0] !== valToCheck) {
+		return checkValInArr(arr.slice(1), valToCheck);
+	   } else {
+		return true;
+	   }
+	}
+}
+
+console.log(checkValInArr(numbers, valueToCheck));
+console.log(checkValInArr(numbers, valueToCheck2));
 
 // 6. Write a recursive function to flatten an object with nested objects into a single-level object.
 const nestedObj = {
@@ -108,6 +136,25 @@ const nestedObj = {
 		linkedIn: 'johndoe',
 	},
 };
+ function flattenObj(obj) {
+   const keys = Object.keys(obj);
+   const flattenObject = {};
+   if(keys.length === 0 || keys[0].length === 0) {
+	return '';
+   } else {
+	  keys.forEach(key => {
+		if(typeof obj[key] !== 'object' || Array.isArray(obj[key])) {
+		   flattenObject[key] = obj[key];
+		}
+		if(typeof obj[key] === 'object' && !(Array.isArray(obj[key]))){
+		   Object.assign(flattenObject, flattenObj(obj[key]));
+		}
+	  })
+	  return flattenObject;
+   }
+	
+ }
+ console.log(flattenObj(nestedObj));
 
 // 7. Write a recursive function to find the maximum depth of a nested object.
 const nestedObjEx7 = {
@@ -123,10 +170,65 @@ const nestedObjEx7 = {
 	},
 	h: 5,
 };
+
+function findMaxDepthOfObj(obj) {
+  const entries = Object.entries(obj);
+  const keys = Object.keys(obj);
+  const restOfEntries = entries.slice(1);
+  const newOb = Object.fromEntries(restOfEntries);
+  const depth = 1;
+  if(keys.length === 0) {
+	return depth;
+  } else {
+      if(typeof obj[keys[0]] !== 'object') {
+        return findMaxDepthOfObj(newOb);
+     } 
+      if(typeof obj[keys[0]] === 'object') {
+        return 1 + findMaxDepthOfObj(obj[keys[0]]);
+     }
+  }
+}
+
+console.log(findMaxDepthOfObj(nestedObjEx7));
 // 8. Write a recursive function to reverse the order of words in a sentence.
 const sentenceEx8 = 'Hello, how are you?';
+
+function reverseWords(sentence) {
+	const wordsArr = sentence.split(' ');
+	if(wordsArr.length === 0 || wordsArr[0].length === 0 ) {
+		return '';
+	} else {
+	    let output = [];
+		output.push(wordsArr[wordsArr.length - 1]);
+		let restOfTheSentence = wordsArr.slice(0, wordsArr.length-1).join(' ');
+		return output.join('') + ' ' + reverseWords(restOfTheSentence);
+		
+	}
+}
+console.log(reverseWords(sentenceEx8));
 // 9. Write a recursive function to find the length of the longest word in a sentence.
 const sentenceEx9 = 'The quick brown fox jumps over the lazy dog';
+const sentenceEx99 = 'Can you give me information about it?';
+
+function longestWord(sentence) {
+  const sentenceArr = sentence.split(' ');
+  if(sentenceArr.length === 0 || sentenceArr[0].length === 0) {
+	return '';
+  } else {
+	const lengths = sentenceArr.map(word => word.length);
+	let restOfTheSentence = sentenceArr.slice(1).join(' ');
+	if(sentenceArr[0].length < Math.max(...lengths)){
+       return longestWord(restOfTheSentence);
+	} 
+	if(sentenceArr[0].length === Math.max(...lengths)){
+	   return 'Length is ' + sentenceArr[0].length + '. The word is: ' + sentenceArr[0];
+	}
+  }
+
+} 
+
+console.log(longestWord(sentenceEx9));
+console.log(longestWord(sentenceEx99));
 // 10. Write a recursive function to check if an object contains a specified property.
 const person = {
 	name: 'John',
@@ -136,3 +238,21 @@ const person = {
 		country: 'USA',
 	},
 };
+
+function checkProp(obj, propToCheck) {
+	let entries = Object.entries(obj);
+	if(entries.length === 0 || entries[0].length === 0) {
+		return 'No property!';
+	} else {
+		if(propToCheck === entries[0][0]) {
+			return true;
+		} else {
+			let restOfEntries = entries.slice(1);
+		    let newOb = Object.fromEntries(restOfEntries);
+			return checkProp(newOb, propToCheck);
+		}
+	}
+}
+
+console.log(checkProp(person, 'address'));
+console.log(checkProp(person, 'gul'));
