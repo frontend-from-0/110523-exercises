@@ -65,6 +65,88 @@ console.log(square);
 
 
 
-// 3. Create a Vehicle class with make, model, and year properties, and a start() method that logs a message to the console indicating that the vehicle has started. Then create a Car class that extends the Vehicle class and adds a numDoors property. Override the start() method in the Car class to log a different message to the console indicating that the car has started.
+// 3. Create a Vehicle class with make, model, and year properties, and a start() method that logs a message to the console indicating that the vehicle has started.
+// Then create a Car class that extends the Vehicle class and adds a numDoors property. Override the start() method in the Car class to log a different message to the console indicating that the car has started.
+class Vehicle {
+    constructor(make, model, year) {
+        this._make = make;
+        this._model = model;
+        this._year = year;
+    } start() {
+        return `This car which is ${ this._model} and they produce in ${this._make} it in ${this._year}.`
+    }
+}
 
-// 4. Create a BankAccount class with balance and interestRate properties, and deposit() and withdraw() methods. Add a transactionHistory property that is an array of objects representing each transaction made on the account, with properties for type (either "deposit" or "withdrawal"), amount, and date ({type: "withdrawal", amount: amount, date: new Date().toLocaleDateString()}). Implement deposit() and withdraw() methods that add new transactions to the transactionHistory array. Implement a get transactionHistory() getter method that returns a copy of the transaction history array, and a get currentBalance() getter method that calculates and returns the current balance of the account based on the transaction history.
+class Car extends Vehicle {
+    constructor(make, model, year, numDoors) {
+        super(make, model, year);
+        this._numDoors = numDoors;
+    } start() {
+        return `This car which is ${ this._model} it has ${this._numDoors} doors and they produce in ${this._make} it in ${this._year}.`
+    }
+}
+
+const Ferrari = new Vehicle('German', 1950, 2024);
+const Tesla = new Car('American', 2020, 2025, 4);
+
+console.log(Ferrari.start());
+console.log(Tesla.start());
+
+
+// 4. Create a BankAccount class with balance and interestRate properties, and deposit() and withdraw() methods.Add a transactionHistory property that is an array of objects representing each transaction made on the account, with properties for type (either "deposit" or "withdrawal"), amount, and date ({type: "withdrawal", amount: amount, date: new Date().toLocaleDateString()}). Implement deposit() and withdraw() methods that add new transactions to the transactionHistory array.Implement a get transactionHistory() getter method that returns a copy of the transaction history array, and a get currentBalance() getter method that calculates and returns the current balance of the account based on the transaction history.
+
+class BankAccount {
+    constructor(balance = 0, interestRate = 0) {
+        this._balance = balance;
+        this._interestRate = interestRate;
+        this._transactionHistory = [];
+
+    } 
+    
+    deposit(amount) {
+        if (amount > 0) {
+            this._balance += amount;
+            this._transactionHistory.push({
+                type: 'deposit',
+                amount: amount,
+                date: new Date().toLocalDateString(),
+            })
+        }
+}
+    }
+    withdraw(amount) {
+        if (amount > 0 && amount <= this.balance) {
+          this.balance -= amount;
+          this.transactionHistory.push({
+            type: "withdrawal",
+            amount: amount,
+            date: new Date().toLocaleDateString(),
+          });
+        }
+      }
+    
+    
+
+      get transactionHistory() {
+        
+        return [...this._transactionHistory];
+      }
+
+      get currentBalance() {
+        
+        return this._transactionHistory.reduce((balance, transaction) => {
+          if (transaction.type === "deposit") {
+            return balance + transaction.amount;
+          } else if (transaction.type === "withdrawal") {
+            return balance - transaction.amount;
+          }
+          return balance;
+        }, this.balance);
+      }
+    }
+    const myAccount = new BankAccount(1000, 0.05);
+myAccount.deposit(500);
+myAccount.withdraw(200);
+console.log("Transaction History:", myAccount.transactionHistory);
+console.log("Current Balance:", myAccount.currentBalance);
+    
