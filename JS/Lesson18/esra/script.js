@@ -45,7 +45,16 @@ function concatenateStrings(array) {
     sentence = sentence + ' ' + array[i];
   }
   return sentence.replaceAll(' !', '!'); 
-};
+  };
+
+  /*const specialCharacters = ['.', ',', ':', '?', '!', ';'];
+.... 
+const isSpecialCharacter = specialCharacters.includes(array[i]);
+if (isSpecialCharacter) {
+sentence = sentence + array[i];
+} else {
+sentence = sentence + ' ' + array[i];
+}*/ //second way
 
 console.log("Exercise 3:", concatenateStrings(stringEx3));
 
@@ -166,7 +175,7 @@ console.log('----------------------------');
 // Output: {name: "John", age: 30}
 const testObjEx11 = {name: "John", age: 30, city: "New York"};
 
-function removeObjectInTheKey(objects, keys) {
+function removeFromObject(object, keyToRemove) {
 if (objects.hasOwnProperty(keys)) {
   delete objects[keys];
 }
@@ -174,7 +183,7 @@ return objects;
 }
 
 const keys = 'city';
-const updatedObject = removeObjectInTheKey(testObjEx11, keys);
+const updatedObject = removeFromObject(testObjEx11, keys);
 
 
 console.log('Exercise11', updatedObject);
