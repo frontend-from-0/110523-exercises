@@ -3,6 +3,7 @@
   
 }
 
+
 body {
   background-color: #f1f2f3;
   font-family: Arial, sans-serif;
@@ -24,6 +25,21 @@ body {
   background-color: #ffb100;
   
  }
+
+@media only screen and (max-width: 900px) {
+  .sidebar-left, .sidebar-right {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar-left, .sidebar-right {
+    visibility: hidden;
+  }
+}
+
+
+
 .content {
   background-color: #ffebc6;
 }
