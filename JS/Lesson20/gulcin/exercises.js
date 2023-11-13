@@ -74,7 +74,7 @@ class Vehicle {
         this._year = year;
     }
     start() {
-        return `The vehicle has started!`;
+        return `The vehicle ${this._make} ${this.model} produced in ${this._year} has started!`;
     }
 }
 
