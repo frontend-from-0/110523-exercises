@@ -81,7 +81,7 @@ class Vehicle {
 class Car extends Vehicle {
     constructor(make, model, year, numDoors) {
         super(make, model, year)
-        this.numDoors = numDoors;
+        this._numDoors = numDoors;
     }
     start() {
         return `The car has started!`;
@@ -106,12 +106,18 @@ class BankAccount {
     }
 
     deposit(amount) {
+        if(amount > 0){
+        this._balance += amount;
         return this._transactionHistory.push({ type: 'deposit', amount: amount, date: new Date().toLocaleDateString() });
+        }
     }
 
     withdraw(amount) {
-        if (amount > this._balance) {
+        if (amount < this._balance && amount > 0) {
+            this._balance -= amount;
             return this._transactionHistory.push({ type: 'withdrawal', amount: amount, date: new Date().toLocaleDateString() })
+        } else {
+           console.log('Your current balance is not enough.')
         };
     }
 
@@ -120,14 +126,6 @@ class BankAccount {
     }
 
     get currentBalance() {
-        for (let item of this._transactionHistory) {
-            if (item.type === 'deposit') {
-                this._balance += item.amount;
-            }
-            if (item.type === 'withdrawal') {
-                this._balance -= item.amount;
-            }
-        }
         return `Your current balance is: ${this._balance}`;
     }
 }
@@ -140,3 +138,4 @@ personOne.deposit(3000);
 personOne.deposit(1000);
 console.log(personOne.transactionHistory);
 console.log(personOne.currentBalance);
+personOne.withdraw(100000);
