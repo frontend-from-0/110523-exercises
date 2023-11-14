@@ -108,7 +108,7 @@ const valueToCheck2 = 10;
 
 function checkValInArr(arr, valToCheck) {
 	if(arr.length === 0) {
-		return `${valToCheck} is not found!`;
+		return false;
 	} else {
        if(arr[0] !== valToCheck) {
 		return checkValInArr(arr.slice(1), valToCheck);
