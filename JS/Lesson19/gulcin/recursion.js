@@ -247,7 +247,7 @@ function checkProp(obj, propToCheck) {
 		if(propToCheck === entries[0][0]) {
 			return true;
 		} else {
-			let restOfEntries = entries.slice(1);
+			const restOfEntries = entries.slice(1);
 		    const newOb = Object.fromEntries(restOfEntries);
 			return checkProp(newOb, propToCheck);
 		}
