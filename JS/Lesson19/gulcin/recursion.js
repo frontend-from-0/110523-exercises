@@ -242,7 +242,7 @@ const person = {
 function checkProp(obj, propToCheck) {
 	let entries = Object.entries(obj);
 	if(entries.length === 0 || entries[0].length === 0) {
-		return 'No property!';
+		return false;
 	} else {
 		if(propToCheck === entries[0][0]) {
 			return true;
