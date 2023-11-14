@@ -92,7 +92,7 @@ function removeChar(sentence, charToDelete) {
 	if(sentence.length === 0) {
 		return '';
 	} else {
-		if(sentence[0] === charToDelete[0]) {
+		if(sentence[0] === charToDelete) {
           return removeChar(sentence.slice(1), charToDelete);
 		} else {
 		  return sentence[0] + removeChar(sentence.slice(1), charToDelete);
