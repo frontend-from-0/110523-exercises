@@ -216,7 +216,7 @@ function longestWord(sentence) {
 	return '';
   } else {
 	const lengths = sentenceArr.map(word => word.length);
-	let restOfTheSentence = sentenceArr.slice(1).join(' ');
+	const restOfTheSentence = sentenceArr.slice(1).join(' ');
 	if(sentenceArr[0].length < Math.max(...lengths)){
        return longestWord(restOfTheSentence);
 	} 
