@@ -140,7 +140,7 @@ const nestedObj = {
    const keys = Object.keys(obj);
    const flattenObject = {};
    if(keys.length === 0 || keys[0].length === 0) {
-	return '';
+	return {};
    } else {
 	  keys.forEach(key => {
 		if(typeof obj[key] !== 'object' || Array.isArray(obj[key])) {
