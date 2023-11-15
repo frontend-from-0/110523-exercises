@@ -82,7 +82,7 @@ class Vehicle {
     }
 
     start() {
-        return `Name with ${this._make} ${this._model} car has started at ${this._year}.`
+        return `${this._make} ${this._model} car produced in ${this._year}.`
     }
 }
 
