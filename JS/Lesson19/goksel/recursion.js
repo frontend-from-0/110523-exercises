@@ -108,7 +108,7 @@ function removeCharacter(sentence, characterToRemove){
         if(sentence[0] === characterToRemove ){
             return removeCharacter(sentence.slice(1), characterToRemove)
         }else {
-            return sentence[0] + removeCharacter(sentence.slice(1), removeWord);
+            return sentence[0] + removeCharacter(sentence.slice(1), characterToRemove);
         }
 }
 
