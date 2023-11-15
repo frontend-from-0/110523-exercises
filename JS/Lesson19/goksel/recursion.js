@@ -101,7 +101,7 @@ console.log("---Ex4---");
 const sentenceEx5 = 'Hello, how are you?';
 const charToRemove = 'o';
 
-function removeCharacter(sentence, removeWord){
+function removeCharacter(sentence, characterToRemove){
     if(sentence.length === 0 || sentence[0].length === 0){
         return "";
         }
