@@ -92,7 +92,7 @@ class Car extends Vehicle {
         this._numDoors = numDoors;
     }
     start() {
-        return `Name with ${this._make} ${this._model} car with ${this._numDoors} doors has started at ${this._year}.`
+        return `${this._make} ${this._model} car with ${this._numDoors} doors produced in ${this._year}.`
     }
 }
 
