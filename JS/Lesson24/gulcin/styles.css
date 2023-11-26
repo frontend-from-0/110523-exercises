@@ -1,0 +1,252 @@
+/* Base Styling */
+:root {
+    --primary-color: #343852;
+    --secondary-color: #292c42;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Paleway', sans-serif;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 1.5;
+    background-color: var(--primary-color);
+}
+
+li {
+    list-style: none;
+}
+
+/* Main Container Styling */
+
+.container {
+    width: 55%;
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    justify-content: space-between;
+    height: 75%;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.container__col--left {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: space-around;
+    padding: 20px;
+
+}
+
+.container__col--right {
+    height: 100%;
+    width: 45%;
+}
+
+.container__heading {
+    font-size: 2.7rem;
+    color: var(--secondary-color);
+}
+
+.container__list-item {
+    margin-bottom: 4px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.form__input {
+    padding: 12px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+}
+
+.form__button {
+    padding: 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 550;
+}
+
+.form__button:hover {
+    background-color: #191b29;
+}
+
+.input-error-message {
+    font-size: 0.9rem;
+    color: #f0110a;
+}
+
+.container__col--right img {
+    height: 100%;
+    width: 100%;
+}
+
+.fa-check {
+    margin-right: 12px;
+    background-color: #ee6c4d;
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+/* Comfirm Message Styling */
+
+.container__confirm-message {
+    display: none;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 35%;
+    height: 60%;
+    padding: 36px;
+    gap: 8px;
+    border-radius: 20px;
+}
+
+.fa-check.submit {
+    font-size: 2rem;
+    padding: 16px;
+    background: linear-gradient(45deg, #ee6c4d 45%, #ffbc0a);
+}
+
+.confirm-message-heading {
+    font-size: 2.2rem;
+}
+
+.confirm-message-text {
+    font-size: 0.9rem;
+}
+
+/* Media Quieries */
+
+@media all and (max-width: 1024px) {
+    .container {
+        width: 65%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        height: 90vh;
+        width: 75%;
+    }
+
+    .container__confirm-message {
+        width: 55%;
+    }
+
+    .container__heading {
+        font-size: 1.7rem;
+    }
+
+    .container__col--left {
+        gap: 10px;
+    }
+
+    .form__input {
+        padding: 10px;
+    }
+
+    .form__button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media all and (max-width: 425px) {
+
+    body {
+        font-size: 0.8rem;
+        height: 100vh;
+    }
+
+    .container {
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        padding: 3px;
+        width: 100%;
+        height: 100%;
+        border-radius: 0%;
+    }
+
+    .container__heading {
+        font-size: 1.5rem;
+    }
+
+
+    .container__col--right {
+        height: 35%;
+    }
+
+    .container__col--right img {
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .container__col--left {
+        height: 65%;
+        gap: 8px;
+    }
+
+    .form__label {
+        font-size: 0.6rem;
+    }
+
+    .container__col--left,
+    .container__col--right {
+        width: 90%;
+    }
+
+    .form__button {
+        padding: 12px;
+        font-size: 0.8rem;
+    }
+
+    .form__input {
+        padding: 8px;
+        margin-bottom: 12px;
+    }
+
+    .container__confirm-message {
+        flex-direction: column;
+        height: 70%;
+        width: 90%;
+        border-radius: 16px;
+        padding: 12px;
+        font-size: inherit;
+    }
+
+    .confirm-message-heading {
+        font-size: 1.6rem;
+    }
+}
