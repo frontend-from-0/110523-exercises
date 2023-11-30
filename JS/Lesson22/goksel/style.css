@@ -1,7 +1,6 @@
 *{
     box-sizing: border-box;
     margin: 0;
-    font-family: sans-serif;
 }
 
 body {
@@ -9,7 +8,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #000
+    background-color: #000;
+    font-family: sans-serif;
 }
 
 .content-header {
@@ -68,6 +68,12 @@ transition: .5s;
 
 }
 
+.click-btn.active{
+    color: #ff0;
+    font-weight: 800;
+    font-size: 18px;
+}
+
 .content.active {
     overflow: auto;
     height: auto;
@@ -101,5 +107,16 @@ transition: .5s;
 
 /* Ä± could not find how to change underline of c to black  */
 #c {
-    text-decoration: underline;  
+    position: relative;
+    text-decoration: none;
+}
+
+#c::after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    bottom: -2px; 
+    width: calc(100% - 1px);
+    height: 2px; 
+    background-color: black;
 }
