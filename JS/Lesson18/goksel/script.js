@@ -43,19 +43,15 @@ function concatenateStrings(array) {
   // TODO: if the next character is one of ?, '.', ',', etc. do not add a space before that character
   for (let i = 0; i < array.length; i++) {
     const specialCharacter = ["?",".",",","!",";",":","'","-","_","="];
-    const nextArrayCharacter = array[i+1];
-    if(specialCharacter.includes(nextArray)){
+    if(specialCharacter.includes(array[i])){
       
-      sentence = sentence + " " + array[i];
+      sentence = sentence + array[i];
     }else {
-      sentence += array[i];
+      sentence = sentence + " " + array[i];
     }
   }
   return sentence; 
 };
-
-// I think it shouldnt work like that but its working.  "if(!specialCharacter.includes(nextArray))" ı think this is how it should work correct but its not working like that.
- 
 
 console.log("Exercise 3:", concatenateStrings(stringEx3));
 
