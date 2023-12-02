@@ -102,7 +102,7 @@ const sentenceEx5 = 'Hello, how are you?';
 const charToRemove = 'o';
 
 function removeCharacter(sentence, characterToRemove){
-    if(sentence.length === 0 || sentence[0].length === 0){
+    if(sentence.length === 0){
         return "";
         }
         if(sentence[0] === characterToRemove ){
@@ -150,9 +150,21 @@ const nestedObj = {
     },
 };
 
+function flattenObj(obj, prefix = "") {
+    let flattened = {};
+ 
+    for(let key in obj) {
+        if(typeof obj[key] === "object" && obj[key] !== null) {
+            let nested = flattenObj(obj[key], `${prefix}${key}.`);
+            flattened[`${prefix}${key}`] = obj[key];
+        }
+    }
+    return flattened;
+}
 
 
-// I have no idea about this example...
+console.log(flattenObj(nestedObj));
+
 
 console.log("---Ex7---");
 // 7. Write a recursive function to find the maximum depth of a nested object.
@@ -190,8 +202,6 @@ function maxDepthOfObject(obj, depth = 0) {
 
 console.log(maxDepthOfObject(nestedObjEx7));
 console.log("---Ex8---");
-
-// I checked this solution from chatgbt, ı tried to understand but not perfect.
 
 // 8. Write a recursive function to reverse the order of words in a sentence.
 const sentenceEx8 = 'Hello, how are you?';
