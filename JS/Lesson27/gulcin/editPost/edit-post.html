@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
   <form action="" id="post-form">
-    <input type="text" name="title" id="post-title-input">
-    <input type="text" name="body" id="post-body-input">
-    <button type="submit">SUBMIT</button>
+    <label for="post-title-input">Title:</label>
+    <textarea name="title" id="post-title-input" rows="4" cols="30"></textarea>
+    <label for="post-body-input">Content:</label>
+    <textarea name="body" id="post-body-input" rows="15" cols="50"></textarea>
+    <button class="button" type="submit">Edit Post</button>
   </form>
+  <script src="edit-post.js"></script>
 </body>
+
 </html>

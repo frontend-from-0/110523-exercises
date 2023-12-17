@@ -13,6 +13,12 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  border-radius: 8px;
+}
+
+.fetch-buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
 h1 {
@@ -22,14 +28,25 @@ h1 {
 
 ul {
   list-style-type: none;
-  padding: 0;
+  padding: 35px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
 }
 
 .post {
-  background-color: #fff;
+  background: linear-gradient(45deg, #f1d2b0, #f3bf88);
   border-radius: 5px;
   margin-bottom: 20px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .post-title {
@@ -46,13 +63,32 @@ ul {
 
 .button {
   padding: 10px 20px;
-  
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
-  margin-bottom: 20px;
+  background-color: #ee2929;
+}
+
+.edit-btn {
+  padding: 10px 20px;
+  background-color: #167086;
+  color: #fff;
+  height: 100%;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #135d70;
+}
+
+.delete-edit-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .button--success {
@@ -69,5 +105,5 @@ ul {
 }
 
 .button--danger:hover {
-  background-color: #79000cf4;
+  background-color: #64010bf4;
 }
