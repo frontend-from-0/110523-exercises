@@ -43,11 +43,11 @@ function concatenateStrings(array) {
   // TODO: if the next character is one of ?, '.', ',', etc. do not add a space before that character
   for (let i = 0; i < array.length; i++) {
     const specialCharacter = ["?",".",",","!",";",":","'","-","_","="];
-    if(specialCharacter.includes(array[i])){
+    if(!specialCharacter.includes(array[i])){
       
-      sentence = sentence + array[i];
-    }else {
       sentence = sentence + " " + array[i];
+    }else {
+      sentence += array[i];
     }
   }
   return sentence; 
