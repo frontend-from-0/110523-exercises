@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Posts</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
 <body>
   <div class="container">
     <h1>Posts</h1>
     <button id="fetch-button" onclick="getPosts()" class="button button--success">Fetch posts</button>
-    <button id="fetch-one-button" class="button button--success">Fetch a post</button>
-    <a href="./create-post.html" id="create-button" class="button button--success">Create post</a>
-    <button id="delete-button" class="button button--success">Clear posts</button>
+    <br>
+    <button id="fetch-one-button" onclick="getPostById()" class="button button--success">Fetch a post</button>
+    <a href="createPost/create-post.html" id="create-button" class="button button--success">Create post</a>
+    <br>
+    <button id="delete-button" onclick="clearPosts()" class="button button--success">Clear posts</button>
   </div>
-  <ul id="post-container"></ul>
+
+  <div id="post-container"></div>
+
 
   <script src="script.js"></script>
 </body>
+
 </html>

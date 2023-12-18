@@ -20,79 +20,139 @@ HTTP status codes are three-digit numbers that the server sends in response to a
 
 // Mocked - it behaves like if the request was processed even if it is not
 
-const URL = 'https://jsonplaceholder.typicode.com/posts';
+// const URL = 'https://jsonplaceholder.typicode.com/posts/1';
 
 function getPosts() {
 	fetch('https://jsonplaceholder.typicode.com/posts')
 		.then((response) => response.json())
 		.then((data) =>
+
 			data.map((item) => {
 				//  post-container
 				const post = document.createElement('div');
 				post.classList.add('post');
+
 				const postTitle = document.createElement('h2');
-				postTitle.innerText = item.title;
-				post.classList.add('post-title');
+				postTitle.classList.add('post-title');
+				postTitle.innerText = item.title.toUpperCase();
+
 
 				const postBody = document.createElement('p');
 				postBody.innerText = item.body;
+
 				post.classList.add('post-body');
 
 				const postsContainer = document.getElementById('post-container');
 				// TODO: add <a> element instead of <button>, href will be './editPost/edit-post.html?postId=${postId}';
-				const editPostButton = document.createElement('button');
-				editPostButton.textContent = 'Edit Post';
-				editPostButton.onclick = () => updatePost(item.id);
 
-				post.appendChild(postTitle);
+				const editPostButton = document.createElement('a');
+				editPostButton.href = `./editPost/edit-post.html?postId=${item.id}`;
+				editPostButton.classList.add("edit-btn");
+				editPostButton.textContent = 'Edit Post';
+
+
+				const deletePostBtn = document.createElement("button");
+				deletePostBtn.classList.add("delete-btn");
+				deletePostBtn.textContent = "Delete Post"
+				deletePostBtn.onclick = () => {
+					post.style.display = "none";
+				}
+
+
+				const header = document.createElement("div");
+				header.classList.add("header");
+				const btn = document.createElement("div");
+				btn.classList.add("btn");
+
+
+				header.appendChild(postTitle);
+				btn.appendChild(editPostButton);
+				btn.appendChild(deletePostBtn);
+
+				post.appendChild(header);
 				post.appendChild(postBody);
-				post.appendChild(editPostButton);
+				post.appendChild(btn);
 
 				postsContainer.appendChild(post);
+
 			})
 		);
 }
 
-function getPostById() {}
+function getPostById() {
 
-function createPost(event) {
-	event.preventDefault();
-	const titleInput = document.getElementById('post-title-input');
-	const bodyInput = document.getElementById('post-body-input');
-	fetch('https://jsonplaceholder.typicode.com/posts', {
-		method: 'POST',
-		body: JSON.stringify({
-			title: titleInput.value,
-			body: bodyInput.value,
-			userId: 5,
-		}),
-		headers: {
-			'Content-type': 'application/json; charset=UTF-8',
-		},
-	})
+	fetch('https://jsonplaceholder.typicode.com/posts')
 		.then((response) => response.json())
-		.then((json) => console.log(json));
+		.then((data) => {
+
+
+			let item = Math.floor(Math.random() * data.length)
+			console.log(data[item])
+			let dataItem = data[item];
+
+			//  post-container
+			const post = document.createElement('div');
+			post.classList.add('post');
+			const postTitle = document.createElement('h2');
+			postTitle.innerText = dataItem.title.toUpperCase();
+			postTitle.classList.add('post-title');
+
+			const postBody = document.createElement('p');
+			postBody.innerText = dataItem.body;
+			post.classList.add('post-body');
+
+			const postsContainer = document.getElementById('post-container');
+			// TODO: add <a> element instead of <button>, href will be './editPost/edit-post.html?postId=${postId}';
+			const editPostButton = document.createElement('a');
+
+			editPostButton.href = `./editPost/edit-post.html?postId=${dataItem.id}`;
+			editPostButton.classList.add("edit-btn");
+			editPostButton.textContent = 'Edit Post';
+
+			const deleteBtn = document.createElement("button");
+			deleteBtn.classList.add("delete-btn");
+			deleteBtn.textContent = "Delete Post"
+			deleteBtn.addEventListener("click", function () {
+				postsContainer.textContent = "";
+
+			})
+			//TODO : burada delete butonu düzenle, işlev çalışmıyor
+
+
+			const header = document.createElement("div");
+			header.classList.add("header");
+			const btn = document.createElement("div");
+			btn.classList.add("btn");
+
+
+			header.appendChild(postTitle);
+			btn.appendChild(editPostButton);
+			btn.appendChild(deleteBtn);
+
+			post.appendChild(header);
+			post.appendChild(postBody);
+			post.appendChild(btn);
+
+			postsContainer.appendChild(post);
+
+		})
 }
 
-function updatePost(postId) {
-	fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
-		method: 'PUT',
-		body: JSON.stringify({
-			title: 'Hello',
-			body: 'World',
-			userId: 5,
-		}),
-		headers: {
-			'Content-type': 'application/json; charset=UTF-8',
-		},
-	})
-		.then((response) => response.json())
-		.then((json) => console.log(json));
-}
 
-function deletePost() {}
 
 // TODO: move all the code related to create post to another JS file
-document
-	.getElementById('post-form')
-	.addEventListener('submit', (event) => createPost(event));
+
+function clearPosts() {
+	document.getElementById("post-container").innerText = "";
+}
+
+
+// ı tried to use DELETE method with using fetch apı, ı am getting 404 Not Found error, and ı couldn't understand how to use it on frontend. So ı used the function above clearPost for to clear all posts
+
+// function clearPosts() {
+// 	fetch("https://jsonplaceholder.typicode.com/posts", {
+// 		method:"DELETE",
+// 	})
+// 	.then(res => res.json)
+// 	.then(data => console.log(data))
+// }

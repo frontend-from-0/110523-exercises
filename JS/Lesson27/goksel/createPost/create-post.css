@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#post-title-input {
+    display: block;
+    margin: 20px 0;
+    width: 400px;
+    height: 150px;
+    border-radius: 9px;
+    text-align: center;
+}
+
+#post-body-input {
+    display: block;
+    margin: 20px 0;
+    width: 400px;
+    height: 150px;
+    border-radius: 9px;
+    text-align: center;
+}
+
+#submit-btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 9px;
+  background-color: #4CAF50;
+  cursor: pointer;
+  font-size: 24px;
+  letter-spacing: 3px;
+}
+
+#submit-btn:hover {
+    background-color: #45a049;
+}
+
+label {
+    font-size: 24px;
+    letter-spacing: 7px;
+}
