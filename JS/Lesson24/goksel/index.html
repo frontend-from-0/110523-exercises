@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter sign-up form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="form form-container active-form">
+        <form id="myForm" novalidate>
+            <div class="left-container">
+                <h1>Stay updated!</h1>
+                <span>Join 60,000+ product managers receiving monthly updates on:</span>
+                <ul>
+
+                    <li><i class="fa-solid fa-circle-check"></i> Product discovery and building what matters</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Measuring to ensure updates are a success</li>
+                    <li><i class="fa-solid fa-circle-check"></i> And much more!</li>
+                </ul>
+                <div class="label-error">
+                    <label for="email">Email adress</label>
+                    <div id="email-error"></div>
+                </div>
+                <input type="email" name="email" id="email" placeholder="email@company.com">
+
+                <input type="submit" name="submit" class="submit-btn" value="Subscribe to monthly newsletter">
+            </div>
+            <div class="right-container">
+                <img src="assets/img_desktop.jpg" alt="">
+            </div>
+        </form>
+    </div>
+    <div class="form confirm-container">
+        <form id="confirmFrom">
+            <div class="confirmFormContainer">
+                <i class="fa-solid fa-circle-check"></i>
+                <h1>Thanks for subscribing!</h1>
+                <span>A confirm email has been sent to: <span id="confirm-email"></span>.Please open it and click the
+                    button inside to confirm your subscription.</span>
+                <input type="submit" name="submit" id="dismiss-submit-btn" value="Dismiss message">
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
