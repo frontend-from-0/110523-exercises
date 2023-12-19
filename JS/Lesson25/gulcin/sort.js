@@ -18,6 +18,9 @@ console.log(fruits.sort());
 // Expected output: [100, 40, 25, 10, 5, 1]
 const scores = [40, 100, 1, 5, 25, 10];
 
+const descendingOrder = scores.sort((a, b) => b - a);
+console.log('descendingOrder', descendingOrder);
+
 // Exercise 4: Sorting Objects
 // Sort an array of objects based on a specific property (e.g., age).
 // Expected output: Sorted array by age in ascending order
@@ -28,11 +31,17 @@ const people = [
   { name: "Ellen", age: 22 }
 ];
 
+const ascendingOrderOfAge = people.sort((a,b) => b.age - a.age);
+console.log('ascendingOrderOfAge', ascendingOrderOfAge);
+
 // Exercise 5: Complex Sorting
 // Sort an array of strings by their length.
 // Expected output: ["pen", "book", "paper", "pencil", "notebook"]
 
 const words = ["notebook", "pen", "paper", "book", "pencil"];
+
+const sortedByLength = words.sort((a, b) => a.length - b.length);
+console.log('sortedByLength', sortedByLength);
 
 
 
