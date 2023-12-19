@@ -184,7 +184,7 @@ const sentencesExercise5 = [
 	'The butterfly gracefully fluttered its wings, showcasing vibrant colors in a delicate dance.',
 ];
 
-const shortSentences = sentencesExercise5.map(sentence => sentence.split(' ')).filter(sentence => sentence.length < 10);
+const shortSentences = sentencesExercise5.map(sentence => sentence.split(' ')).filter(sentence => sentence.length < 10).map(sentence => sentence.join(' '));
 console.log(shortSentences);
 
 // Exercise 6:
