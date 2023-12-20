@@ -348,7 +348,7 @@ const studentsExercise9 = [
 ];
 
 const filteredStudents = studentsExercise9.filter(
-  (student) => student.grade >= "C"
+  (student) => student.grade[0].toUpperCase() != "D"
 );
 console.log(filteredStudents);
 
