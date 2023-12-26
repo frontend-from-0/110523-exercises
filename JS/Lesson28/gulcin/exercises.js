@@ -40,7 +40,7 @@ async function newFunction() {
 	}
 }
 
-newFunction();
+//newFunction();
 // 3. Convert the function below into asyncrounous function using async/await and try/catch syntax.
 const fetchUsers = async () => {
 	try {
@@ -59,27 +59,36 @@ async function getUsers() {
 		console.error(error);
 	}
 }
-getUsers();
+//getUsers();
 
 // fetchUsers()
 // 	.then((users) => console.log('Total users:', users.length))
 // 	.catch((error) => console.error(error));
 
 // 4. Convert the function below into asyncrounous function using async/await and try/catch syntax.
-// const fetchUserData = async () => {
-//   try {
-//     const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
-//     const user = await response.json();
-//     return user;
-//   } catch (error) {
-//     console.error('Error:', error);
-//     throw error;
-//   }
-// };
+const fetchUserData = async () => {
+   try {
+     const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+     const user = await response.json();
+     return user;
+   } catch (error) {
+     console.error('Error:', error);
+     throw error;   }
+ };
 
 // fetchUserData()
 //   .then(user => console.log('User data:', user))
 //   .catch(error => console.error('Error:', error));
+
+const getUserData = async() => {
+    try {
+      const user = await fetchUserData();
+	  console.log('User data:', user);
+	} catch(err) {
+		console.log('Error:', err);
+	}
+}
+getUserData();
 
 // 5. Convert the function below into asyncrounous function using async/await and try/catch syntax.
 // const getPostsAndComments = () => {
@@ -95,18 +104,43 @@ getUsers();
 //   .catch((error) => console.error(error));
 // }
 
+const getPostsAndComments = async () => {
+	try {
+	   const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+	   const post = await response.json();
+	   const responsePost = await fetch( `https://jsonplaceholder.typicode.com/comments?postId=${post.id}`);
+       const comments = await responsePost.json();
+	   console.log('exercise', comments);
+	} catch(err) {
+		console.log(err)
+	};
+
+}
+getPostsAndComments();
+
 // 6.Convert the function below into asyncrounous function using async/await and try/catch syntax.
 
-// const fetchWithTimeout = (url, timeout) => {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       fetch(url)
-//         .then(response => resolve(response.json()))
-//         .catch(error => reject(error));
-//     }, timeout);
-//   });
-// };
+const fetchWithTimeout = (url, timeout) => {
+   return new Promise((resolve, reject) => {
+    setTimeout(() => {
+       fetch(url)
+         .then(response => resolve(response.json()))
+         .catch(error => reject(error));
+     }, timeout);
+   });
+};
 
 // fetchWithTimeout('https://jsonplaceholder.typicode.com/posts', 2000)
 //   .then(posts => console.log(posts))
 //   .catch(error => console.error(error));
+
+const fetchWithTimeoutFunc = async () => {
+	try {
+		const posts = await fetchWithTimeout('https://jsonplaceholder.typicode.com/posts', 2000);
+		console.log( 'exercise 6', posts);
+	} catch(err) {
+		console.log(err);
+	}
+};
+
+fetchWithTimeoutFunc();
