@@ -21,7 +21,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    height: 50%;
     justify-content: space-between;
     background: linear-gradient(45deg, #f1d2b0, #f3bf88);
 
