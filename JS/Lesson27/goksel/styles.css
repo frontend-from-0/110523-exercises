@@ -7,15 +7,22 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #fff;
+  width: 100vw;
+  position: fixed;
+  box-shadow: 10px 10px 25px #000;
+  text-align: center;
 }
 
 h1 {
+  margin: 0 auto;
   text-align: center;
   color: #333;
 }
@@ -35,24 +42,26 @@ ul {
 .post-title {
   font-size: 20px;
   font-weight: bold;
-  color: #333;
-  margin: 0 0 10px;
+  color: #000;
 }
 
 .post-body {
   color: #666;
-  margin: 0;
+  margin: 55px;
+  border-radius: 9px;
 }
+
 
 .button {
   padding: 10px 20px;
-  
   color: white;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
   margin-bottom: 20px;
+  text-decoration: none;
+  letter-spacing: 3px;
 }
 
 .button--success {
@@ -70,4 +79,52 @@ ul {
 
 .button--danger:hover {
   background-color: #79000cf4;
+}
+
+#post-container {
+  margin-top: 270px;
+  width: 800px;
+}
+
+
+.edit-btn {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 9px;
+  background-color: #4CAF50;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: .5s;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+
+.edit-btn:hover {
+  background-color: #45a049;
+}
+
+.delete-btn {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 9px;
+  background-color: #4CAF50;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: .5s;
+  letter-spacing: 3px;
+}
+
+.delete-btn:hover {
+  background-color: #45a049;
+}
+
+.header {
+  text-align: center;
+}
+
+.btn {
+  display: flex;
+justify-content: space-evenly;
 }

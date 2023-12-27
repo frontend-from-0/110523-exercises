@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="create-post.css">
   <title>Create post</title>
 </head>
 <body>
   <form action="" id="post-form">
-    <input type="text" name="title" id="post-title-input">
-    <input type="text" name="body" id="post-body-input">
-    <button type="submit">SUBMIT</button>
+    <label for="post-title-input">Title</label>
+    <input type="text" name="title" id="post-title-input" placeholder="Enter your title please">
+    <label for="post-body-input">Body</label>
+    <input type="text" name="body" id="post-body-input" placeholder="Enter your body please">
+    <button type="submit" id="submit-btn">SUBMIT</button>
   </form>
   
 
-  <script src="script.js"></script>
+  <script src="create-post.js"></script>
 </body>
 </html>
