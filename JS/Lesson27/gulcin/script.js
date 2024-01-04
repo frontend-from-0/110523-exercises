@@ -32,7 +32,7 @@ function getPosts() {
 				post.classList.add('post');
 				const postTitle = document.createElement('h2');
 				postTitle.innerText = item.title;
-				post.classList.add('post-title');
+				postTitle.classList.add('post-title');
 
 				const postBody = document.createElement('p');
 				postBody.innerText = item.body;
@@ -40,59 +40,56 @@ function getPosts() {
 
 				const postsContainer = document.getElementById('post-container');
 				// TODO: add <a> element instead of <button>, href will be './editPost/edit-post.html?postId=${postId}';
-				const editPostButton = document.createElement('button');
-				editPostButton.textContent = 'Edit Post';
-				editPostButton.onclick = () => updatePost(item.id);
+				const editPostLink = document.createElement('a');
+				editPostLink.textContent = 'Edit Post';
+				editPostLink.href = `./editPost/edit-post.html?postId=${item.id}`;
+				editPostLink.classList.add('edit-btn');
+
+				const deletePostButton = document.createElement('button');
+				deletePostButton.textContent = 'Delete Post';
+				deletePostButton.classList.add('button');
+				deletePostButton.classList.add('button--danger');
+				deletePostButton.addEventListener('click', function (e) {
+					const text = 'Are you sure you want to delete the post?';
+					if (confirm(text) == true) {
+						deletePost(item.id);
+						e.target.closest('.post').remove();
+					}
+				})
+
+				const buttonsDiv = document.createElement('div');
+				buttonsDiv.classList.add('delete-edit-btn');
+				buttonsDiv.appendChild(editPostLink);
+				buttonsDiv.appendChild(deletePostButton);
 
 				post.appendChild(postTitle);
 				post.appendChild(postBody);
-				post.appendChild(editPostButton);
+				post.appendChild(buttonsDiv);
 
 				postsContainer.appendChild(post);
 			})
 		);
 }
 
-function getPostById() {}
 
-function createPost(event) {
-	event.preventDefault();
-	const titleInput = document.getElementById('post-title-input');
-	const bodyInput = document.getElementById('post-body-input');
-	fetch('https://jsonplaceholder.typicode.com/posts', {
-		method: 'POST',
-		body: JSON.stringify({
-			title: titleInput.value,
-			body: bodyInput.value,
-			userId: 5,
-		}),
-		headers: {
-			'Content-type': 'application/json; charset=UTF-8',
-		},
+
+
+function deletePost(id) {
+	fetch(`https://jsonplaceholder.typicode.com/posts/${id},`, {
+		method: 'DELETE',
 	})
-		.then((response) => response.json())
-		.then((json) => console.log(json));
+		.then(response => response.json())
+		.then(data => console.log(data))
 }
 
-function updatePost(postId) {
-	fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
-		method: 'PUT',
-		body: JSON.stringify({
-			title: 'Hello',
-			body: 'World',
-			userId: 5,
-		}),
-		headers: {
-			'Content-type': 'application/json; charset=UTF-8',
-		},
-	})
-		.then((response) => response.json())
-		.then((json) => console.log(json));
-}
 
-function deletePost() {}
+function clearAllPosts() {
+	const postContainer = document.getElementById('post-container');
+	if(postContainer.innerHTML !== '') {
+		if (confirm('Are you sure you want to delete all the posts?') == true) {
+			postContainer.innerHTML = '';
+		}
+	}
+}
 
 // TODO: move all the code related to create post to another JS file
-document
-	.getElementById('post-form')
-	.addEventListener('submit', (event) => createPost(event));
