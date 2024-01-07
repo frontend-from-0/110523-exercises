@@ -1,0 +1,7 @@
+header {
+    background-color: var(--color-header);
+}
+
+.header-img {
+    width: 100%;
+}
