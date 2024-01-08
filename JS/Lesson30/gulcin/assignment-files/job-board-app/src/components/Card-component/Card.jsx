@@ -5,7 +5,7 @@ import './card.css';
 
 export const Cards = () => {
     return (
-        <>
+        <div className='cards-holder'>
             {jobData.map((job) => (
                 <div className='job-card'>
                     <div className='img-and-info'>
@@ -25,7 +25,7 @@ export const Cards = () => {
                 </div>
 
             ))}
-        </>
+        </div>
     )
 };
 

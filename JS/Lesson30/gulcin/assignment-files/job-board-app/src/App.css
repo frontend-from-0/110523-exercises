@@ -1,15 +1,3 @@
-
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: var(--color-background);
-  padding: 55px 15px;
-  gap: 25px;
-}
-
-@media all and (max-width: 375px) {
-  .App {
-    gap: 35px;
-  }
 }

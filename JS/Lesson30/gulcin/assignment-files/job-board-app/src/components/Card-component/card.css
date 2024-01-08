@@ -1,3 +1,12 @@
+.cards-holder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 40px 0;
+}
+
 .job-card {
     display: flex;
     max-width: 1110px;
@@ -77,6 +86,9 @@
 }
 
 @media all and (max-width: 375px) {
+    .cards-holder{
+        gap: 35px;
+    }
     .job-card {
         flex-direction: column;
         padding: 5px;
