@@ -26,6 +26,28 @@ const fetchData = () => {
 		}, 2000);
 	});
 };
+const fetchData = async () => {
+	try {
+		const result = await new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject('Data fetched unsuccessfully!');
+            }, 2000);
+        });
+		return result;
+	} catch (error) {
+		console.error('Error:', error);
+		throw error;
+	}
+}
+	(async () => {
+		try {
+			const data = await fetchData();
+			console.log('Data fetched successfully:', data);
+		} catch (error) {
+			console.log('Error in fetchData:', error);
+		}
+	})();
+
 
 // fetchData()
 // 	.then((result) => console.log(result))
