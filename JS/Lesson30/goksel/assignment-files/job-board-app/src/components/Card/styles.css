@@ -1,0 +1,138 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&family=Poppins:wght@100&display=swap');
+
+.card {
+    background-color: var(--color-white);
+    margin: 20px auto;
+    width: 1110px;
+    height: 152px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+    font-size: 15px;
+    font-family: 'League Spartan';
+}
+
+.left-side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.informations {
+    display: flex;
+    flex-direction: column;
+    line-height: 30px;
+    align-items: flex-start;
+}
+
+.informations>.head {
+    display: flex;
+    gap: 20px;
+}
+
+.company-name {
+    color: var(--color-darkcyan);
+    font-weight: 700;
+}
+
+.new {
+    border: none;
+    background-color: var(--color-darkcyan);
+    color: var(--color-white);
+    border-radius: 30px;
+    padding: 1px 9px;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.featured {
+    border: none;
+    background-color: var(--color-verydarkgrayishcyan);
+    color: var(--color-white);
+    border-radius: 30px;
+    padding: 3px 6px;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.position {
+    font-weight: 700;
+}
+
+.footer-informations {
+    color: var(--color-darkgrayishcyan);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: -10px;
+    font-weight: 500;
+}
+
+.point {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
+.abilities {
+    color: var(--color-darkcyan);
+    display: flex;
+    gap: 20px;
+}
+
+.abilities>span {
+    background-color: var(--color-filtertablets);
+    padding: 6px 8px;
+    border-radius: 5px;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: 327px;
+        height: 257px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin: 55px auto;
+        box-shadow: 0px 5px 10px var(--color-darkgrayishcyan);
+    }
+
+    .left-side {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .company-logo {
+        position: relative;
+        top: -40px;
+    }
+
+    .informations {
+        position: relative;
+        top: -60px;
+        border-bottom: 1px solid var(--color-darkgrayishcyan);
+    }
+
+    .abilities {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        top: -40px;
+    }
+
+    .footer-informations {
+        gap: 10px;
+    }
+}
