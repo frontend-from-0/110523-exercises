@@ -16,12 +16,12 @@ export const Cards = () => {
                             <div className='info-bottom'><span>{job.postedAt}</span><span>&#183;</span><span>{job.contract}</span><span>&#183;</span><span>{job.location}</span></div>
                         </div>
                     </div>
-                    <div className='job-tags'>
-                        <span className='job-tag'>{job.role}</span>
-                        <span className='job-tag'>{job.level}</span>
-                        {job.languages.map(language => (<span className='job-tag'>{language}</span>))}
-                        {job.tools.map(tool => (<span className='job-tag'>{tool}</span>))}
-                    </div>
+                    <ul className='job-tags'>
+                        <li className='job-tag' key={job.role}>{job.role}</li>
+                        <li className='job-tag' key={job.level}>{job.level}</li>
+                        {job.languages.map(language => (<li className='job-tag' key={language}>{language}</li>))}
+                        {job.tools.map(tool => (<li className='job-tag' key={tool}>{tool}</li>))}
+                    </ul>
                 </div>
 
             ))}
