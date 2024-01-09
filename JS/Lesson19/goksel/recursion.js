@@ -42,7 +42,7 @@ console.log("---Ex1---");
 // 1. Write a recursive function to print out all the elements of an array.
 const arrEx1 = [1, 2, 3, 4, 5];
 function printingOutOneOfTheElements(arr) {
-    if(arr.length == 0){
+    if (arr.length == 0) {
         return;
     } else {
         console.log(arr[0]); // prints 1
@@ -58,9 +58,9 @@ console.log("---Ex2---");
 const ex2sentence =
     'a recursive function to capitalize the first letter of each word in a sentence.';
 
-function capitalizeFirstLetter (sentence) {
+function capitalizeFirstLetter(sentence) {
     const sentenceArray = sentence.split(' ');
-    if(sentenceArray.length === 0 || sentenceArray[0].length === 0) {
+    if (sentenceArray.length === 0 || sentenceArray[0].length === 0) {
         return '';
     }
     else {
@@ -68,8 +68,8 @@ function capitalizeFirstLetter (sentence) {
         const firstWordCapitalized = firstWord[0].toUpperCase() + firstWord.slice(1);
         const restOfTheSentenceArray = sentenceArray.slice(1);
         const restOfTheSentence = restOfTheSentenceArray.join(' ');
-        return firstWordCapitalized + ' ' + capitalizeFirstLetter(restOfTheSentence) ;
-    } 
+        return firstWordCapitalized + ' ' + capitalizeFirstLetter(restOfTheSentence);
+    }
 }
 
 console.log(capitalizeFirstLetter(ex2sentence));
@@ -81,11 +81,11 @@ console.log("---Ex3---");
 const sentenceEx4 = 'Hello, how are you?';
 const vowels = ['a', 'e', 'i', 'o', 'u'];
 
-function vowelsInString(sentence){
-    if (sentence.length === 0){ 
+function vowelsInString(sentence) {
+    if (sentence.length === 0) {
         return 0;
     } else {
-        if(vowels.includes(sentence[0].toLowerCase())){
+        if (vowels.includes(sentence[0].toLowerCase())) {
             return 1 + vowelsInString(sentence.slice(1));
         } else {
             return vowelsInString(sentence.slice(1));
@@ -101,18 +101,18 @@ console.log("---Ex4---");
 const sentenceEx5 = 'Hello, how are you?';
 const charToRemove = 'o';
 
-function removeCharacter(sentence, characterToRemove){
-    if(sentence.length === 0){
+function removeCharacter(sentence, characterToRemove) {
+    if (sentence.length === 0) {
         return "";
-        }
-        if(sentence[0] === characterToRemove ){
-            return removeCharacter(sentence.slice(1), characterToRemove)
-        }else {
-            return sentence[0] + removeCharacter(sentence.slice(1), characterToRemove);
-        }
+    }
+    if (sentence[0] === characterToRemove) {
+        return removeCharacter(sentence.slice(1), characterToRemove)
+    } else {
+        return sentence[0] + removeCharacter(sentence.slice(1), characterToRemove);
+    }
 }
 
-console.log(removeCharacter(sentenceEx5,charToRemove));
+console.log(removeCharacter(sentenceEx5, charToRemove));
 
 console.log("---Ex5---");
 // 5. Write a recursive function to check if an array includes a specific value.
@@ -120,13 +120,13 @@ const numbers = [1, 2, 3, 4, 5];
 const valueToCheck = 2;
 
 
-function isArrayIncludeValue(array, value){
-    if(array.length === 0){
+function isArrayIncludeValue(array, value) {
+    if (array.length === 0) {
         return "Value is not found";
-    } 
-    if(array[0] !== value){
+    }
+    if (array[0] !== value) {
         return isArrayIncludeValue(array.slice(1), value);
-    } else{
+    } else {
         return true;
     }
 
@@ -150,20 +150,16 @@ const nestedObj = {
     },
 };
 
-function flattenObj(obj, prefix = "") {
+function flattenObject(obj, prefix = '') {
     let flattened = {};
- 
-    for(let key in obj) {
-        if(typeof obj[key] === "object" && obj[key] !== null) {
-            let nested = flattenObj(obj[key], `${prefix}${key}.`);
-            flattened[`${prefix}${key}`] = obj[key];
-        }
-    }
-    return flattened;
+    for (let key in obj) {
+        if (typeof obj[key] === 'object' && obj[key] !== null) { let nested = flattenObject(obj[key], `${prefix}${key}.`); flattened = { ...flattened, ...nested }; }
+        else { flattened[`${prefix}${key}`] = obj[key]; }
+    } return flattened;
 }
 
 
-console.log(flattenObj(nestedObj));
+console.log(flattenObject(nestedObj));
 
 
 console.log("---Ex7---");
@@ -184,15 +180,15 @@ const nestedObjEx7 = {
 
 
 function maxDepthOfObject(obj, depth = 0) {
-    if (typeof obj !== "object" || obj === null){
+    if (typeof obj !== "object" || obj === null) {
         return depth;
     }
 
     let maxDepth = depth;
-    for(let key in obj){
-        if(obj.hasOwnProperty(key)){
-            let currentDepth = maxDepthOfObject(obj[key], depth +1);
-            if (currentDepth > maxDepth){
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            let currentDepth = maxDepthOfObject(obj[key], depth + 1);
+            if (currentDepth > maxDepth) {
                 maxDepth = currentDepth;
             }
         }
@@ -207,19 +203,19 @@ console.log("---Ex8---");
 const sentenceEx8 = 'Hello, how are you?';
 
 
-function reverseOrder(sentence){
-    let splitArray = sentence.split(" "); 
-    
-    if(splitArray.length === 0 || splitArray[0].length === 0){
-        
+function reverseOrder(sentence) {
+    let splitArray = sentence.split(" ");
+
+    if (splitArray.length === 0 || splitArray[0].length === 0) {
+
         return "";
-    } else{
+    } else {
         let firstWord = splitArray[splitArray.length - 1];
-        
+
         splitArray.pop();
-        let restOfTheSentence = splitArray.join(" ") ;
-        
-        return firstWord + " " +reverseOrder(restOfTheSentence);
+        let restOfTheSentence = splitArray.join(" ");
+
+        return firstWord + " " + reverseOrder(restOfTheSentence);
     }
 }
 
@@ -230,16 +226,16 @@ console.log("---Ex9---");
 const sentenceEx9 = 'The quick brown fox jumps over the lazy dog';
 
 
-function longestWord(sentence, index = 0){
+function longestWord(sentence, index = 0) {
     let splitArray = sentence.split(" ");
-    if(splitArray.length === 0 || splitArray[0].length === 0){
+    if (splitArray.length === 0 || splitArray[0].length === 0) {
         return index;
     }
     let firstWord = splitArray[0];
     let restOfTheSentence = splitArray.slice(1).join(" ");
-    if(firstWord.length > index ){
+    if (firstWord.length > index) {
         index = firstWord.length;
-        
+
     }
     return longestWord(restOfTheSentence, index);
 }
@@ -256,18 +252,18 @@ const person = {
     },
 };
 
-function checkObj(obj, property){
-    if(typeof obj !== "object"  ||  obj == null) {
+function checkObj(obj, property) {
+    if (typeof obj !== "object" || obj == null) {
         return false;
     }
-    if(obj.hasOwnProperty(property)){
+    if (obj.hasOwnProperty(property)) {
         return true;
     }
-    for(let key in obj){
-        if(checkObj(obj[key], property)){
+    for (let key in obj) {
+        if (checkObj(obj[key], property)) {
             return true;
         }
-      }
+    }
     return false;
 }
 
