@@ -7,24 +7,21 @@ formElement.addEventListener("submit", function (event) {
 
     let isFormCorrect = true;
 
-    // Variables for to check if email format is valid
+    // Variables for verifying if email format is valid
     let inputElement = document.getElementById("email");
     let emailErrorElement = document.getElementById("email-error");
 
     //Variables to change .active-form class after submitted
     let formContainer = document.querySelector(".form-container");
-    let confirmContainer = document.querySelector(".confirm-container");
+    let confirmContainer = document.querySelector(".confirmation-container");
 
-    //Variable for to use user email on next form inside of the span content
+    //Variable for selecting user email on next form inside of the span content
     let userEmail = document.getElementById("confirm-email");
 
     if (!emailRegex.test(inputElement.value)) {
         emailErrorElement.textContent = "Please enter a valid email";
         isFormCorrect = false;
-        inputElement.style.color = "#FF6253";
-        inputElement.style.backgroundColor = "#FFE8E6";
-        // ı cound not change the border color here, how can ı do that?
-        inputElement.style.borderColor; "#FFE8E6";
+        inputElement.classList.add("error") ;
     } else {
         emailErrorElement.textContent = "";
     }
@@ -38,3 +35,16 @@ formElement.addEventListener("submit", function (event) {
         userEmail.style.fontWeight = "900";
     }
 });
+
+
+
+function checkWindowSize() {
+    const imgSrc = document.querySelector(".right-container > img");
+    if (window.innerWidth <= 601) { 
+      imgSrc.src = "./assets/img_mobile.jpg";
+    } else {
+      imgSrc.src = "./assets/img_desktop.jpg";
+    }
+  }
+  window.onload = checkWindowSize;
+  window.onresize = checkWindowSize;

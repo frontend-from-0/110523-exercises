@@ -10,12 +10,12 @@ body {
 .form-container {
     background-color: #fff;
     border-radius: 9px;
-    width: 900px;
+    max-width: 900px;
     margin: 75px auto;
 }
 
-/* .form is for to remove content */
-.form {
+
+.remove-form {
     display: none;
 }
 
@@ -25,11 +25,14 @@ body {
     border-radius: 9px;
     width: 900px;
     margin: 75px auto;
-    display: block;
+    display: flex;
+    flex-direction: row;
 }
 
 #myForm {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* codes for to edit main form container*/
@@ -48,12 +51,13 @@ body {
 
 .left-container>ul {
     margin-bottom: 45px;
+    padding-left: 0px;
 }
 
 .left-container>ul>li {
     list-style-type: none;
     font-weight: 300;
-    margin-left: -45;
+    /* margin-left: -45; */
     line-height: 2.5;
 }
 
@@ -103,12 +107,12 @@ label:first-of-type {
     font-size: 12px;
 }
 
-/* Codes for to edit Second form; after javascript worked and first form submitted */
+/* Code for success message dialog. */
 
-.confirm-container {
+.confirmation-container {
     background-color: #fff;
     border-radius: 20px;
-    width: 350px;
+    max-width: 350px;
     margin: 275px auto;
 }
 
@@ -139,4 +143,42 @@ label:first-of-type {
     margin-top: 25px;
     margin-bottom: 15px;
     cursor: pointer;
+}
+
+
+.error {
+    color: #FF6253;
+    background-color: #FFE8E6;
+    border-color: #FFE8E6;
+}
+
+@media only screen and (max-width: 600px) {
+    .form-container {
+        max-width: 600px;
+        display: grid;
+    }
+
+    .active-form {
+        margin: 0px auto;
+    }
+
+    .right-container {
+        grid-row: 1;
+        padding: 0px;
+    }
+
+    .right-container > img {
+        width: 100%;
+    }
+
+    .input-container {
+        padding: 0px;
+        display: flex;
+        max-width: 600px;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
 }
