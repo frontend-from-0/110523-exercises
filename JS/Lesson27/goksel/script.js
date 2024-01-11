@@ -61,17 +61,17 @@ function getPosts() {
 
 				const header = document.createElement("div");
 				header.classList.add("header");
-				const btn = document.createElement("div");
-				btn.classList.add("btn");
+				const btnContainer = document.createElement("div");
+				btnContainer.classList.add("btn-container");
 
 
 				header.appendChild(postTitle);
-				btn.appendChild(editPostButton);
-				btn.appendChild(deletePostBtn);
+				btnContainer.appendChild(editPostButton);
+				btnContainer.appendChild(deletePostBtn);
 
 				post.appendChild(header);
 				post.appendChild(postBody);
-				post.appendChild(btn);
+				post.appendChild(btnContainer);
 
 				postsContainer.appendChild(post);
 
@@ -81,31 +81,31 @@ function getPosts() {
 
 function getPostById() {
 
-	fetch('https://jsonplaceholder.typicode.com/posts')
+	let postId = 1 ;
+
+	fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
 		.then((response) => response.json())
 		.then((data) => {
 
+			
+			console.log(data.title);
 
-			let item = Math.floor(Math.random() * data.length)
-			console.log(data[item])
-			let dataItem = data[item];
-
-			//  post-container
+	
 			const post = document.createElement('div');
 			post.classList.add('post');
 			const postTitle = document.createElement('h2');
-			postTitle.innerText = dataItem.title.toUpperCase();
+			postTitle.innerText = data.title.toUpperCase();
 			postTitle.classList.add('post-title');
 
 			const postBody = document.createElement('p');
-			postBody.innerText = dataItem.body;
+			postBody.innerText = data.body;
 			post.classList.add('post-body');
 
 			const postsContainer = document.getElementById('post-container');
 			// TODO: add <a> element instead of <button>, href will be './editPost/edit-post.html?postId=${postId}';
 			const editPostButton = document.createElement('a');
 
-			editPostButton.href = `./editPost/edit-post.html?postId=${dataItem.id}`;
+			editPostButton.href = `./editPost/edit-post.html?postId=${data.id}`;
 			editPostButton.classList.add("edit-btn");
 			editPostButton.textContent = 'Edit Post';
 
@@ -121,17 +121,17 @@ function getPostById() {
 
 			const header = document.createElement("div");
 			header.classList.add("header");
-			const btn = document.createElement("div");
-			btn.classList.add("btn");
+			const btnContainer = document.createElement("div");
+			btnContainer.classList.add("btn-container");
 
 
 			header.appendChild(postTitle);
-			btn.appendChild(editPostButton);
-			btn.appendChild(deleteBtn);
+			btnContainer.appendChild(editPostButton);
+			btnContainer.appendChild(deleteBtn);
 
 			post.appendChild(header);
 			post.appendChild(postBody);
-			post.appendChild(btn);
+			post.appendChild(btnContainer);
 
 			postsContainer.appendChild(post);
 
