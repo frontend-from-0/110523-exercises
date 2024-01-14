@@ -1,5 +1,5 @@
 import './App.css';
-import { ListEx8 } from './shared-components/List';
+import { List } from './shared-components/List';
 import { Card } from './shared-components/Card';
 import { Ex1 } from './exercise-components/Exercises1';
 import { Ex2 } from './exercise-components/Exercise2';
@@ -54,7 +54,7 @@ export const App = () => {
 
 				<Card>
 					<span>Ex8</span>
-					<ListEx8 />
+					<List />
 				</Card>
 
 				<Card>

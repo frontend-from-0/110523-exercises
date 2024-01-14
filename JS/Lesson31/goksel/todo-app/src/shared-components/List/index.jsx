@@ -1,23 +1,19 @@
 import {useState} from 'react';
 import {data} from '../../todoData';
 import './styles.css';
+import { Ex8 } from '../../exercise-components/Exercise8';
 
 
 
 
-export const ListEx8 = () => {
+export const List = () => {
 	const [todos, setTodos] = useState(data);
 
-
-
-	
 	function handleClick (id) {
 		setTodos(prevState => prevState.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo));
 	};
 
-	function deleteBtnClick(id) {
-		setTodos((prev) => prev.filter((item) => item.id !== id));
-	}
+
 
 	return (
 		<ul className='todo__list'>
@@ -27,10 +23,12 @@ export const ListEx8 = () => {
 					<span className={item.completed ? 'completed' : ''}>
 						{item.title}
 					</span>
+					<Ex8 todos = {item} setTodos = {setTodos} />
 					<button className={'btn'}>X</button>
-					
 				</li>
-				<button onClick={() => deleteBtnClick(item.id)}>Clear</button>
+				
+
+				
 				</>
 			))}
 		</ul>
