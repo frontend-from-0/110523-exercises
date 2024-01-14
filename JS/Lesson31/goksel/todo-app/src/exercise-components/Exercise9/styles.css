@@ -1,0 +1,15 @@
+.btns {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap:5px;
+transition: .5s;
+}
+
+.btns > button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    font-weight: 700;
+}

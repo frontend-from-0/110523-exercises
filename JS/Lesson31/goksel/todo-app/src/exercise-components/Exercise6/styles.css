@@ -1,0 +1,13 @@
+.link {
+    text-decoration: none;
+    color: #000;
+    background-color: #fa2;
+    padding: 10px 20px;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+    max-width: 200px;
+}

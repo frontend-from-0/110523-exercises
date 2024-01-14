@@ -1,0 +1,21 @@
+.parent  {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 9px;
+    border: none;
+    background-color: aqua;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.parent > button {
+    border-radius: 9px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: azure;
+}
+

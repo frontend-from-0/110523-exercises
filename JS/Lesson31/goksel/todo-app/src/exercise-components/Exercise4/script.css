@@ -1,0 +1,19 @@
+.lists {
+    list-style-type: none;
+    padding-left: 0px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.lists>li {
+    margin: 30px auto;
+}
+
+.lists>li>span {
+
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: #000;
+    color: #fff;
+}

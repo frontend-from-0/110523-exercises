@@ -1,0 +1,14 @@
+.ex10 {
+    list-style-type: none;
+    display: flex;
+    padding-left: 0px;
+}
+
+.ex10 > li {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px auto;
+    border-radius: 9px;
+    cursor: pointer;
+}
