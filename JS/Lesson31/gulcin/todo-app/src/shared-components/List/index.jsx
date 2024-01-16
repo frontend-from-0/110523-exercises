@@ -9,6 +9,10 @@ export const List = () => {
 		setTodos(prevState => prevState.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo));
 	};
 
+	function handleDelete (id) {
+        setTodos(prevState => prevState.filter(todo => todo.id !== id));
+	}
+
 	return (
 		<ul className='todo__list'>
 			{todos.map((item) => (
@@ -16,7 +20,7 @@ export const List = () => {
 					<span className={item.completed ? 'completed' : ''}>
 						{item.title}
 					</span>
-					<button className={'btn'}>X</button>
+					<button onClick={() => handleDelete(item.id)}className={'btn'}>X</button>
 				</li>
 			))}
 		</ul>
