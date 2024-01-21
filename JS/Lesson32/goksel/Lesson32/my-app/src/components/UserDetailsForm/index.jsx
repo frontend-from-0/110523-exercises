@@ -10,7 +10,7 @@ export const UserDetailsForm = ({setUser}) => {
   function handleSubmit (e) {
     e.preventDefault();
     console.log('New user name is: ', username);
-    setUser(prevState => ({isLoggedInUser : prevState.isLoggedInUser, username: username }));
+    setUsername(prevState => ({isLoggedInUser : prevState.isLoggedInUser, username: username }));
   };
 
   return (

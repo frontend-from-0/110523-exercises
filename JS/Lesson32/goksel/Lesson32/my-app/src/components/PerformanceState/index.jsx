@@ -1,6 +1,13 @@
-export const PerformanceState = ({ todos }) => {
+import { useContext } from "react";
+import { TodoContext } from "../../data";
 
-	const completedTodos = todos.filter(todo => todo.completed).length;
+export const PerformanceState = () => {
 
-	return <div>{`Completed ${completedTodos} of ${todos.length}`}</div>;
+	const todo = useContext(TodoContext);
+
+	const completedTodos = todo.filter(todo => todo.completed).length;
+
+	return <div>{`Completed ${completedTodos} of ${todo.length}`}</div>;
 };
+
+
