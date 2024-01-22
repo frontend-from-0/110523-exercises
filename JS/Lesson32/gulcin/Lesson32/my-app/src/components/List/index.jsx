@@ -1,9 +1,11 @@
 import './styles.css';
+import { useContext } from 'react';
+import { TodosContext } from '../../todosContext';
 
-export const List = ({todos, setTodos}) => {
+export const List = () => {
+	const todos = useContext(TodosContext);
 	function handleClick (id) {
 		console.log('Clicked on item in List component');
-		setTodos(prevState => prevState.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo));
 	};
 
 	return (
