@@ -9,8 +9,6 @@ export const List = () => {
 
 	function handleClick (id) {
 		console.log('Clicked on item in List component');
-		setTodos(prevState => prevState.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo));
-	
 	};
 
 	return (
