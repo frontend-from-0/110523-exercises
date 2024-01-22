@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import {UserContext} from '../../UserContext';
 import './styles.css';
 
-export const UserDetailsForm = ({setUser}) => {
+export const UserDetailsForm = () => {
   const user = useContext(UserContext);
   
   const [username, setUsername] = useState(user.username ? user.username : '');
@@ -10,7 +10,6 @@ export const UserDetailsForm = ({setUser}) => {
   function handleSubmit (e) {
     e.preventDefault();
     console.log('New user name is: ', username);
-    setUser(prevState => ({isLoggedInUser : prevState.isLoggedInUser, username: username }));
   };
 
   return (
