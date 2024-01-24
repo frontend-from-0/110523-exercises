@@ -170,7 +170,7 @@ export const Card = () => {
 
                             <div className="informations">
                                 <div className="head">
-                                    <span className="company-name" > {item.company} </span>
+                                    <span className="company-name" >{item.company}</span>
                                     {item.new && <button className="new" >NEW!</button>}
                                     {item.featured && <button className="featured">FEATURED</button>}
                                 </div>
