@@ -5,7 +5,7 @@ export const PerformanceState = () => {
 
 	const todos = useContext(TodoContext);
 
-	const completedTodos = todo.filter(todo => todo.completed).length;
+	const completedTodos = todos.filter(todo => todo.completed).length;
 
 	return <div>{`Completed ${completedTodos} of ${todo.length}`}</div>;
 };
