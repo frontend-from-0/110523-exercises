@@ -5,7 +5,7 @@ import { useContext } from 'react';
 export const List = () => {
 
 
-	const todo =  useContext(TodoContext);
+	const todos =  useContext(TodoContext);
 
 	function handleClick (id) {
 		console.log('Clicked on item in List component');
