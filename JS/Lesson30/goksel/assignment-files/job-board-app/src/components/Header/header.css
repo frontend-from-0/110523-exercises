@@ -1,0 +1,11 @@
+header > img {
+    background-color: var(--color-darkcyan);
+    }
+
+    @media only screen and (max-width: 500px) {
+        header > img {
+            background-image: url("../../images/bg-header-mobile.svg");
+            width: 100vw;
+            height: 154px;
+        }
+    }

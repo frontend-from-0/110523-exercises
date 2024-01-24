@@ -1,15 +1,12 @@
-
 import './App.css';
 import { Card } from './components/Card';
-
+import { Header } from './components/Header/header';
 
 function App() {
   return (
     <div className="App">
-      <header>
-       <img src='./images/bg-header-desktop.svg' ></img>
-      </header>
-      <Card/>
+      <Header />
+      <Card />
     </div>
   );
 }

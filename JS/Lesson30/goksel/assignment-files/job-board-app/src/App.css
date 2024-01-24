@@ -1,13 +1,6 @@
 .App {
   text-align: center;
-  min-width: 1440px;
 }
-
-header > img {
-background-color: var(--color-darkcyan);
-}
-
-
 
 @media only screen and (max-width: 500px) {
 
@@ -15,8 +8,4 @@ background-color: var(--color-darkcyan);
     min-width: 375px;
   }
 
-  header > img {
-    width: 375px;
-    height: 156px;
-  }
 }
