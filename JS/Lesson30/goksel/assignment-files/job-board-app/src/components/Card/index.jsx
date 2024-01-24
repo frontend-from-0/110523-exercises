@@ -168,7 +168,7 @@ export const Card = () => {
                                 <img src={item.logo} alt="company-img" />
                             </div>
 
-                            <div className="informations">
+                            <div className="information">
                                 <div className="head">
                                     <span className="company-name" >{item.company}</span>
                                     {item.new && <button className="new" >NEW!</button>}
