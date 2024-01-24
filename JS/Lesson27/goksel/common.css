@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+  }
+
+
+  .post-input {
+    display: block;
+    margin: 20px 0;
+    width: 400px;
+    height: 50px;
+    border-radius: 9px;
+    text-align: center;
+}
+  
