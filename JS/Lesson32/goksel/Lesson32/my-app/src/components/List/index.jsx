@@ -13,7 +13,7 @@ export const List = () => {
 
 	return (
 		<ul className='todo__list'>
-			{todo.map((item) => (
+			{todos.map((item) => (
 				
 				<li onClick={() => handleClick(item.id)} key={item.id}>
 					<span className={item.completed ? 'completed' : ''}>
