@@ -5,12 +5,15 @@ import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import {UserContext} from './UserContext';
 import {loggedInUser} from './UserContext';
+import { TodosContext, todoData } from './todosContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserContext.Provider value={loggedInUser}>
-      <App />
+      <TodosContext.Provider value={todoData}>
+        <App />
+      </TodosContext.Provider>
     </UserContext.Provider>
   </React.StrictMode>
 );
