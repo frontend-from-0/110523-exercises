@@ -3,7 +3,7 @@ import { TodoContext } from "../../data";
 
 export const PerformanceState = () => {
 
-	const todo = useContext(TodoContext);
+	const todos = useContext(TodoContext);
 
 	const completedTodos = todo.filter(todo => todo.completed).length;
 
