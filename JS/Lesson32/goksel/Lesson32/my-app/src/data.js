@@ -1,3 +1,7 @@
+import { createContext } from "react";
+
+export const TodoContext = createContext();
+
 export const todoData = [
   {id: 1, title: "Do dishes", completed: false},
   {id: 2, title: "Do homework", completed: false},
@@ -6,3 +10,4 @@ export const todoData = [
   {id: 5, title: "Do homework 3", completed: false},
   {id: 6, title: "Go running 4", completed: false},
 ];
+
