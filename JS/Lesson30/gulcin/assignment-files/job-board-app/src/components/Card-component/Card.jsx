@@ -1,4 +1,5 @@
 import { jobData } from '../../data';
+import { JobTags } from '../Job-Tags-Component/job-tags';
 import './card.css';
 
 
@@ -16,14 +17,9 @@ export const Cards = () => {
                             <div className='info-bottom'><span>{job.postedAt}</span><span>&#183;</span><span>{job.contract}</span><span>&#183;</span><span>{job.location}</span></div>
                         </div>
                     </div>
-                    <ul className='job-tags'>
-                        <li className='job-tag' key={job.role}>{job.role}</li>
-                        <li className='job-tag' key={job.level}>{job.level}</li>
-                        {job.languages.map(language => (<li className='job-tag' key={language}>{language}</li>))}
-                        {job.tools.map(tool => (<li className='job-tag' key={tool}>{tool}</li>))}
-                    </ul>
+                    <JobTags />
                 </div>
-
+               
             ))}
         </div>
     )
