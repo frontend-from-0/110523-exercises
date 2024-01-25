@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#submit-btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 9px;
+  background-color: #4CAF50;
+  cursor: pointer;
+  font-size: 24px;
+  letter-spacing: 3px;
+}
+
+#submit-btn:hover {
+    background-color: #45a049;
+}
+
+label {
+    font-size: 24px;
+    letter-spacing: 7px;
+}
