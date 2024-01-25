@@ -1,14 +1,17 @@
+import { useState } from "react";
+
 export const Ex9 = () => {
-   
-   function changeColor (e) {
-        e.target.style.backgroundColor = e.target.innerText;
+   const [color, setColor] = useState('#fff');
+
+   function changeColor(newColor) {
+      setColor(newColor);
    }
-    return (
-       <div>
-          <button onClick={changeColor}>Red</button>
-          <button onClick={changeColor}>Blue</button>
-          <button onClick={changeColor}>Purple</button>
-          <button onClick={changeColor}>Green</button>
-       </div>
-    )
+   return (
+      <div style={{ display: "flex", justifyContent: "space-around" }}>
+         <button style={{ backgroundColor: `${color}` }} onClick={() => changeColor('#f00905')}>Red</button>
+         <button style={{ backgroundColor: `${color}` }} onClick={() => changeColor('#0625bf')}>Blue</button>
+         <button style={{ backgroundColor: `${color}` }} onClick={() => changeColor('#7607ed')}>Purple</button>
+         <button style={{ backgroundColor: `${color}` }} onClick={() => changeColor('#19f205')}>Green</button>
+      </div>
+   )
 }
