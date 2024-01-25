@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="edit-post.css">
+  <link rel="stylesheet" href="../common.css">
   <title>Document</title>
 </head>
 <body>
   <form action="" id="post-form">
-    <input type="text" name="title" id="post-title-input">
-    <input type="text" name="body" id="post-body-input">
-    <button type="submit">SUBMIT</button>
+    <label for="post-body-input">Title</label>
+    <input type="text" name="title" id="post-title-input" class="post-input">
+    <label for="post-body-input">Body</label>
+    <input type="text" name="body" id="post-body-input" class="post-input">
+    <button type="submit" id="submit-btn">SUBMIT</button>
   </form>
+
+  <script src="edit-post.js"></script>
 </body>
 </html>
