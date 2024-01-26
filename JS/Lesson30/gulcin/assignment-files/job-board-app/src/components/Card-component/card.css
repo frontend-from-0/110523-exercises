@@ -9,7 +9,6 @@
 }
 
 .job-card {
-    border: 1px solid red;
     display: flex;
     max-width: 1110px;
     width: 100%;
@@ -72,8 +71,22 @@
     font-weight: normal;
 }
 
+.job-tags {
+    display: flex;
+    flex: 1;
+    color: var(--color-primary);
+    gap: 15px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  
+  .job-tags > li {
+      list-style: none;
+  }
 
-@media all and (max-width: 375px) {
+
+@media all and (max-width: 425px) {
     .cards-holder{
         gap: 35px;
     }
@@ -108,6 +121,12 @@
 
     .company-area {
         gap: 12px;
+    }
+
+    .job-tags {
+        justify-content: flex-start;
+        padding: 12px 0;
+        width: 90%;
     }
 
 }
