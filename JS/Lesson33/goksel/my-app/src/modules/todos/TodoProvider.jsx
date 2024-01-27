@@ -33,7 +33,7 @@ export const TodoProvider = ({children, initialState}) => {
 function todoReducer(state, action) {
 
     switch(action.type) {
-        case TODO_ACTIONS.todoCompleted: {
+        case "todo_completed": {
             return (
                 [...state.map(todo => todo.id === action.id ? {...todo, completed: !todo.completed} : todo )]
             )

@@ -8,7 +8,7 @@ export const List = () => {
 
 	function handleClick (id) {
 		console.log('Clicked on item in List component');
-		dispatch({type: TODO_ACTIONS.todoCompleted, id: id})
+		dispatch({type: "todo_completed", id: id})
 	};
 
 	return (
