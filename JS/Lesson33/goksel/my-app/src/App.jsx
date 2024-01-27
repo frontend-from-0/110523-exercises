@@ -1,25 +1,27 @@
 import { List } from './components/List';
 import { Account } from './components/Account';
 import { Navbar } from './components/Navbar';
-import { Demo } from './components/Demo';
 import { PerformanceState } from './components/PerformanceState';
-import { useState } from 'react';
-import {useUser} from './modules/user/UserProvider';
-import { todoData } from './data';
+import { useUser } from './modules/user/UserProvider';
+
 import './App.css';
 
+import { todoData, TodoProvider } from './modules/todos/TodoProvider';
+
 export const App = () => {
-	const [todos, setTodos] = useState(todoData);
+
 	const user = useUser();
 
 	return (
-		<div className='container'>
-			<Navbar />
-			{user.isLoggedInUser ? <Account /> : <></>}
-			<div className='app'>
-				<List todos={todos} setTodos={setTodos} />
+		<TodoProvider initialState={todoData} >
+			<div className='container'>
+				<Navbar />
+				{user.isLoggedInUser ? <Account /> : <></>}
+				<div className='app'>
+					<List />
+				</div>
+				<PerformanceState />
 			</div>
-			<PerformanceState todos={todos} />
-		</div>
+		</TodoProvider>
 	);
 };
