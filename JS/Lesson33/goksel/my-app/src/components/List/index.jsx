@@ -1,14 +1,17 @@
-import { useData, useDataDispatch, TODO_ACTIONS } from '../../modules/todos/TodoProvider';
+import { useTodo, useTodoDispatch, TODO_ACTIONS } from '../../modules/todos/TodoProvider';
 import './styles.css';
 
 export const List = () => {
 
-	const todos = useData();
-	const dispatch = useDataDispatch();
+	const todos = useTodo();
+	const dispatch = useTodoDispatch();
 
-	function handleClick (id) {
+	function handleClick(id) {
 		console.log('Clicked on item in List component');
-		dispatch({type: "todo_completed", id: id})
+		dispatch({
+			type: TODO_ACTIONS.todoCompleted, 
+			id: id
+		})
 	};
 
 	return (

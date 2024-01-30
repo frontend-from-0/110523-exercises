@@ -42,5 +42,5 @@ function todoReducer(state, action) {
     }
 }
 
-export const useData = () => useContext(TodoContext);
-export const useDataDispatch = () => useContext(TodoDispatchContext);
+export const useTodo = () => useContext(TodoContext);
+export const useTodoDispatch = () => useContext(TodoDispatchContext);

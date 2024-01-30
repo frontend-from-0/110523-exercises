@@ -1,8 +1,8 @@
-import { useData } from "../../modules/todos/TodoProvider";
+import { useTodo } from "../../modules/todos/TodoProvider";
 
 export const PerformanceState = () => {
 
-	const todos = useData();
+	const todos = useTodo();
 
 	const completedTodos = todos.filter(todo => todo.completed).length;
 
