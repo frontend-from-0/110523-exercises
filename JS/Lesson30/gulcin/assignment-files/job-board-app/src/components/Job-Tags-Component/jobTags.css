@@ -1,0 +1,5 @@
+ .job-tag {
+      padding: 6px 10px 5px 10px;
+      background-color: var(--color-background);
+      border-radius: 4px;
+  }
