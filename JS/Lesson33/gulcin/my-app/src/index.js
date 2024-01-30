@@ -4,12 +4,15 @@ import './index.css';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import {UserProvider, loggedOutUser} from './modules/user/UserProvider';
+import { ListProvider, todoData } from './modules/list/ListProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserProvider initialState={loggedOutUser}>
-      <App />
+      <ListProvider initialState={todoData}>
+        <App />
+      </ListProvider>
     </UserProvider>
   </React.StrictMode>
 );
