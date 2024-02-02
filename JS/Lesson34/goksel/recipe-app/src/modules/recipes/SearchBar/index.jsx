@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import "./search.css";
 
 export const Search = ({ setRecipes }) => {
 	const [mainIngredient, setMainIngredient] = useState('');
@@ -39,7 +40,7 @@ export const Search = ({ setRecipes }) => {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className='form'>
 				<label htmlFor='main-ingredient'>Search meal by main ingredient</label>
 				<input
 					type='text'

@@ -1,24 +1,31 @@
-.grey {
-  background-color: grey;
-} 
-
-.yellow {
-  background-color: yellow;
-}
-
-.white {
-  background-color: white;
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .recipes__list {
   list-style-type: none;
   padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.recipes__list > li {
+  width: calc(33.33% - 10px);
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #FFA53D;
 }
 
-.recipe__list > li {
-border-bottom: 1px solid var(--color-light);
-display: flex;
-justify-content: space-between;
-margin: 10px auto;
+.recipes__list > li > img {
+  width: 150px;
+  border-radius: 9px;
+  cursor: pointer;
 }
 
+.recipes__list > li > img:hover {
+  transform: scaleX(-1);
+}

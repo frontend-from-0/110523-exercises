@@ -1,0 +1,29 @@
+.recipeDetail {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    background-color: #2D2013;
+    width: 50%;
+    border-radius: 9px;
+    text-align: center;
+    margin: 30px auto;
+    color: #FFA53D;
+}
+
+.recipeDetail.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.recipeDetailForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.img > img{
+    width: 120px;
+    border-radius: 16px;
+}
