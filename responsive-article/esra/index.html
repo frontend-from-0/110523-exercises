@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Responsive Article</title>   
+</head>
+<body>
+    <main class="main-content">
+    
+        <h1 class="heading">
+            Time-saving CSS techniques to 
+            create responsive images
+        </h1>
+
+        <span>Adrien Zaganelli
+
+        </span>.
+
+        <span class="text-color">Follow</span>
+    
+
+    <div>
+        <span class="span-content">Published in</span> <a href="https://medium.com/free-code-camp">We’ve moved to freeCodeCamp.org/news· </a>
+       
+        <span class="span-content">3 min read . Aug 12, 2018</span>
+    </div>
+
+    <img src="https://i.ibb.co/W095WT7/ezgif-2-b1207f1d5c.jpg" />
+    <p>Photo by <span class="style-underline">Kevin Ku</span> on <span class="style-underline">Unsplash</span></p>
+
+    <p class="paragraph-content">As a web developer, there is a high probability that you have encountered the 
+        two enemies of this article: <strong>images</strong> and <strong>deadlines.</strong> Sometimes, for some 
+        reasons, your images won’t fit the layout and you don’t want to wrap your 
+        head around this for hours. </p>
+    
+        <p class="paragraph-content">This situation has happened to me many times and I have learned from my 
+            mistakes. No more black magic hacks — here are my five favorites 
+            techniques to handle image resizing. </p>
+
+            <h3 class="heading">the “OMG I NEED THIS ASAP” way</h3>
+        
+            <p class="paragraph-content">It’s 5:00 pm on Friday, you have to finish this page, but the images won’t fit 
+                the layout. It’s time to use your magic trick!</p>
+
+            <div class="div-container">
+                <span class="paragraph-content">.myImg {
+                    background-image: url("my-image.png");
+                    background-size: cover;
+                  }
+                </span>
+            </div>
+            <p>Sounds familiar? We’ve all done it once, doesn’t it feel like cheating to you?</p>
+
+            <p class="paragraph-content">Using <span>background</span> properties is very useful, they just work. Yet, remember
+               that you should use them only for non-content images or as a replacement of 
+               text and in <span>some particular cases.</span></p>
+
+               <h3 class="heading">The way from the future</h3>
+
+            <p class="paragraph-content">What if I told you this kind of magic exists also for <img> elements? Say “hi” 
+               to the <span>object-fit</span> property — which also works for videos, by the way!</p>
+
+            <div class="div-container">
+                .myImg {
+                    object-fit: cover;
+                    width: 320px;
+                    height: 180px;
+                  }
+            </div>
+
+            <p class="paragraph-content">That’s all folks! See how when we retrieve the friendly value <span>cover</span>, we can 
+               also use <span>contain.</span></p>
+
+               <h3 class="heading">Okay what’s the trap?</h3>
+
+            <p class="paragraph-content">Unfortunately <span>object-fit</span> will not work on IE and older versions of Safari,
+               but there is a <span>polyfill.</span></p>
+
+            <img href="https://miro.medium.com/v2/resize:fit:828/format:webp/1*d0wZwFpXGiAYH9_NrJCroA.png"/>
+            <span>source: https://css-tricks.com/almanac/properties/o/object-fit/#article-header-id-4</span>
+
+            <div>https://codepen.io/adri_zag/embed/VBQJYg?</div>
+            <span>object-fit demo</span>
+
+            <h3 class="heading">The “Netflix” way</h3>
+            <p class="paragraph-content">You may think “nice trick man, one more way that doesn’t work in old 
+               browsers like IE 😔”. Don’t worry, this one works everywhere and it is my 
+               favorite! You’ll need to wrap your image with a relative padded parent.</p>
+
+            <p class="paragraph-content">We will keep the image ratio with a percentage on the <span>padding</span> property. Your 
+               image will be a full size absolute child.</p>
+
+            <p>The code looks like this:</p>
+
+            <div class="div-container">
+                .wrapper {
+                position: relative;
+                padding-top: 56.25%; /* 16:9 Aspect Ratio */
+              }
+              img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: auto;
+              }
+            </div>
+
+            <p>“Hey man, it looks complicated.”</p>
+
+            <p class="paragraph-content">Once you get the concept, the technique is simple and <span>widely used.</span> Netflix
+               uses it!</p>
+
+            <div>
+                https://miro.medium.com/v2/resize:fit:1100/format:webp/1*rTrhAIVolZR2oQh2ou1jXg.png
+            </div>
+
+            <span>Take a look at the class names !</span>
+
+            <p>A little demo:</p>
+
+            <div>https://codepen.io/adri_zag/embed/BPrejO?</div>
+
+            <h3 class="heading">The Simple way</h3>
+
+            <p>You may already know this one:</p>
+
+            <div class="div-container">
+                img {
+                height: auto;
+                width: 100%;
+              /* even more control with max-width */
+                max-width: 720px;
+              }
+            </div>
+
+            <p>If your layout isn’t too complicated, it works in most cases.</p>
+
+            <div>
+                <a href="https://codepen.io/adri_zag/pen/LBQvwy">https://codepen.io/adri_zag/embed/LBQvwy?</a>
+            </div>
+            <span>The simple way</span>
+
+            <h3 class="heading">The Performance way (Advanced)</h3>
+
+            <p class="paragraph-content">By performance, I mean load times. A big hero image can ruin it and make
+               your page feel slow, especially on mobile.</p>
+
+            <p class="paragraph-content">Did you know that in <span>modern browsers</span> you can change an image source 
+               depending on your page width? That’s what <span>srcset</span> is made for!</p>
+            
+            <p class="paragraph-content">
+                You can combine them with the HTML 5 <pre><picture></pre>tag, which gracefully
+                degrades with an <pre><img></pre>.
+            </p>
+
+            <div>
+                <picture>
+                    <source media="(max-width: 799px)" srcset="elva-480w.jpg">
+                    <source media="(min-width: 800px)" srcset="elva-800w.jpg">
+                    <img src="elva-800w.jpg">
+                  </picture>
+                </div>
+
+            <div>
+                <a href="https://codepen.io/adri_zag/pen/pZLBpx">https://codepen.io/adri_zag/pen/pZLBpx</a>
+            </div>
+            <span>srcset with default image fallback</span>
+
+            <h3 class="heading">To Recap</h3>
+
+            <div class="paragraph-content">
+                1.Use <span class="span-background">background-image</span> if your image is not part of the page’s content.
+
+                2.Use <span class="span-background">object-fit</span> if you don’t care about IE.
+
+                3.The padded container technique, used by Netflix, works everywhere.
+
+                4.In most cases, just add <span class="span-background">height: auto;</span> in your CSS.
+
+                5.If you need fast load times, use <span class="span-background">srcset</span> to load smaller images on mobile.
+            </div>
+
+            <span class="span-direction">CSS </span>
+            <span class="span-direction">Coding </span>
+            <span class="span-direction">Responsive </span>
+            <span class="span-direction">Design </span>
+            <span class="span-direction">Tech </span>
+            <span class="span-direction">Programming</span>
+           
+
+        </main>
+
+                   
+       
+
+        <footer class="footer-content"></footer>
+    
+</body>
+</html>
