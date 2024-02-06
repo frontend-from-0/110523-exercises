@@ -78,10 +78,16 @@
             <p class="paragraph-content">Unfortunately <span>object-fit</span> will not work on IE and older versions of Safari,
                but there is a <span>polyfill.</span></p>
 
-            <img href="https://miro.medium.com/v2/resize:fit:828/format:webp/1*d0wZwFpXGiAYH9_NrJCroA.png"/>
+            <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*d0wZwFpXGiAYH9_NrJCroA.png" height="120" />
             <span>source: https://css-tricks.com/almanac/properties/o/object-fit/#article-header-id-4</span>
 
-            <div>https://codepen.io/adri_zag/embed/VBQJYg?</div>
+            <div class="frame-container">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Responsive images #2" src="https://codepen.io/adri_zag/embed/VBQJYg?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/adri_zag/pen/VBQJYg">
+                    Responsive images #2</a> by Adrien Zaganelli (<a href="https://codepen.io/adri_zag">@adri_zag</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
+            </div>
             <span>object-fit demo</span>
 
             <h3 class="heading">The “Netflix” way</h3>
@@ -114,14 +120,20 @@
                uses it!</p>
 
             <div>
-                https://miro.medium.com/v2/resize:fit:1100/format:webp/1*rTrhAIVolZR2oQh2ou1jXg.png
+               <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*rTrhAIVolZR2oQh2ou1jXg.png"/>
             </div>
 
             <span>Take a look at the class names !</span>
 
             <p>A little demo:</p>
 
-            <div>https://codepen.io/adri_zag/embed/BPrejO?</div>
+            <div class="frame-container">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Responsive images #3" src="https://codepen.io/adri_zag/embed/BPrejO?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/adri_zag/pen/BPrejO">
+                    Responsive images #3</a> by Adrien Zaganelli (<a href="https://codepen.io/adri_zag">@adri_zag</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
+            </div>
 
             <h3 class="heading">The Simple way</h3>
 
@@ -138,8 +150,12 @@
 
             <p>If your layout isn’t too complicated, it works in most cases.</p>
 
-            <div>
-                <a href="https://codepen.io/adri_zag/pen/LBQvwy">https://codepen.io/adri_zag/embed/LBQvwy?</a>
+            <div class="frame-container">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Responsive images #4" src="https://codepen.io/adri_zag/embed/LBQvwy?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/adri_zag/pen/LBQvwy">
+                    Responsive images #4</a> by Adrien Zaganelli (<a href="https://codepen.io/adri_zag">@adri_zag</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
             </div>
             <span>The simple way</span>
 
@@ -156,16 +172,23 @@
                 degrades with an <pre><img></pre>.
             </p>
 
-            <div>
+            
+            <code>
                 <picture>
                     <source media="(max-width: 799px)" srcset="elva-480w.jpg">
                     <source media="(min-width: 800px)" srcset="elva-800w.jpg">
                     <img src="elva-800w.jpg">
                   </picture>
-                </div>
+            </code>
+        
 
-            <div>
-                <a href="https://codepen.io/adri_zag/pen/pZLBpx">https://codepen.io/adri_zag/pen/pZLBpx</a>
+            <div class="frame-container">
+                <p class="codepen" data-height="300" data-width="300" data-default-tab="html,result" data-slug-hash="pZLBpx" data-user="adri_zag" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/adri_zag/pen/pZLBpx">
+                    Responsive images #5</a> by Adrien Zaganelli (<a href="https://codepen.io/adri_zag">@adri_zag</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
             </div>
             <span>srcset with default image fallback</span>
 

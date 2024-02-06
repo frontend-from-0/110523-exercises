@@ -56,6 +56,11 @@
    
 }
 
+.frame-container {
+    width: 100vh;
+    
+}
+
 .footer-content {
     margin-top: 100px;
 }
