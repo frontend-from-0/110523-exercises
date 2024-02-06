@@ -6,7 +6,6 @@ import './App.css';
 export const App = () => {
 	const [recipes, setRecipes] = useState([]);
 	const [id, setId] = useState('');
-	console.log(recipes)
 
 	function handleClick(e) {
 		const id= e.target.getAttribute('id');

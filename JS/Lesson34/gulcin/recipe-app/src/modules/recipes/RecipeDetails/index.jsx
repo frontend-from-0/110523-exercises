@@ -5,8 +5,6 @@ import './styles.css';
 export const RecipeDetails = ({ id }) => {
     const [recipe, setRecipe] = useState([]);
 
-    console.log(recipe)
-
     useEffect(() => {
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
             .then(res => res.json())
@@ -15,7 +13,7 @@ export const RecipeDetails = ({ id }) => {
                     setRecipe(data.meals);
                 }
             }
-            )
+            ).catch(err => console.log(err));
     }, [id])
 
     return (
