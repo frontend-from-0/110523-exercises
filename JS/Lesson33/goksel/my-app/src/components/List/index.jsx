@@ -10,7 +10,7 @@ export const List = () => {
 		console.log('Clicked on item in List component');
 		dispatch({
 			type: TODO_ACTIONS.todoCompleted, 
-			id: id
+			payload: {id: id}
 		})
 	};
 
