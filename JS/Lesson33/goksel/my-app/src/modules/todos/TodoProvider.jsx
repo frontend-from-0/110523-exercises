@@ -35,7 +35,7 @@ function todoReducer(state, action) {
     switch(action.type) {
         case "todo_completed": {
             return (
-                [...state.map(todo => todo.id === action.id ? {...todo, completed: !todo.completed} : todo )]
+                [...state.map(todo => todo.id === action.payload.id ? {...todo, completed: !todo.completed} : todo )]
             )
         }
         default: throw Error(`Action type ${action.type} is not supported`);
