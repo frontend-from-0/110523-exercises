@@ -9,35 +9,34 @@
 <body>
     <main class="main-content">
     
-        <h1 class="heading">
+        <h1 class="heading1">
             Time-saving CSS techniques to 
             create responsive images
         </h1>
-
-        <span>Adrien Zaganelli
-
-        </span>.
-
-        <span class="text-color">Follow</span>
     
 
     <div>
-        <span class="span-content">Published in</span> <a href="https://medium.com/free-code-camp">We’ve moved to freeCodeCamp.org/news· </a>
+        <iframe src="https://medium.com/@adri_zag/about" width="500" height="75">Adrien Zaganelli .</iframe>
+
+        <span class="span-content">Published in</span> <a href="https://medium.com/free-code-camp">We’ve moved to freeCodeCamp.org/news
+
+        </a>
        
         <span class="span-content">3 min read . Aug 12, 2018</span>
     </div>
 
-    <img src="https://i.ibb.co/W095WT7/ezgif-2-b1207f1d5c.jpg" />
+    <img src="https://i.ibb.co/W095WT7/ezgif-2-b1207f1d5c.jpg" width="1000" height="750"/>
     <p>Photo by <span class="style-underline">Kevin Ku</span> on <span class="style-underline">Unsplash</span></p>
 
     <p class="paragraph-content">As a web developer, there is a high probability that you have encountered the 
-        two enemies of this article: <strong>images</strong> and <strong>deadlines.</strong> Sometimes, for some 
+        two enemies of this article: images and deadlines.Sometimes, for some 
         reasons, your images won’t fit the layout and you don’t want to wrap your 
         head around this for hours. </p>
     
-        <p class="paragraph-content">This situation has happened to me many times and I have learned from my 
-            mistakes. No more black magic hacks — here are my five favorites 
-            techniques to handle image resizing. </p>
+    <p class="paragraph-content">
+        This situation has happened to me many times and I have learned from my 
+        mistakes. No more black magic hacks — here are my five favorites 
+        techniques to handle image resizing. </p>
 
             <h3 class="heading">the “OMG I NEED THIS ASAP” way</h3>
         
@@ -77,9 +76,12 @@
 
             <p class="paragraph-content">Unfortunately <span>object-fit</span> will not work on IE and older versions of Safari,
                but there is a <span>polyfill.</span></p>
-
+            <div class="frame-container">
             <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*d0wZwFpXGiAYH9_NrJCroA.png" height="120" />
+
             <span>source: https://css-tricks.com/almanac/properties/o/object-fit/#article-header-id-4</span>
+
+        </div>
 
             <div class="frame-container">
                 <iframe height="300" style="width: 100%;" scrolling="no" title="Responsive images #2" src="https://codepen.io/adri_zag/embed/VBQJYg?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -172,14 +174,17 @@
                 degrades with an <pre><img></pre>.
             </p>
 
+            <div class="span-background">
             
-            <code>
+                <code>
                 <picture>
-                    <source media="(max-width: 799px)" srcset="elva-480w.jpg">
-                    <source media="(min-width: 800px)" srcset="elva-800w.jpg">
-                    <img src="elva-800w.jpg">
-                  </picture>
-            </code>
+                  <source media="(max-width: 799px)" srcset="elva-480w.jpg">
+                  <source media="(min-width: 800px)" srcset="elva-800w.jpg">
+                  <img src="elva-800w.jpg">
+                </picture>
+                </code>
+                  
+            </div>
         
 
             <div class="frame-container">
@@ -194,7 +199,8 @@
 
             <h3 class="heading">To Recap</h3>
 
-            <div class="paragraph-content">
+            <div class="list">
+                <ul>
                 1.Use <span class="span-background">background-image</span> if your image is not part of the page’s content.
 
                 2.Use <span class="span-background">object-fit</span> if you don’t care about IE.
@@ -204,6 +210,8 @@
                 4.In most cases, just add <span class="span-background">height: auto;</span> in your CSS.
 
                 5.If you need fast load times, use <span class="span-background">srcset</span> to load smaller images on mobile.
+
+            </ul>
             </div>
 
             <span class="span-direction">CSS </span>

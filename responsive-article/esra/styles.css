@@ -4,11 +4,26 @@
 
 .main-content {
     text-align: center;
+    margin: 0 auto;
+}
+
+.heading1 {
+    font-weight: bold;
+    font-size: 50px;
+    white-space: pre-line;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    
 }
 
 .heading {
     font-weight: bold;
+    font-size: 25px;
     white-space: pre-line;
+    display: flex;
+    justify-content: center;
+    text-align: left;
 }
 
 .text-color {
@@ -17,6 +32,10 @@
 
 .span-content {
     text-decoration: inherit;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+
 }
 
 .span-direction {
@@ -25,6 +44,7 @@
     border-radius: 5px;
     padding: 5px;
     max-width: fit-content;
+    margin: 0 auto;
     
 }
 
@@ -32,6 +52,8 @@
     background-color: lightgrey;
     border: 1px solid lightgrey;
     border-radius: 5px;
+    margin: 0 auto;
+    
 }
 
 .style-underline {
@@ -41,6 +63,17 @@
 .paragraph-content {
     white-space: pre-line;
     margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    
+}
+
+.list {
+    white-space: pre-line;
+    text-align: left;
+    display: flex;
+    align-items: center;
 }
 
 .div-container {
@@ -53,11 +86,13 @@
     justify-content: center;
     max-width: fit-content;
     white-space: pre-line;
+    margin: 0 auto;
    
 }
 
 .frame-container {
     width: 100vh;
+    margin: 0 auto;
     
 }
 
