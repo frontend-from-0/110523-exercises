@@ -1,4 +1,8 @@
-export const PerformanceState = ({ todos }) => {
+import { useTodo } from "../../modules/todos/TodoProvider";
+
+export const PerformanceState = () => {
+
+	const todos = useTodo();
 
 	const completedTodos = todos.filter(todo => todo.completed).length;
 
