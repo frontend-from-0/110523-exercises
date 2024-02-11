@@ -88,12 +88,44 @@ console.log(vowelsInString(sentenceEx4));
 // 4. Write a recursive function to remove all occurrences of a specified character from a string.
 const sentenceEx5 = 'Hello, how are you?';
 const charToRemove = 'o';
+const resultString = removeCharacter(sentenceEx5, charToRemove);
 
+function removeCharacter(sentenceEx5, charToRemove) {
+	if (sentenceEx5.length === 0) {
+		return '';
+	} else {	
+	if (sentenceEx5[0] === charToRemove) {
+		return removeCharacter(sentenceEx5.slice(1), charToRemove);
+	} else {
+		return sentenceEx5[0] + removeCharacter(sentenceEx5.slice(1), charToRemove);
+	}
+	}
+	
+
+}
+console.log('Exercise4:', resultString);
 // 5. Write a recursive function to check if an array includes a specific value.
 const numbers = [1, 2, 3, 4, 5];
 const valueToCheck = 3;
 
+function checkToArray(arr, valueToCheck) {
+	if (arr.length === 0) {
+		return false;
+	}
+	
+	if (arr[0] === valueToCheck) {
+		return true;
+	} else {
+		return checkToArray(arr.slice(1), valueToCheck);
+	}
+	
+}
+const result = checkToArray(numbers, valueToCheck);
+
+console.log('Exercise5:', result);
+
 // 6. Write a recursive function to flatten an object with nested objects into a single-level object.
+
 const nestedObj = {
 	name: 'John',
 	age: 30,
@@ -109,6 +141,36 @@ const nestedObj = {
 	},
 };
 
+function singleLevelObj(obj) {
+	const result = {};
+
+	for (const key in obj) {
+		if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+		  const flattenedSubObject = singleLevelObj(obj[key]);
+		  for (const subKey in flattenedSubObject) {
+			result[`${key}.${subKey}`] = flattenedSubObject[subKey];
+		  }
+		} else if (Array.isArray(obj[key])) {
+		  result[key] = obj[key].map(item => {
+			if (typeof item === 'object') {
+			  return singleLevelObj(item);
+			} else {
+			  return item;
+			}
+		  });
+		} else {
+		  result[key] = obj[key];
+		}
+	  }
+	
+	  return result;
+	}
+
+
+console.log('Exercise6: ', singleLevelObj(nestedObj));
+
+
+
 // 7. Write a recursive function to find the maximum depth of a nested object.
 const nestedObjEx7 = {
 	a: 1,
@@ -123,10 +185,65 @@ const nestedObjEx7 = {
 	},
 	h: 5,
 };
+
+function findMaxDepth(obj) {
+if (typeof obj !== 'object') {
+	return 0;
+}
+
+let maxDepth = 0;
+
+for (const key in obj) {
+	if (obj.hasOwnProperty(key)) {
+		const depth = findMaxDepth(obj[key]) + 1;
+		maxDepth = Math.max(maxDepth, depth);
+	}
+}
+
+return maxDepth;
+}
+
+const maxDepth = findMaxDepth(nestedObjEx7);
+console.log('Exercise7: ', 'Max Depth:', maxDepth);
+
 // 8. Write a recursive function to reverse the order of words in a sentence.
 const sentenceEx8 = 'Hello, how are you?';
+
+function reverseWords(sentence) {
+	let words = sentence.split(' ');
+
+	if (words.length <= 1) {
+        return sentence;
+    }
+	return reverseWords(words.slice(1).join(' ')) + ' ' + words[0];
+}
+	
+
+console.log('Exercise8:' ,reverseWords(sentenceEx8));
+
+
 // 9. Write a recursive function to find the length of the longest word in a sentence.
 const sentenceEx9 = 'The quick brown fox jumps over the lazy dog';
+
+function findLongestWord(sentence, words = null) {
+
+	let splitWord = sentence.split(' ');
+    
+    if (splitWord.length === 0 || splitWord[0].length === 0) {
+		return words;
+	}
+	let firstWord = splitWord[0];
+	let restOfTheSentence = splitWord.slice(1).join(' ');
+	if (firstWord.length > words) {
+		words = firstWord.length;
+	}
+
+	return findLongestWord(restOfTheSentence, words);
+}
+
+
+console.log('Exercise9: ', findLongestWord(sentenceEx9));
+
 // 10. Write a recursive function to check if an object contains a specified property.
 const person = {
 	name: 'John',
@@ -136,3 +253,22 @@ const person = {
 		country: 'USA',
 	},
 };
+
+function checkToObject(obj, propertyToFind) {
+	if (obj.hasOwnProperty(propertyToFind)) {
+		return true;
+	}
+
+	for (const key in obj) {
+		if (typeof obj[key] === 'object') {
+			if (checkToObject(obj[key], propertyToFind)) {
+				return true;
+			}
+		}
+	}
+       return false;
+}
+
+const propertyToFind = 'country';
+const hasPropertyCountry = checkToObject(person, propertyToFind);
+console.log('Exercise10: ', `Does the object have the property '${propertyToFind}'?`, hasPropertyCountry);
