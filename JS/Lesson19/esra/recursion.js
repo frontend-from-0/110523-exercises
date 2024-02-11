@@ -167,7 +167,7 @@ function singleLevelObj(obj) {
 	}
 
 
-console.log('Exercise6: ', result);
+console.log('Exercise6: ', singleLevelObj(nestedObj));
 
 
 
@@ -209,44 +209,36 @@ console.log('Exercise7: ', 'Max Depth:', maxDepth);
 // 8. Write a recursive function to reverse the order of words in a sentence.
 const sentenceEx8 = 'Hello, how are you?';
 
-function reverseToWords(sentence) {
-	if (sentence.endsWith(' ')) {
-		sentence = sentence.trim() + ' ';
-	}
+function reverseWords(sentence) {
+	let words = sentence.split(' ');
 
-	const firstSpaceIndex = sentence.indexOf(' ');
-
-	if (firstSpaceIndex === -1) {
-		return sentence;
-	} 
-
-	return reverseToWords(sentence.substring(firstSpaceIndex + 1)) + ' ' + sentence.substring(0, firstSpaceIndex);
-
+	if (words.length <= 1) {
+        return sentence;
+    }
+	return reverseWords(words.slice(1).join(' ')) + ' ' + words[0];
 }
+	
 
-const reversedSentence = reverseToWords(sentenceEx8);
-console.log('Exercise8: ', reversedSentence);
+console.log('Exercise8:' ,reverseWords(sentenceEx8));
 
 
 // 9. Write a recursive function to find the length of the longest word in a sentence.
 const sentenceEx9 = 'The quick brown fox jumps over the lazy dog';
 
 function findLongestWord(sentence, words = null) {
-    
-    if (!words) {
-        words = sentence.split('');
-    }
 
+	let splitWord = sentence.split(' ');
     
-    if (words.length === 1) {
-        return words[0];
-    }
+    if (splitWord.length === 0 || splitWord[0].length === 0) {
+		return words;
+	}
+	let firstWord = splitWord[0];
+	let restOfTheSentence = splitWord.slice(1).join(' ');
+	if (firstWord.length > words) {
+		words = firstWord.length;
+	}
 
-    
-    const firstWord = words[0];
-    const longestWordInRest = findLongestWord(sentence, words.slice(1));
-
-    return firstWord.length > longestWordInRest.length ? firstWord : longestWordInRest;
+	return findLongestWord(restOfTheSentence, words);
 }
 
 
