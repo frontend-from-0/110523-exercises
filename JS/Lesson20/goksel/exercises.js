@@ -105,23 +105,20 @@ console.log(minibus.start());
 console.log("----Ex4-----");
 // 4. Create a BankAccount class with balance and interestRate properties, and deposit() and withdraw() methods. Add a transactionHistory property that is an array of objects representing each transaction made on the account, with properties for type (either "deposit" or "withdrawal"), amount, and date ({type: "withdrawal", amount: amount, date: new Date().toLocaleDateString()}). Implement deposit() and withdraw() methods that add new transactions to the transactionHistory array. Implement a get transactionHistory() getter method that returns a copy of the transaction history array, and a get currentBalance() getter method that calculates and returns the current balance of the account based on the transaction history.
 
-/*
-class BankAccount {
-    constructor(balance, interestRate){
-        this._balance = balance;
-        this._interestRate = interestRate;
-    }
-    constructor(transactionHistory ){
-        this._transactionHistory = [];
-    }
-    deposit() {
+function flattenObj(obj, prefix = '') {
+	let flattened = {};
 
-    }
+	for (let key in obj) {
+		if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
 
-    withdraw() {
+			const intermediateObject = flattenObj(obj[key], `${prefix}${key}.`);
+      flattened = {...flattened, ...intermediateObject };
 
+		} else { 
+      flattened[`${prefix}${key}`] = obj[key];
     }
+	}
+	return flattened;
 }
-*/
 
-// I couldnt even understand whag ı should do :( ...
+
