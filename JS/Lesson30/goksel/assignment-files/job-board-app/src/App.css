@@ -1,11 +1,3 @@
 .App {
   text-align: center;
 }
-
-@media only screen and (max-width: 500px) {
-
-  .App {
-    min-width: 375px;
-  }
-
-}
