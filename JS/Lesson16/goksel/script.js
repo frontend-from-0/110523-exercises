@@ -71,6 +71,9 @@ switch (day) {
 */
 
 // 1. Write a program that takes in a number and checks if it's even or odd using if else statement.
+
+console.log("....Ex1.....");
+
 function isEvenOrOdd(number) {
 	if (number % 2 === 0) {
 		console.log(number + ' is even');
@@ -82,7 +85,7 @@ isEvenOrOdd(9);
 isEvenOrOdd(16);
 
 // 2. Write a program that takes age as input. If the age is less than 18, print "Sorry, you are not old enough to vote". If the age is between 18 and 65 (inclusive), print "You are eligible to vote". If the age is greater than 65, print "You are a senior citizen".
-
+console.log("....Ex2.....");
 function isAllowedToVote(age) {
 	if (age < 18) {
 		console.log('Sorry, you are not old enough to vote');
@@ -99,6 +102,7 @@ isAllowedToVote(18);
 isAllowedToVote(65);
 
 // 3. Write a program that asks the user to enter two numbers and checks if the first number is greater than, less than, or equal to the second number using if else statement.
+console.log("....Ex3.....");
 function compareNumbers(firstNumber, secondNumber) {
 	if (firstNumber > secondNumber) {
 		console.log(
@@ -129,7 +133,7 @@ compareNumbers(10, 10);
 compareNumbers(7, 5);
 
 // 4. Write a program that takes in a string and checks if the first letter is uppercase using if else statement.
-
+console.log("....Ex4.....");
 function isFirstLetterUppercase(sentence) {
 	if (sentence[0] === sentence[0].toUpperCase()) {
 		console.log(
@@ -149,6 +153,7 @@ isFirstLetterUppercase(
 );
 
 // 5. Write a program that takes in a number and checks if it's positive, negative, or zero using if else statement.
+console.log("....Ex5.....");
 function isPositiveNegativeZero(numberToCheck) {
 	if (numberToCheck > 0) {
 		console.log('Number is positive. Number: ' + numberToCheck);
@@ -162,6 +167,7 @@ isPositiveNegativeZero(5);
 isPositiveNegativeZero(-15);
 isPositiveNegativeZero(0);
 // 6. Write a program that takes in a year and checks if it's a leap year (is divisible by 4 and not divisible by 100 OR divisible by 400) or not using if else statement.
+console.log("....Ex6.....");
 function isLeapYear(year) {
 	if(year % 4 === 0 && year % 100 !== 0 || year % 400 ===0) {
 		console.log("The " + year + " is a leap year.");
@@ -177,6 +183,7 @@ isLeapYear(40);
 
 
 // 7. Write a program that takes in a temperature and checks if it's above or below freezing using if else statement.
+console.log("....Ex7.....");
 function isTemparatureFreezeOrNot(temperature){
 	if(temperature > 0){
 		console.log(temperature + " is above freezing.");
@@ -195,17 +202,16 @@ isTemparatureFreezeOrNot(-20);
 // 18.5 – 24.9	Healthy Weight
 // 25.0 – 29.9	Overweight
 // 30.0 and Above	Obesity
-let weight = 0;
-let height = 0;
+console.log("....Ex8.....");
 function calcBodyMassIndex(weight, height){
 	let index = weight / (height ** 2);
 	if(index < 18.5){
 		console.log("Your BMI is " + index.toFixed(2) + " Underweight." );
 	}
-	else if(index > =18.5 && index =< 24.9){
+	else if(index >= 18.5 && index <= 24.9){
 		console.log("Your BMI is " + index.toFixed(2) + " Healthy Weight.");
 	}
-	else if(index > =25 && index =< 29.9){
+	else if(index >= 25 && index <= 29.9){
 		console.log("Your BMI is " + index.toFixed(2) + " Overweight." );
 	}
 	else if(index >= 30){
@@ -222,7 +228,7 @@ calcBodyMassIndex(70,1.6);
 calcBodyMassIndex(120,1.5);
 
 // 9. Write a program that takes in a person's age and checks if they are a child (age 0-12), teenager (age 13-19), adult (age 20-64), or senior citizen (age 65 and above) using if else statement.
-
+console.log("....Ex9.....");
 function checkYourAge(age){
 	if(age > 0 && age <= 12){
 		console.log("You are " + age + " years old and you are a \"child\".");
@@ -253,37 +259,37 @@ checkYourAge(-3);
 
 
 
-
+console.log("....Ex10.....");
 function isStudentAllowedToVote(age,student){
 	
-	if(age < 18 && student === "yes"){
+	if(age < 18 && student === true){
 		console.log("You are a student and not old enough to vote");
 	}
-	else if(age >= 18 && age <= 65 && student === "no"){
+	else if(age >= 18 && age <= 65 && student === false){
 		console.log("You are eligible to vote");
 	}
 	else if(age > 65){
 		console.log("You are a senior citizen");
 	}
-	else if(age >= 18 && student === "yes"){
+	else if(age >= 18 && student === true){
 		console.log("You are old enough to vote");
 	}
 	else{
 		console.log("You entered a wrong value! Your age should be greater than 0");
 	}
 }
-isStudentAllowedToVote(17,"yes");
-isStudentAllowedToVote(24,"no");
+isStudentAllowedToVote(17,true);
+isStudentAllowedToVote(24,false);
 isStudentAllowedToVote(70);
-isStudentAllowedToVote(24, "YES");
+isStudentAllowedToVote(24, true);
 isStudentAllowedToVote(-4);
-isStudentAllowedToVote(-4, "yes");
+isStudentAllowedToVote(-4, true);
 
 
 
 
 // 11. Write a program that asks the user to enter their salary and their years of experience. If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". If the salary is less than $50,000 and the years of experience are between 5 and 10 (inclusive), print "We can offer you the job at a lower salary". If the salary is greater than or equal to $50,000 or the years of experience are greater than or equal to 10, print "We can offer you the job at the requested salary".
-
+console.log("....Ex11.....");
 
 function isYourSalaryAndExperienceEnoughToThisJob(salary,experienceYear){
 	if(salary < 30.000 && experienceYear < 5){
@@ -309,7 +315,7 @@ isYourSalaryAndExperienceEnoughToThisJob(30.000, 6);
 isYourSalaryAndExperienceEnoughToThisJob(30.000, "almost 4");
 
 // 12. Write a program that asks the user to enter their score on a test. If the score is less than 60, print "You failed the test". If the score is between 60 and 70 (inclusive), print "You passed the test, but your grade is not great". If the score is between 71 and 80 (inclusive), print "You got a B". If the score is between 81 and 90 (inclusive), print "You got an A". If the score is greater than 90, print "You got an A+ - Great job!".
-
+console.log("....Ex12.....");
 function isScorePassTest(score){
 	if(score < 60){
 		console.log("You failed the test");
@@ -338,7 +344,7 @@ isScorePassTest(95);
 isScorePassTest(105);
 
 // 13. Write a program that asks the user to enter a month number (1-12) and displays the corresponding season name. Use a switch statement to handle the different cases.
-
+console.log("....Ex13.....");
 function checkSeasonName(monthNumber){
 	switch(monthNumber){
 		case 12:
@@ -372,7 +378,7 @@ checkSeasonName(11);
 checkSeasonName(13);
 
 // 14. Write a program that asks the user to enter a grade letter (A, B, C, D, or F) and displays a message indicating whether the grade is passing (A, B, C) or failing (D, F). Use a switch statement to handle the different cases.
-
+console.log("....Ex14.....");
 function checkGrade(grade) {
   const uppercaseGrade = grade.toUpperCase();
 	switch (uppercaseGrade) {
@@ -410,6 +416,7 @@ checkGrade("B+");
 // }
 
 // 15. Write a program that asks the user to enter their age, and then calculates and displays their age in dog years (where one human year is equivalent to seven dog years). If the user enters a negative number or zero, display an error message.
+console.log("....Ex15.....");
 function calcYourDogAge(age){
 	let dogAge = age * 7;
 	if(age > 0){
