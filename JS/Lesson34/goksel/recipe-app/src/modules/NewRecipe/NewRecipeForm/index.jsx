@@ -54,7 +54,7 @@ export const NewRecipe = () => {
             <textarea
                 id="strInstructions"
                 {...register("strInstructions", {
-                    required: "Instractions are required",
+                    required: "Instructions are required",
                     minLength: {
                         value: 50,
                         message: "Please enter Instractions at least 50 characters long"
