@@ -50,7 +50,7 @@ export const NewRecipe = () => {
                 ))}
             </select>
 
-            <label htmlFor="strInstructions">Instractions</label>
+            <label htmlFor="strInstructions">Instructions</label>
             <textarea
                 id="strInstructions"
                 {...register("strInstructions", {
