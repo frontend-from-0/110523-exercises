@@ -72,7 +72,7 @@ export const NewRecipe = () => {
                 {...register("strMealThumb")}
             />
 
-            <label htmlFor="strTags">Main Product</label>
+            <label htmlFor="strTags">Tags</label>
             <textarea
                 id="strTags"
                 {...register("strTags", {
