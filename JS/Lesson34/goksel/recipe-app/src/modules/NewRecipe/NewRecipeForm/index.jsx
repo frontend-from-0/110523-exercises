@@ -57,7 +57,7 @@ export const NewRecipe = () => {
                     required: "Instructions are required",
                     minLength: {
                         value: 50,
-                        message: "Please enter Instractions at least 50 characters long"
+                        message: "Please enter Instructions at least 50 characters long"
                     }
                 })}
             />
