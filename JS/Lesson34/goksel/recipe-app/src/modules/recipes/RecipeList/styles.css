@@ -1,0 +1,37 @@
+.recipes__list {
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.recipes__list{
+text-align: center;
+}
+
+.recipes__list>li {
+    width: calc(33.33% - 10px);
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipelist_link {
+    text-decoration: none;
+    color: #000;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipelist_img {
+    width: 150px;
+    border-radius: 9px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.recipelist_img:hover {
+    transform: scaleX(-1);
+}

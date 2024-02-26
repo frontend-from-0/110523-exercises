@@ -1,0 +1,24 @@
+.registration-form-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 70%;
+  }
+  .registration-form button{
+    padding: 5px;
+    border: none;
+    border-radius: 9px;
+    background-color: #362617;
+  }
+  .registration-form button a {
+    text-decoration: none;
+    color: #FFA53D;
+    letter-spacing: 2px;
+    font-size: 24px;
+    font-weight: 600;
+  }  

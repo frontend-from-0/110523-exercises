@@ -1,45 +1,19 @@
-.app {
+.appRouter {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.recipes__list {
-  list-style-type: none;
-  padding-left: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-.recipes__list > li {
-  width: calc(33.33% - 10px);
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: #FFA53D;
-}
-
-.recipes__list > li > img {
-  width: 150px;
-  border-radius: 9px;
-  cursor: pointer;
-}
-
-.recipes__list > li > img:hover {
-  transform: scaleX(-1);
-}
-
-.newRecipeBtn{
-width: 270px;
+.newRecipeBtn {
+  width: 270px;
   margin-top: 30px;
   border: none;
   padding: 10px 0px;
   border-radius: 12px;
-  background-color: #FFC439;
-  color: #009CDE;
+  background-color: #000;
+  color: #fff;
   font-weight: 700;
   font-size: 18px;
   cursor: pointer;
-  box-shadow: 5px 5px 10px #FFC439;
+  box-shadow: 5px 5px 10px #000;
 }

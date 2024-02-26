@@ -1,0 +1,32 @@
+.newRecipe-form {
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    color: #000;
+}
+
+.newRecipe-submitBtn {
+padding: 10px;
+text-decoration: none;
+border: none;
+border-radius: 9px;
+color: #FFA53D;
+letter-spacing: 2px;
+font-size: 24px;
+font-weight: 600;
+background-color: #362617;
+cursor: pointer;
+
+}
+
+.error-message {
+    color : #e90f0f;
+    font-size: 16px;
+}
+

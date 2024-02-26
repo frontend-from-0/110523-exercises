@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import "./search.css";
+import "./styles.css";
 
-export const Search = ({ setRecipes }) => {
+export const SearchBar = ({ setRecipes }) => {
 	const [mainIngredient, setMainIngredient] = useState('');
   const [inputError, setInputError] = useState(undefined);
 	const [searchError, setSearchError] = useState(undefined);
@@ -20,7 +20,7 @@ export const Search = ({ setRecipes }) => {
           setSearchError(null);
 				} else {
 					setSearchError(
-						`Could not find any meals with main ingredient ${mainIngredient}`
+						`Could not find any meals with main ingredient "${mainIngredient}"`
 					);
 				}
 			});
@@ -40,7 +40,7 @@ export const Search = ({ setRecipes }) => {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit} className='form'>
+			<form onSubmit={handleSubmit} className='search-recipe-form'>
 				<label htmlFor='main-ingredient'>Search meal by main ingredient</label>
 				<input
 					type='text'
@@ -52,7 +52,7 @@ export const Search = ({ setRecipes }) => {
         {inputError && <span>{inputError}</span>}
 				<button type='submit'>Search</button>
 			</form>
-			{searchError && <p>{searchError}</p>}
+			{searchError && <p className='search-error'><i class="fa-solid fa-circle-exclamation"></i>{searchError}</p>}
 		</>
 	);
 };

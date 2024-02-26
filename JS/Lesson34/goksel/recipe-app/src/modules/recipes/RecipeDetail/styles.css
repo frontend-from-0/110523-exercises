@@ -1,0 +1,12 @@
+.recipeDetailForm {
+    display: flex;
+    flex-direction: row;
+   justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.img > img{
+    width: 140px;
+    border-radius: 16px;
+}
