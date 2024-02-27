@@ -11,20 +11,10 @@ body {
   font-size: 16px;
 }
 
-.grey {
-  background-color: grey;
-}
-
-.yellow {
-  background-color: yellow;
-}
-
-.white {
-  background-color: white;
-}
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 .recipes__list {

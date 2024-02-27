@@ -1,16 +1,12 @@
 export const Ingredients = ({ recipe }) => {
-    const numbers = [];
-   
-    for(let i = 1; i <= 20; i++ ){
-        numbers.push(i);
-    }
+    const ingredientIndexes = Array.from({length: 20}, (_, i) => i + 1);
 
     return (
         <ul>
             {
-                numbers.map(number => (
-                    recipe[`strIngredient${number}`] !== "" && recipe[`strIngredient${number}`] !== null ?
-                        <li>{recipe[`strIngredient${number}`]} {recipe[`strMeasure${number}`]} </li> : null
+                ingredientIndexes.map(index => (
+                    recipe[`strIngredient${index}`] !== "" && recipe[`strIngredient${index}`] !== null ?
+                        <li>{recipe[`strIngredient${index}`]} {recipe[`strMeasure${index}`]} </li> : null
                 ))
             }
         </ul>
