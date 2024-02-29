@@ -164,7 +164,7 @@ export const NewRecipe = () => {
             <fieldset className='fieldset'>
                 <div className='input-area'>
                 <label htmlFor='strTags'>Tags</label>
-                <input type='text' id='strTags' placeholder='Pudding, dessert' {...register('strTags', { required: 'Tags are required.' })} />
+                <input type='text' id='strTags' placeholder='pudding, dessert' {...register('strTags', { required: 'Tags are required.' })} />
                 </div>
                 {errors.strTags && (
                     <span className='error-message'>{errors.strTags.message}</span>
