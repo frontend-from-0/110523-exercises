@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 20px;
     text-align: center;
+    align-items: center;
 }
 
 .search-recipe-form > label {
@@ -13,7 +14,7 @@
 
 .search-recipe-form > button {
     border: none;
-    padding: 10px 0px;
+    padding: 10px 20px;
     border-radius: 12px;
     background-color: #362617;
     color: #FFA53D;
@@ -27,6 +28,7 @@
 .search-recipe-form > input {
     border-radius: 9px;
     height: 30px;
+    width:50%;
 }
 
 .search-error {

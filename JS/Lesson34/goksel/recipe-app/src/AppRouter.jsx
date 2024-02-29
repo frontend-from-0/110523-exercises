@@ -5,14 +5,16 @@ import { Settings } from "./modules/user/Settings";
 import { RecipeDetail } from "./modules/recipes/RecipeDetail";
 import { SearchBar } from "./modules/recipes/SearchBar";
 import { RecipeList } from "./modules/recipes/RecipeList";
+import { LogIn } from "./modules/user/LogIn";
 
-export const AppRouter = ({ recipes, setRecipes, setIsSignedIn, isSignedIn }) => {
+export const AppRouter = ({ recipes, setRecipes }) => {
     return (
         <Routes>
             <Route path="user">
-                <Route path="register" element={<RegistrationForm setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />} />
+                <Route path="register" element={<RegistrationForm  />} />
 
                 <Route path="settings" element={<Settings />} />
+                <Route path="login" element={<LogIn />}/>
             </Route>
 
             <Route path="recipes">

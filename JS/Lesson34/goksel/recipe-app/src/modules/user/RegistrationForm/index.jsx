@@ -1,135 +1,103 @@
-import { useState, useEffect } from 'react';
+import {useForm} from "react-hook-form";
 import './styles.css';
-import { Link } from 'react-router-dom';
 
-export const RegistrationForm = ({ setIsSignedIn, isSignedIn }) => {
-	const initialFormState = {
-		username: '',
-		email: '',
-		phoneNumber: '',
-		password: '',
-	};
 
-	const initialFormErrorsState = {
-		username: null,
-		email: null,
-		phoneNumber: null,
-		password: null,
-	};
+export const RegistrationForm = () => {
 
-	const [formData, setFormData] = useState(initialFormState);
-	const [formErrors, setFormErrors] = useState(initialFormErrorsState);
+	const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (
-			formErrors.username ||
-			formErrors.email ||
-			formErrors.phoneNumber ||
-			formErrors.password
-		) {
-			console.log('Please correct errors first!');
-		} else {
-			console.log('Form submitted!');
-			console.table(formData);
-			setFormData(initialFormState);
-		}
-	};
-
-	useEffect(() => {
-		if (formData.username.length < 5 && formData.username.length > 0) {
-			setFormErrors((prevState) => ({
-				...prevState,
-				username: 'Username must be more than 5 characters',
-			}));
-		} else {
-			setFormErrors((prevState) => ({
-				...prevState,
-				username: null,
-			}));
-		}
-	}, [formData.username]);
-
-	const handleUserNameChange = (e) => {
-		setFormData((prevState) => ({
-			...prevState,
-			username: e.target.value,
-		}));
-	};
-	const handlePasswordChange = (e) => {
-		setFormData((prevState) => ({
-			...prevState,
-			password: e.target.value,
-		}));
-	};
-
-	const handleEmailChange = (e) => {
-		setFormData((prevState) => ({
-			...prevState,
-			email: e.target.value,
-		}));
-	};
-
-	const handlePhoneNumberChange = (e) => {
-		setFormData((prevState) => ({
-			...prevState,
-			phoneNumber: e.target.value,
-		}));
-	};
+	const onSubmit = (data) => {
+        console.log(data)
+    }
 
 	return (
 		<div className='registration-form-wrapper'>
-			<form className='registration-form' onSubmit={handleSubmit} noValidate>
+			<form
+			className='registration-form'
+			noValidate
+			onSubmit={handleSubmit(onSubmit)}
+			>
 				<label htmlFor='user'>User Name</label>
 				<input
 					type='text'
 					id='user'
 					name='user'
-					value={formData.username}
-					onChange={handleUserNameChange}
+					{...register("user",{
+						required : "User name is required",
+						minLength: {
+							value:3,
+							message : "User name should be at least 3 characters long"
+						}
+					})}
 				/>
 
-				{formErrors.username ? <p>{formErrors.username}</p> : <></>}
+					{errors.user &&(
+						<span className='error-message'>{errors.user.message}</span>
+					)}
 
 				<label htmlFor='email'>Email</label>
 				<input
 					type='email'
 					id='email'
 					name='email'
-					value={formData.email}
-					onChange={handleEmailChange}
+					{...register("email",{
+						required: "User Email is Required",
+						pattern: {
+							value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+							message: 'Please enter a valid email adress'
+						  }
+					})}	
 				/>
+
+				{errors.email && (
+					<span className='error-message'>{errors.email.message}</span>
+				)}
 
 				<label htmlFor='phoneNumber'>Phone Number</label>
 				<input
 					type='tel'
 					id='phoneNumber'
 					name='phoneNumber'
-					value={formData.phoneNumber}
-					onChange={handlePhoneNumberChange}
+					{...register("phoneNumber",{
+						required: "Phone Number is Required",
+						pattern: {
+							value: /^[0-9]{10}$/,
+							message : "Please enter your phone number without the leading zero, in a 10-digit format."
+						}
+					})}
 				/>
+
+				{errors.phoneNumber && (
+					<span className='error-message'>{errors.phoneNumber.message}</span>
+				)}
 
 				<label htmlFor='password'>Password</label>
 				<input
 					type='password'
 					id='password'
 					name='password'
-					value={formData.password}
-					onChange={handlePasswordChange}
+					{...register("password",{
+						required: "Password is Required",
+						minLength: {
+							value:6,
+							message:"Password must be at least 6 characters long"
+						},
+						pattern: {
+							value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/,
+							message: "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+						  }
+					})}
 				/>
 
-				<button
-					type='submit'
-					disabled={
-						formErrors.username ||
-						formErrors.email ||
-						formErrors.phoneNumber ||
-						formErrors.password
-					}
-				>
-					<Link to="/" onClick={() => setIsSignedIn(false)}>Submit</Link>
+					{errors.password &&(
+						<span className='error-message'>{errors.password.message}</span>
+					)}
 
-				</button>
+				<button type='submit'>Submit</button>
 
 			</form>
 		</div>
