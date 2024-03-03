@@ -1,0 +1,16 @@
+header {
+    display: flex;
+    background-image: url('../../Assets/headerbckgrnd.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
+    padding-bottom: 45px;
+    gap: 40px;
+}
+
+.nav-container {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+}

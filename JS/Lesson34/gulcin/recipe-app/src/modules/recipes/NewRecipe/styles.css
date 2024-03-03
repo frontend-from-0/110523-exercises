@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  color: #000;
+  color:var(--color-dark);
   padding: 25px;
   width: 100%;
   margin: auto;
@@ -16,10 +16,11 @@ select {
   padding: 10px;
   font-family: inherit;
   font-size: inherit;
+ 
 }
 
-.input-area>input:focus, textarea:focus, select:focus {
-  outline: 2px solid #f2542d;
+.input-area>input:focus, textarea:focus, select:focus, .save-recipe-btn:focus  {
+  outline: 2px solid var(--color-primary)
 }
 
 .input-area>label {
@@ -32,10 +33,9 @@ select {
   width: 60%;
   padding: 15px 25px;
   border-radius: 4px;
-  background: linear-gradient(-45deg,  #415a77 ,#4b6583);
-  color: #fff;
-  border: none;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-light);
 }
 
 .input-area {
@@ -46,7 +46,6 @@ select {
 
 .error-message {
   color: #c90505;
-  font-size: 16px;
   align-self: flex-end;
 }
 
@@ -56,11 +55,48 @@ select {
   margin-top: 15px;
   border: none;
   border-radius: 4px;
-  background-color:  #415a77;
-  color: #fff;
+  color: var(--color-light);
+  background-color: var(--color-primary);
   cursor: pointer;
 }
 
 .save-recipe-btn:hover {
-  background-color:  #33485f;
+  background-color: var(--color-hover);
+}
+
+.confirm-message-container {
+  border: 2px solid var(--color-primary);
+  width: 30%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  background-color: var(--color-light);
+  
+}
+
+
+
+.return-home-btn {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  padding: 10px 25px;
+  border-radius: 4px;
+  min-width: 48px;
+
+}
+
+.return-home-btn:hover {
+  background-color: var(--color-hover);
+}
+
+.main-pattern {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 78vh;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23f8d7d2' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }

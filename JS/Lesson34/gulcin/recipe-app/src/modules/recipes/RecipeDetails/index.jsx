@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import { Ingredients } from "./Ingredients";
+import { useParams } from "react-router";
 import './styles.css';
 
-export const RecipeDetails = ({ id }) => {
+export const RecipeDetails = () => {
     const [recipe, setRecipe] = useState(null);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const {id} = useParams(); 
 
     useEffect(() => {
         setLoading(true);

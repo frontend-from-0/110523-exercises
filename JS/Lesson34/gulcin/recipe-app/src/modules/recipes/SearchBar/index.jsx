@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
+import { CiSearch } from "react-icons/ci";
 import './styles.css';
+import { useNavigate } from 'react-router-dom';
 
-export const Search = ({ setRecipes, setId }) => {
+export const SearchBar = ({ setRecipes }) => {
 	const [mainIngredient, setMainIngredient] = useState('');
     const [inputError, setInputError] = useState(undefined);
 	const [searchError, setSearchError] = useState(undefined);
+	const navigate = useNavigate();
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -17,8 +20,8 @@ export const Search = ({ setRecipes, setId }) => {
 			.then((data) => {
 				if (data.meals && data.meals.length > 0) {
 					setRecipes(data.meals);
-					setId('');
                     setSearchError(null);
+					navigate(`/recipes/search/${cleansedInput}`);
 				} else {
 					setSearchError(
 						`Could not find any meals with main ingredient ${mainIngredient}`
@@ -26,6 +29,7 @@ export const Search = ({ setRecipes, setId }) => {
 					setRecipes([]);
 				}
 			});
+			
 	};
 
   useEffect(() => {
@@ -43,7 +47,7 @@ export const Search = ({ setRecipes, setId }) => {
 	return (
 		<>
 			<form className='search-form'onSubmit={handleSubmit}>
-				<label htmlFor='main-ingredient'>RECIPES</label>
+				<div className='search-box'>
 				<input
 					type='text'
 					name='main-ingredient'
@@ -52,9 +56,10 @@ export const Search = ({ setRecipes, setId }) => {
 					onChange={(event) => setMainIngredient(event.target.value)}
 				/>
                 {inputError && <span className='input-error-message'>{inputError}</span>}
-				<button type='submit' className='search-btn'>Search</button>
+				<button type='submit' className='search-btn'><CiSearch /></button>
+				</div>
 			</form>
-			{searchError && <p className='error-message'>{searchError}</p>}
+			{searchError && <p className='search-error-message'>{searchError}</p>}
 		</>
 	);
 };
