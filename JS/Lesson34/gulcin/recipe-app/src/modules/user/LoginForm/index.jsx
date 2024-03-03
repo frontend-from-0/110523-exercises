@@ -17,7 +17,6 @@ export const LoginForm = () => {
     const navigate = useNavigate();
 
     const onFormSubmit = (data) => {
-        console.log(data)
         const username = data.username;
         dispatch({ type: USER_ACTIONS.updateUser, username });
         dispatch({ type: USER_ACTIONS.logIn })
@@ -28,13 +27,18 @@ export const LoginForm = () => {
         <main className='main-pattern'>
             <form className='login-form' onSubmit={handleSubmit(onFormSubmit)}>
                 <div className='welcome-section'>
-                  <GiHotMeal className='form-logo' />
-                  <h3>Welcome back!</h3>
-                  <p>Please, enter your details.</p>
-
+                    <GiHotMeal className='form-logo' />
+                    <h3>Welcome back!</h3>
+                    <p>Please, enter your details.</p>
                 </div>
                 <TextField type="text" id="username" label="Username" variant="standard"  {...register('username', { required: 'Please, enter your username' })} />
+                {errors.username && (
+                    <span className='error-message'>{errors.username.message}</span>
+                )}
                 <TextField type="password" id="password" label="Password" variant="standard"  {...register('password', { required: 'Please, enter your password' })} />
+                {errors.password && (
+                    <span className='error-message'>{errors.password.message}</span>
+                )}
                 <button type="submit" className='form-btn--submit'>Log In</button>
             </form>
         </main>
