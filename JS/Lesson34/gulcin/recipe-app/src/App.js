@@ -4,6 +4,7 @@ import './App.css';
 
 export const App = () => {
 	const [recipes, setRecipes] = useState([]);
+	const [searchError, setSearchError] = useState(undefined);
 
 	useEffect(() => {
 		const DB_URL =
@@ -15,6 +16,6 @@ export const App = () => {
 	}, [])
 
 	return (
-			<AppRouter recipes={recipes} setRecipes={setRecipes} />
+			<AppRouter recipes={recipes} setSearchError={setSearchError} setRecipes={setRecipes} searchError={searchError}/>
 	);
 };

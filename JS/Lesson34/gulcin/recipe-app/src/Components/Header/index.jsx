@@ -3,12 +3,12 @@ import { Logo } from "../Logo";
 import { Navbar } from "../Navbar";
 import './styles.css';
 
-export const Header = ({ setRecipes }) => {
+export const Header = ({ setRecipes, setSearchError }) => {
     return (
         <header>
             <div className="nav-container">
                 <Navbar />
-                <SearchBar setRecipes={setRecipes} />
+                <SearchBar setSearchError={setSearchError}  setRecipes={setRecipes} />
             </div>
             <Logo />
         </header>
