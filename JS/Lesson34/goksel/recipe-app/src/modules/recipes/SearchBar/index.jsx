@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import "./styles.css";
+import TextField from '@mui/material/TextField';
+import { Stack } from '@mui/material';
+import Alert from '@mui/material/Alert';
 
 export const SearchBar = ({ setRecipes }) => {
 	const [mainIngredient, setMainIngredient] = useState('');
-  const [inputError, setInputError] = useState(undefined);
+	const [inputError, setInputError] = useState(undefined);
 	const [searchError, setSearchError] = useState(undefined);
 
 	function handleSubmit(e) {
@@ -17,7 +19,7 @@ export const SearchBar = ({ setRecipes }) => {
 			.then((data) => {
 				if (data.meals && data.meals.length > 0) {
 					setRecipes(data.meals);
-          setSearchError(null);
+					setSearchError(null);
 				} else {
 					setSearchError(
 						`Could not find any meals with main ingredient "${mainIngredient}"`
@@ -26,33 +28,41 @@ export const SearchBar = ({ setRecipes }) => {
 			});
 	};
 
-  useEffect(() => {
-    if (mainIngredient) {
-      const trimmedSearchInput = mainIngredient.trim();
-      const numberOfSpaces = mainIngredient.length - trimmedSearchInput.length;
-      if (numberOfSpaces > 1) {
-        setInputError('Main ingredient should not have more than one white space in a row.');
-      } else {
-        setInputError(null);
-      }
-    }
-  },[mainIngredient]);
+	useEffect(() => {
+		if (mainIngredient) {
+			const trimmedSearchInput = mainIngredient.trim();
+			const numberOfSpaces = mainIngredient.length - trimmedSearchInput.length;
+			if (numberOfSpaces > 1) {
+				setInputError('Main ingredient should not have more than one white space in a row.');
+			} else {
+				setInputError(null);
+			}
+		}
+	}, [mainIngredient]);
 
 	return (
-		<>
-			<form onSubmit={handleSubmit} className='search-recipe-form'>
-				<label htmlFor='main-ingredient'>Search meal by main ingredient</label>
-				<input
+		<Stack onSubmit={handleSubmit} component="form">
+			<Stack alignItems="center">
+				<TextField
+					label='Search for an ingredient...'
+					variant='filled'
 					type='text'
 					name='main-ingredient'
 					id='main-ingredient'
-					placeholder='chicken breast'
+					placeholder='chicken_breast'
 					onChange={(event) => setMainIngredient(event.target.value)}
+					error={!!inputError}
+					helperText={inputError}
+					sx={{ width: "50%" }}
 				/>
-        {inputError && <span>{inputError}</span>}
-				<button type='submit'>Search</button>
-			</form>
-			{searchError && <p className='search-error'><i class="fa-solid fa-circle-exclamation"></i>{searchError}</p>}
-		</>
+			</Stack>
+			{searchError &&
+				<Stack alignItems="center">
+					<Alert
+						sx={{ width: "50%" }} severity='error'>{searchError}
+					</Alert>
+				</Stack>
+			}
+		</Stack>
 	);
 };

@@ -20,7 +20,6 @@ export const App = () => {
 
 	return (
 		<>
-
 			<Navbar setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />
 			<div className="appRouter" >
 				<AppRouter recipes={recipes} setRecipes={setRecipes} setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />

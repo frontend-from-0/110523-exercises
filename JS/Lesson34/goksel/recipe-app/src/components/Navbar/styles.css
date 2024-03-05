@@ -1,30 +1,5 @@
-.navbar {
-    background-color: #362617;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    margin-top: -140px;
-}
-
-
-.navbar-btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style-type: none;
-    cursor: pointer;
+.nav  a{
     text-decoration: none;
-    letter-spacing: 2px;
-}
-
-
-
-.navbar .navbar-btns a {
-    text-decoration: none;
-    color: #FFA53D;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
+    color: #fff;
     font-size: 20px;
 }

@@ -7,23 +7,20 @@ import { SearchBar } from "./modules/recipes/SearchBar";
 import { RecipeList } from "./modules/recipes/RecipeList";
 import { LogIn } from "./modules/user/LogIn";
 
-export const AppRouter = ({ recipes, setRecipes }) => {
+export const AppRouter = ({ recipes, setRecipes, setIsSignedIn, isSignedIn  }) => {
     return (
         <Routes>
             <Route path="user">
                 <Route path="register" element={<RegistrationForm  />} />
-
                 <Route path="settings" element={<Settings />} />
-                <Route path="login" element={<LogIn />}/>
+                <Route path="login" element={<LogIn setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />}/>
             </Route>
 
             <Route path="recipes">
                 <Route path="new" element={<NewRecipe />} />
-
                 <Route path=":id/details" element={<RecipeDetail recipes={recipes} />} />
                 <Route index element={<Navigate to="/" replace={true}></Navigate>} />
             </Route>
-
 
             <Route
                 path="/"
@@ -34,9 +31,6 @@ export const AppRouter = ({ recipes, setRecipes }) => {
                     </>
                 }
             />
-
-
-
         </Routes>
     )
 }
