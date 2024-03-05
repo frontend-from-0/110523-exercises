@@ -1,23 +1,30 @@
 import { useState, useEffect } from 'react';
-import { Search } from './modules/recipes/SearchBar';
-import './App.css';
+
+import { AppRouter } from './AppRouter';
+import { Navbar } from './components/Navbar';
 
 export const App = () => {
 	const [recipes, setRecipes] = useState([]);
+	const [isSignedIn, setIsSignedIn] = useState(true);
 
 	useEffect(() => {
 		const DB_URL =
 			'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
 		fetch(DB_URL)
 			.then((data) => data.json())
-			.then((recipeData) => 
-			setRecipes(recipeData.meals));
+			.then((recipeData) =>
+				setRecipes(recipeData.meals)
+			);
 	}, []);
 
+
 	return (
-		<div className={`app ${bgColor}`}>
-      <Search setRecipes={setRecipes}/>
-			<ul className='recipes__list'>{recipes.map((recipe => <li key={recipe.idMeal} >{recipe.strMeal}</li>))}</ul>
-		</div>
+		<>
+
+			<Navbar setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />
+			<div className="appRouter" >
+				<AppRouter recipes={recipes} setRecipes={setRecipes} setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />
+			</div>
+		</>
 	);
 };

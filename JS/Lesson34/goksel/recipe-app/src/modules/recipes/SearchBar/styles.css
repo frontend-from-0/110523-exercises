@@ -1,0 +1,49 @@
+.search-recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.search-recipe-form > label {
+    color: #000;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.search-recipe-form > button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: #362617;
+    color: #FFA53D;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #362617;
+    letter-spacing: 2px;
+}
+
+.search-recipe-form > input {
+    border-radius: 9px;
+    height: 30px;
+    width:50%;
+}
+
+.search-error {
+    text-align: center;
+    color: #f00;
+    font-size: 24px;
+    font-weight: 800;
+    animation: blink 5s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100%{
+opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
