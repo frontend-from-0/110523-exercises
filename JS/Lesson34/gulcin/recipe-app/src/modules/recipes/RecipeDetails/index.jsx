@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Ingredients } from "./Ingredients";
+import { Ingredients } from "./ingredients";
 import { useParams } from "react-router";
 import { Main } from "../../../Components/Main";
 import './styles.css';
