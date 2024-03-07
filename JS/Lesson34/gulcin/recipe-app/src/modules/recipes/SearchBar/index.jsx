@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
+import { CiSearch } from "react-icons/ci";
+import './styles.css';
+import { useNavigate } from 'react-router-dom';
 
-export const Search = ({ setRecipes }) => {
+export const SearchBar = ({ setRecipes, setSearchError }) => {
 	const [mainIngredient, setMainIngredient] = useState('');
-  const [inputError, setInputError] = useState(undefined);
-	const [searchError, setSearchError] = useState(undefined);
+	const [inputError, setInputError] = useState(undefined);
+	const navigate = useNavigate();
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -16,42 +19,45 @@ export const Search = ({ setRecipes }) => {
 			.then((data) => {
 				if (data.meals && data.meals.length > 0) {
 					setRecipes(data.meals);
-          setSearchError(null);
+					setSearchError(null);
+					navigate(`/recipes/search/${cleansedInput}`);
 				} else {
 					setSearchError(
 						`Could not find any meals with main ingredient ${mainIngredient}`
 					);
+					setRecipes([]);
 				}
 			});
+
 	};
 
-  useEffect(() => {
-    if (mainIngredient) {
-      const trimmedSearchInput = mainIngredient.trim();
-      const numberOfSpaces = mainIngredient.length - trimmedSearchInput.length;
-      if (numberOfSpaces > 1) {
-        setInputError('Main ingredient should not have more than one white space in a row.');
-      } else {
-        setInputError(null);
-      }
-    }
-  },[mainIngredient]);
+	useEffect(() => {
+		if (mainIngredient) {
+			const trimmedSearchInput = mainIngredient.trim();
+			const numberOfSpaces = mainIngredient.length - trimmedSearchInput.length;
+			if (numberOfSpaces > 1) {
+				setInputError('Main ingredient should not have more than one white space in a row.');
+			} else {
+				setInputError(null);
+			}
+		}
+	}, [mainIngredient]);
 
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor='main-ingredient'>Search meal by main ingredient</label>
-				<input
-					type='text'
-					name='main-ingredient'
-					id='main-ingredient'
-					placeholder='chicken breast'
-					onChange={(event) => setMainIngredient(event.target.value)}
-				/>
-        {inputError && <span>{inputError}</span>}
-				<button type='submit'>Search</button>
+			<form className='search-form' onSubmit={handleSubmit}>
+				<div className='search-box'>
+					<input
+						type='text'
+						name='main-ingredient'
+						id='main-ingredient'
+						placeholder='Chicken breast'
+						onChange={(event) => setMainIngredient(event.target.value)}
+					/>
+					{inputError && <span className='input-error-message'>{inputError}</span>}
+					<button type='submit' className='search-btn'><CiSearch /></button>
+				</div>
 			</form>
-			{searchError && <p>{searchError}</p>}
 		</>
 	);
 };
