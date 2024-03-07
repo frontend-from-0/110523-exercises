@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { v4 as createId } from 'uuid';
 import { useState } from 'react';
 import { ConfirmMessage } from '../../../Components/ConfirmMessage';
+import { Main } from '../../../Components/Main';
 import './styles.css';
 
 
@@ -51,7 +52,7 @@ export const NewRecipe = () => {
 
 
     return (
-        <main className='main-pattern'>
+        <Main className='main-pattern'>
             {confirmMessage ? (<ConfirmMessage title='Your recipe is saved!' />) : (
                 <form noValidate
                     className='recipe-form'
@@ -136,7 +137,7 @@ export const NewRecipe = () => {
                             })} />
                         </div>
                         {errors.strIngredients && (
-                            <span className='error-message'>{errors.strInstructions.message}</span>
+                            <span className='error-message'>{errors.strIngredients.message}</span>
                         )}
                     </fieldset>
                     <fieldset className='fieldset'>
@@ -182,7 +183,7 @@ export const NewRecipe = () => {
 
                 </form>
             )}
-        </main>
+        </Main>
 
     )
 }

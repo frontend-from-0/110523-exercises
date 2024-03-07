@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .home__main-container {
@@ -33,7 +34,7 @@
     right: -7%;
     color:  var(--color-secondary);
     font-size: 12rem;
-    z-index: -1;
+   
     
 }
 
@@ -42,7 +43,8 @@
    font-size: 10rem;
    left: -7%;
    bottom: 0;
-   color:   var(--color-secondary);
+   color:  var(--color-secondary);
+   z-index: -22;
 }
 
 .home__main__img-content, .home__main__text-content {
@@ -68,4 +70,33 @@
 
 .discover-btn:hover {
     background-color: var(--color-hover);
+}
+
+.logo-sm {
+    display: none;
+}
+
+@media all and (max-width: 768px) {
+
+    .home__main__img-content {
+        display: none;
+    }
+
+    .logo-sm {
+        display: flex;
+        width: 100%;
+        color: var(--color-primary);
+        font-size: 5rem;
+    }
+
+    .home__main__heading {
+        font-size: 3.5rem;
+    }
+
+    .discover-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+        width: 40%;
+    }
+
 }

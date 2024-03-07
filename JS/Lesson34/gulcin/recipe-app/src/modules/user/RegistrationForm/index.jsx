@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import { GiHotMeal } from "react-icons/gi";
 import { ConfirmMessage } from '../../../Components/ConfirmMessage';
+import { Main } from '../../../Components/Main';
 import './styles.css';
 
 export const RegistrationForm = () => {
@@ -82,7 +83,7 @@ export const RegistrationForm = () => {
 	};
 
 	return (
-		<main className='main-pattern'>
+		<Main className='main-pattern'>
 			{confirmMessage ? (<ConfirmMessage title='You successfully registered to the recipe platform.' />) : (
 					<form className='registration-form' onSubmit={handleSubmit} noValidate>
 						<div className='welcome-section'>
@@ -141,6 +142,6 @@ export const RegistrationForm = () => {
 							Register
 						</button>
 					</form>)}
-		</main>
+		</Main>
 	);
 };

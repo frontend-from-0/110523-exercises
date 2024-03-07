@@ -3,6 +3,7 @@ import { USER_ACTIONS, useUserDispatch } from '../UserProvider';
 import { useNavigate } from 'react-router';
 import TextField from '@mui/material/TextField';
 import { GiHotMeal } from "react-icons/gi";
+import { Main } from '../../../Components/Main';
 import './styles.css';
 
 
@@ -24,7 +25,7 @@ export const LoginForm = () => {
     }
 
     return (
-        <main className='main-pattern'>
+        <Main className='main-pattern'>
             <form className='login-form' onSubmit={handleSubmit(onFormSubmit)}>
                 <div className='welcome-section'>
                     <GiHotMeal className='form-logo' />
@@ -41,6 +42,6 @@ export const LoginForm = () => {
                 )}
                 <button type="submit" className='form-btn--submit'>Log In</button>
             </form>
-        </main>
+        </Main>
     )
 }

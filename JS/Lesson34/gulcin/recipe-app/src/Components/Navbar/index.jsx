@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom';
 import { USER_ACTIONS, useUser, useUserDispatch } from '../../modules/user/UserProvider';
 import './styles.css'
 
-export const Navbar = () => {
+export const Navbar = ({open}) => {
     const user = useUser();
     const dispatch = useUserDispatch();
+    
     return (
         <nav>
-            <ul className='navbar__links'>
+            <ul className={open ? 'navbar__links open' : 'navbar__links'}>
                 {user.isLoggedIn ?
                     (<>
                         <li className='navbar__link-item colored' onClick={() => dispatch({type: USER_ACTIONS.logOut})}><Link to="/" className='navbar__link colored'>Log out</Link></li>

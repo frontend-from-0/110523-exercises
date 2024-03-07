@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { GiHotMeal } from "react-icons/gi";
+import './styles.css';
 
 export const ConfirmMessage = ({ title }) => {
     return (

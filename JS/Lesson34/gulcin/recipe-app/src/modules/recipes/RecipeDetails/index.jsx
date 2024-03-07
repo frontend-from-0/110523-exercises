@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Ingredients } from "./Ingredients";
 import { useParams } from "react-router";
+import { Main } from "../../../Components/Main";
 import './styles.css';
 
 export const RecipeDetails = () => {
@@ -33,7 +34,7 @@ export const RecipeDetails = () => {
         <>
             {loading &&  <h1>Loading...</h1>}
             {recipe ? (
-                <section className="recipe-details">
+                <Main className="recipe-details">
                     <h2>{recipe.strMeal.toUpperCase()}</h2>
                     <section className="img-ingredients">
                         <div className="recipe-ingredients">
@@ -43,7 +44,7 @@ export const RecipeDetails = () => {
                         <div className="recipe-img"><img alt={recipe.strMeal} src={recipe.strMealThumb} /></div>
                     </section>
                     <p className="recipe-text">{recipe.strInstructions}</p>
-                </section>
+                </Main>
 
             ) : <h1>{errorMessage}</h1>
             }

@@ -9,3 +9,9 @@
     top: 2%;
     right: 2.8%;
 }
+
+@media all and (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+}

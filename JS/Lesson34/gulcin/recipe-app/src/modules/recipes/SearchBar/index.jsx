@@ -51,7 +51,7 @@ export const SearchBar = ({ setRecipes, setSearchError }) => {
 						type='text'
 						name='main-ingredient'
 						id='main-ingredient'
-						placeholder='chicken breast'
+						placeholder='Chicken breast'
 						onChange={(event) => setMainIngredient(event.target.value)}
 					/>
 					{inputError && <span className='input-error-message'>{inputError}</span>}

@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import { RecipeDetails } from '../RecipeDetails';
 import { ListItem } from '../ListItem';
 import { Grid } from '@mui/material';
+import { Main } from '../../../Components/Main';
 import './styles.css';
 
 export const RecipeList = ({ recipes, searchError }) => {
 	return (
-		<div className='recipe-container'>
+		<Main className='recipe-container'>
 			{recipes.length > 0 ?
 				(<Grid container spacing={4} className='recipes__list'>
 					{
@@ -16,6 +16,6 @@ export const RecipeList = ({ recipes, searchError }) => {
 						</Grid>))
 					}
 				</Grid>) : (<p className='search-error-message'>{searchError}</p>)}
-		</div>
+		</Main>
 	);
 };
