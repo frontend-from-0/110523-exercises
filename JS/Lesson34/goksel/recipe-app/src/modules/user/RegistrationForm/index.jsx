@@ -22,12 +22,12 @@ export const RegistrationForm = () => {
 
 
 	const onSubmit = (data) => {	
-		console.log(data)
-		reset()
-		setOpen(true)
+		console.log(data);
+		reset();
+		setOpen(true);
 	}
 
-	const [showPassword, setShowPassword] = React.useState(false)
+	const [showPassword, setShowPassword] =React.useState(false);
 
 	const handleClickShowPassword = () => setShowPassword(!showPassword);
 

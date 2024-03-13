@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { MealCategory } from "./newRecipeHelper";
 import { MealArea } from "./newRecipeHelper";
 import { handlestrIngredientsAndMeasures } from "./newRecipeHelper"
-import { Button, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material';
+import { Button, FormControl, FormLabel, InputLabel, Grid, MenuItem, Select, Typography, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 import TextField from '@mui/material/TextField';
 
 
@@ -37,6 +37,8 @@ export const NewRecipe = () => {
         reset();
     }
 
+    const ScreenSizes = {xs:300, sm:400, md: 500, lg:600};
+
     return (
         <Grid
             container
@@ -51,7 +53,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}
+                    sx={{ minWidth: ScreenSizes}}
                     id="strMeal"
                     label="Recipe Name"
                     variant="outlined"
@@ -64,7 +66,7 @@ export const NewRecipe = () => {
             </Grid>
 
             <Grid item>
-                <FormControl sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}>
+                <FormControl sx={{ minWidth: ScreenSizes}}>
                     <InputLabel id="strCategory-label">Category</InputLabel>
                     <Select
                         labelId="strCategory-label"
@@ -82,7 +84,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}
+                    sx={{ minWidth: ScreenSizes}}
                     id="strInstructions"
                     label="Instructions"
                     size="small"
@@ -102,7 +104,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}
+                    sx={{ minWidth: ScreenSizes}}
                     id="strIngredientsAndMeasures"
                     label="Ingredients and Measures"
                     size="small"
@@ -123,7 +125,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}
+                    sx={{ minWidth: ScreenSizes}}
                     id="strTags"
                     label="Tags"
                     variant="outlined"
@@ -138,7 +140,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}
+                    sx={{ minWidth: ScreenSizes}}
                     id="strMealThumb"
                     label="Share Your Image Link"
                     variant="outlined"
@@ -148,7 +150,7 @@ export const NewRecipe = () => {
             </Grid>
 
             <Grid item>
-                <FormControl sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}>
+                <FormControl sx={{ minWidth: ScreenSizes}}>
                     <InputLabel id="strArea-label">Meal Area</InputLabel>
                     <Select
                         size="small"
@@ -166,7 +168,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}
+                    sx={{ minWidth: ScreenSizes}}
                     id="strSource"
                     label="Source of Your Meal"
                     variant="outlined"
@@ -177,7 +179,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}
+                    sx={{ minWidth: ScreenSizes}}
                     id="strDrinkAlternate"
                     label="Drink Alternate"
                     variant="outlined"
@@ -188,7 +190,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}
+                    sx={{ minWidth: ScreenSizes}}
                     id="strImageSource"
                     label="Source of Your Image"
                     variant="outlined"
@@ -199,7 +201,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}
+                    sx={{ minWidth: ScreenSizes}}
                     id="strYoutube"
                     label="Share Youtube Link"
                     variant="outlined"
@@ -209,18 +211,16 @@ export const NewRecipe = () => {
             </Grid>
 
             <Grid item>
-                <FormControl sx={{ minWidth: {xs:300, sm:400, md: 500, lg:600}}}>
-                    <InputLabel id="strCreativeCommonsConfirmed-label">Is Creative Commons Confirmed</InputLabel>
-                    <Select
-                        size="small"
-                        labelId="strCreativeCommonsConfirmed-label"
-                        id="strCreativeCommonsConfirmed"
-                        label="Is Creative Commons Confirmed"
-                        {...register("strCreativeCommonsConfirmed", { required: true })}
+                <FormControl sx={{ minWidth: ScreenSizes}}>
+                    <FormLabel id="strCreativeCommonsConfirmed-label">Is Creative Commons Confirmed</FormLabel>
+                    <RadioGroup
+                    id="strCreativeCommonsConfirmed"
+                    label="Is Creative Commons Confirmed"
+                    {...register("strCreativeCommonsConfirmed", { required: true })}
                     >
-                        <MenuItem value={"yes"}>Yes</MenuItem>
-                        <MenuItem value={"no"}>No</MenuItem>
-                    </Select>
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                    </RadioGroup>
                 </FormControl>
             </Grid>
 

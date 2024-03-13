@@ -1,7 +1,6 @@
-import "./styles.css";
 import { Link } from "react-router-dom";
 import Box from '@mui/material/Box';
-import { AppBar, Stack, Toolbar, Typography } from "@mui/material";
+import { AppBar, Button, Stack, Toolbar, Typography } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -25,9 +24,12 @@ export const Navbar = ({ isSignedIn, setIsSignedIn }) => {
                 {isSignedIn ?
                     <Toolbar>
                         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                            <Stack direction="column">
+                            <Stack direction="column" display="flex" alignItems="flex-start">
                                 <HomeIcon sx={{ ml: 5 }} />
-                                <Link to="/">Home Page</Link>
+                                <Button size="small" component={Link} to="/">
+                                    <Typography
+                                    color="white">Home Page</Typography>
+                                </Button>
                             </Stack>
                         </Typography>
 
@@ -37,7 +39,9 @@ export const Navbar = ({ isSignedIn, setIsSignedIn }) => {
                                 <Stack direction="column"
                                     alignItems="center">
                                     <PersonIcon />
-                                    <Link to="user/login">Login</Link>
+                                    <Button size="small" component={Link} to="user/login">
+                                        <Typography color="white">LOGIN</Typography>
+                                    </Button>
                                 </Stack>
                             </Typography>
 
@@ -46,34 +50,49 @@ export const Navbar = ({ isSignedIn, setIsSignedIn }) => {
                     :
                     <Toolbar>
                         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                            <Stack direction="column">
-                                <HomeIcon sx={{ ml:5 }} />
-                                <Link to="/">Home Page</Link>
+                            <Stack direction="column" display="flex" alignItems="flex-start">
+                                <HomeIcon sx={{ ml: 5 }} />
+                                <Button component={Link} size="small" to="/">
+                                    <Typography
+                                    color="white">Home Page</Typography>
+                                </Button>
                             </Stack>
                         </Typography>
 
                         <Stack direction="row" spacing={{ xs: 2, sm: 6, lg: 10 }}>
                             <Typography variant="h6">
                                 <Stack direction="column"
-                                alignItems="center">
+                                    alignItems="center">
                                     <CreateIcon />
-                                    <Link to="recipes/new">Create New Recipe</Link>
+                                    <Button component={Link} size="small" to="recipes/new">
+                                        <Typography color="white">
+                                            Create New Recipe
+                                        </Typography>
+                                    </Button>
                                 </Stack>
                             </Typography>
 
                             <Typography variant="h6">
                                 <Stack direction="column"
-                                alignItems="center">
+                                    alignItems="center">
                                     <SettingsIcon />
-                                    <Link to="user/settings">Setting</Link>
+                                    <Button component={Link} size="small" to="user/settings">
+                                        <Typography color="white">
+                                            Setting
+                                        </Typography>
+                                    </Button>
                                 </Stack>
                             </Typography>
 
                             <Typography variant="h6" onClick={handleClick}>
                                 <Stack direction="column"
-                                alignItems="center">
+                                    alignItems="center">
                                     <LogoutIcon />
-                                    <Link to="/">Logout</Link>
+                                    <Button component={Link} size="small" to="/">
+                                        <Typography color="white">
+                                            Logout
+                                        </Typography>
+                                    </Button>
                                 </Stack>
                             </Typography>
                         </Stack>
