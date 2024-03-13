@@ -3,12 +3,17 @@ import { CiSearch } from "react-icons/ci";
 import './styles.css';
 import { useNavigate } from 'react-router-dom';
 
-export const SearchBar = ({ setRecipes, setSearchError }) => {
-	const [mainIngredient, setMainIngredient] = useState('');
-	const [inputError, setInputError] = useState(undefined);
+interface SearchBarProps {
+	setRecipes: any;
+	setSearchError: any;
+}
+
+export const SearchBar = ({ setRecipes, setSearchError }: SearchBarProps) => {
+	const [mainIngredient, setMainIngredient] = useState<string>('');
+	const [inputError, setInputError] = useState<string | null>(null);
 	const navigate = useNavigate();
 
-	function handleSubmit(e) {
+	function handleSubmit(e: React.SyntheticEvent) {
 		e.preventDefault();
 		const cleansedInput = mainIngredient.trim().replace(/\s/g, '_');
 

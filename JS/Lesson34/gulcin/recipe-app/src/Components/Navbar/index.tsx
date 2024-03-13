@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 import { USER_ACTIONS, useUser, useUserDispatch } from '../../modules/user/UserProvider';
 import './styles.css'
 
-export const Navbar = ({open}) => {
+interface NavBarProps {
+    open: boolean;
+}
+
+export const Navbar = ({open}: NavBarProps) => {
     const user = useUser();
     const dispatch = useUserDispatch();
     

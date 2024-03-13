@@ -4,7 +4,12 @@ import { CardActionArea } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import { Typography } from '@mui/material';
 
-export const ListItem = ({strMealThumb, strMeal}) => {
+interface ListItemProps {
+	strMealThumb: string;
+	strMeal: string;
+}
+
+export const ListItem = ({strMealThumb, strMeal}: ListItemProps) => {
 	return (
 		<Card sx={{ height: '100%' }}>
 			<CardActionArea sx={{ height: '100%' }}>

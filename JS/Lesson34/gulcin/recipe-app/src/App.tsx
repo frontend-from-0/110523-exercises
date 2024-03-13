@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { AppRouter } from './AppRouter';
+import { Recipe } from './modules/recipes/models';
 import './App.css';
 
 export const App = () => {
-	const [recipes, setRecipes] = useState([]);
-	const [searchError, setSearchError] = useState(undefined);
+	const [recipes, setRecipes] = useState<Recipe[]>([]);
+	const [searchError, setSearchError] = useState<String | undefined>(undefined);
 
 	useEffect(() => {
 		const DB_URL =

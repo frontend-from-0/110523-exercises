@@ -3,7 +3,20 @@ import { v4 as createId } from 'uuid';
 import { useState } from 'react';
 import { ConfirmMessage } from '../../../Components/ConfirmMessage';
 import { Main } from '../../../Components/Main';
+import { Categories } from '../models';
 import './styles.css';
+
+interface FormValues {
+	strMeal: string;
+	strDrinkAlternate?: string;
+	strCategory: Categories;
+	strInstructions: string;
+	ingredientsAndMeasures: string;
+    strArea: string;
+    strMealThumb: string;
+    strTags: string;
+    strIngredients?: string | undefined;
+}
 
 
 export const NewRecipe = () => {
@@ -12,17 +25,17 @@ export const NewRecipe = () => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm();
+    } = useForm<FormValues>();
 
 
     const ingredientIndexes = Array.from({ length: 20 }, (_, i) => i + 1);
 
 
-    const onFormSubmit = (data) => {
-        const ingredientAndMeasures = data.strIngredients.replaceAll(' ', '').split(',');
+    const onFormSubmit = (data: FormValues) => {
+        const ingredientAndMeasures = data.strIngredients?.replaceAll(' ', '').split(',');
 
-        const splittedIngredients = [];
-        ingredientAndMeasures.forEach(item => {
+        const splittedIngredients: any[] = [];
+        ingredientAndMeasures?.forEach(item => {
             splittedIngredients.push(item.split('-'))
         })
 
@@ -42,7 +55,7 @@ export const NewRecipe = () => {
         });
 
         delete data.strIngredients;
-        console.log({ ...data, idMeal: createId(), strMealThumb: data.strMealThumb[0].name });
+        console.log({ ...data, idMeal: createId()});
         setComfirmMessage(true);
     };
 

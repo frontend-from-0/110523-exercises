@@ -2,9 +2,15 @@ import { Link } from 'react-router-dom';
 import { ListItem } from '../ListItem';
 import { Grid } from '@mui/material';
 import { Main } from '../../../Components/Main';
+import { Recipe } from '../models';
 import './styles.css';
 
-export const RecipeList = ({ recipes, searchError }) => {
+interface RecipeListProps {
+	recipes: Recipe[];
+	searchError: any;
+}
+
+export const RecipeList = ({ recipes, searchError }: RecipeListProps) => {
 	return (
 		<Main className='recipe-container'>
 			{recipes.length > 0 ?

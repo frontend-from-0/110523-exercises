@@ -5,8 +5,13 @@ import { HamburgerMenu } from "../Navbar/HamburgerMenu";
 import { useState } from "react";
 import './styles.css';
 
-export const Header = ({ setRecipes, setSearchError }) => {
-    const [open, setOpen] = useState(false);
+interface HeaderProps {
+    setRecipes: any;
+    setSearchError: any;
+}
+
+export const Header = ({ setRecipes, setSearchError }: HeaderProps) => {
+    const [open, setOpen] = useState<boolean>(false);
   
     return (
         <header>
@@ -15,7 +20,7 @@ export const Header = ({ setRecipes, setSearchError }) => {
                 <Navbar open={open} />
                 <SearchBar setSearchError={setSearchError}  setRecipes={setRecipes} />
             </div>
-            <Logo className='logo' />
+            <Logo />
         </header>
     )
 }

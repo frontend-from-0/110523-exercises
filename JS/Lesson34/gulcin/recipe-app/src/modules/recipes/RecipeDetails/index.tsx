@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 import { Ingredients } from "./ingredients";
 import { useParams } from "react-router";
 import { Main } from "../../../Components/Main";
+import { Recipe } from "../models";
 import './styles.css';
 
 export const RecipeDetails = () => {
-    const [recipe, setRecipe] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
+    const [recipe, setRecipe] = useState<Recipe | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = useState<string>('');
     const {id} = useParams(); 
 
     useEffect(() => {

@@ -8,14 +8,23 @@ import { RecipeList } from './modules/recipes/RecipeList';
 import { RecipeDetails } from './modules/recipes/RecipeDetails';
 import { Home } from './Components/Home';
 import { Navigate } from 'react-router-dom';
+import { Recipe } from './modules/recipes/models';
+import { inflate } from 'zlib';
 
-export const AppRouter = ({ recipes , setRecipes, setSearchError, searchError }) => {
+interface AppRouterProps {
+    recipes: Recipe[];
+    setRecipes: any;
+    setSearchError: any;
+    searchError: String | undefined;
+}
+
+export const AppRouter = ({ recipes , setRecipes, setSearchError, searchError }: AppRouterProps) => {
 
     return (
         <Routes>
             <Route path='user'>
                 <Route path='register' element={<><Header setRecipes={setRecipes} setSearchError={setSearchError}  /><RegistrationForm /></>} />
-                <Route path='login' element={<><Header setRecipes={setRecipes} /><LoginForm /></>} />
+                <Route path='login' element={<><Header setRecipes={setRecipes} setSearchError={setSearchError} /><LoginForm /></>} />
                 <Route path='settings' element={<Settings />} />
             </Route>
 
@@ -34,7 +43,7 @@ export const AppRouter = ({ recipes , setRecipes, setSearchError, searchError })
                 <Route path='new' element={<><Header setRecipes={setRecipes} setSearchError={setSearchError}/><NewRecipe /></>} />
                 <Route path=':id/details' element={<><Header setRecipes={setRecipes} setSearchError={setSearchError}/><RecipeDetails /></>} />
                 <Route  path='search/:input' element={<><Header setRecipes={setRecipes} setSearchError={setSearchError} /><RecipeList recipes={recipes} searchError={searchError}/></>} />
-                <Route  path='recipelist' element={<><Header setRecipes={setRecipes} /><RecipeList recipes={recipes} searchError={searchError}/></>} />
+                <Route  path='recipelist' element={<><Header setRecipes={setRecipes} setSearchError={setSearchError} /><RecipeList recipes={recipes} searchError={searchError}/></>} />
                 <Route index element={<Navigate to="/" replace={true} />} />
             </Route>
 
