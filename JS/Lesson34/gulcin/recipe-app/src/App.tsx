@@ -5,7 +5,7 @@ import './App.css';
 
 export const App = () => {
 	const [recipes, setRecipes] = useState<Recipe[]>([]);
-	const [searchError, setSearchError] = useState<String | undefined>(undefined);
+	const [searchError, setSearchError] = useState<string | undefined>(undefined);
 
 	useEffect(() => {
 		const DB_URL =

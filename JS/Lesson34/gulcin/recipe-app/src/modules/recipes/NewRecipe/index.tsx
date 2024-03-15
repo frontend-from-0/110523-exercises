@@ -15,7 +15,7 @@ interface FormValues {
     strArea: string;
     strMealThumb: string;
     strTags: string;
-    strIngredients?: string | undefined;
+    strIngredients?: string;
 }
 
 
