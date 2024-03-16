@@ -3,12 +3,17 @@ import TextField from '@mui/material/TextField';
 import { Stack } from '@mui/material';
 import Alert from '@mui/material/Alert';
 
-export const SearchBar = ({ setRecipes }) => {
-	const [mainIngredient, setMainIngredient] = useState('');
-	const [inputError, setInputError] = useState(undefined);
-	const [searchError, setSearchError] = useState(undefined);
+interface SearchBarProps {
+	
+	setRecipes:any;
+}
 
-	function handleSubmit(e) {
+export const SearchBar = ({ setRecipes }:SearchBarProps) => {
+	const [mainIngredient, setMainIngredient] = useState<string>('');
+	const [inputError, setInputError] = useState<string|null>(null);
+	const [searchError, setSearchError] = useState<string|null>(null);
+
+	function handleSubmit(e:any) {
 		e.preventDefault();
 		const cleansedInput = mainIngredient.trim().replace(/\s/g, '_');
 

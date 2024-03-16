@@ -6,15 +6,26 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { boolean } from 'mathjs';
 
-export const LogIn = ({ isSignedIn, setIsSignedIn }) => {
+interface LogInProps {
+    isSignedIn: boolean;
+    setIsSignedIn: any;
+}
+
+export const LogIn = ({ isSignedIn, setIsSignedIn }: LogInProps) => {
+
+    interface DataProps {
+        email: string;
+        password: string;
+    }
 
     const {
         register,
         handleSubmit,
-    } = useForm();
+    } = useForm<DataProps>();
 
-    const onSubmit = (data) => {
+    const onSubmit = (data: DataProps) => {
         console.log(data);
         setIsSignedIn(!isSignedIn);
     }
@@ -23,7 +34,7 @@ export const LogIn = ({ isSignedIn, setIsSignedIn }) => {
 
     const handleClickShowPassword = () => setShowPassword(!showPassword);
 
- 
+
 
     return (
         <Container component="main" maxWidth="xs">
@@ -95,7 +106,8 @@ export const LogIn = ({ isSignedIn, setIsSignedIn }) => {
                                     fullWidth
                                     variant='contained'
                                     onClick={onSubmit}
-                                >Sign In</Button>
+                                >Sign In
+                                </Button>
                             </Link>
                         </Grid>
 

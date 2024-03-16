@@ -3,8 +3,14 @@ import { CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/m
 import Card from '@mui/material/Card';
 
 import "./styles.css"
+import { Recipe } from '../models';
 
-export const RecipeList = ({ recipes }) => {
+interface RecipeListProps {
+    recipes : Recipe[];
+}
+
+export const RecipeList = ({ recipes }:RecipeListProps) => {
+
 
     return (
 

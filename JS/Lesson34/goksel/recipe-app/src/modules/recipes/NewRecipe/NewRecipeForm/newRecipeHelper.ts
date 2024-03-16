@@ -176,13 +176,15 @@ export const MealArea = [
 
 
 
-export const handlestrIngredientsAndMeasures=(data)=> {
+export const handlestrIngredientsAndMeasures=(data?:string)=> {
 
-    const ingredientsAndMeasures = data.split(",");
+    const ingredientsAndMeasures = data ? data.split(",") : undefined;
     let cleanedData = {};
-    ingredientsAndMeasures.forEach((ingredientAndMeasure, index) => {
+    ingredientsAndMeasures?.forEach((ingredientAndMeasure, index) => {
         const [ingredient, measure] = ingredientAndMeasure.trim().replace(/\s+/g, " ").split("-");
+        // @ts-ignore
         cleanedData[`strIngredient${index + 1}`] = ingredient;
+        // @ts-ignore
         cleanedData[`strMeasure${index + 1}`] = measure;
     });
     return cleanedData;

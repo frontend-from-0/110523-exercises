@@ -9,6 +9,15 @@ import * as React from 'react';
 import Checkbox from '@mui/material/Checkbox';
 
 
+interface RegistrationFormProps {
+	open: boolean;
+	setOpen: any;
+	firstName: string;
+	lastName: string;
+	email:string;
+	password:string;
+}
+
 export const RegistrationForm = () => {
 
 	const [open, setOpen] =React.useState(false);
@@ -18,10 +27,10 @@ export const RegistrationForm = () => {
 		handleSubmit,
 		formState: { errors },
 		reset
-	} = useForm();
+	} = useForm<RegistrationFormProps>();
 
 
-	const onSubmit = (data) => {	
+	const onSubmit = (data:RegistrationFormProps) => {	
 		console.log(data);
 		reset();
 		setOpen(true);
@@ -47,6 +56,7 @@ export const RegistrationForm = () => {
 							<TextField
 								required
 								fullWidth
+								//@ts-ignore
 								name="firstName"
 								id="firstName"
 								label="First Name"
@@ -58,6 +68,7 @@ export const RegistrationForm = () => {
 							<TextField
 								required
 								fullWidth
+								//@ts-ignore
 								name="lastName"
 								id="lastName"
 								label="Last Name"
@@ -69,6 +80,7 @@ export const RegistrationForm = () => {
 							<TextField
 								required
 								fullWidth
+								//@ts-ignore
 								name="email"
 								id="email"
 								label="Email Adress"

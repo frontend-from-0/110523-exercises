@@ -6,11 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Stack } from '@mui/material';
 import Alert from '@mui/material/Alert';
+import { Recipe } from "../models";
 
 export const RecipeDetail = () => {
     const { id } = useParams();
 
-    const [recipeDetail, setRecipeDetail] = useState({});
+    const [recipeDetail, setRecipeDetail] = useState<Recipe|null>(null);
 
 
     useEffect(() => {
@@ -18,7 +19,7 @@ export const RecipeDetail = () => {
         fetch(URL)
             .then(res => res.json())
             .then((data) => {
-                if (data.meals[0]) {
+                if (data?.meals[0]) {
                     setRecipeDetail(data.meals[0])
                 }
             })
@@ -31,8 +32,8 @@ export const RecipeDetail = () => {
                     <CardMedia
                         component="img"
                         height="200"
-                        image={recipeDetail.strMealThumb}
-                        alt={recipeDetail.strMeal}
+                        image={recipeDetail?.strMealThumb}
+                        alt={recipeDetail?.strMeal}
                     />
                     <CardContent>
                         <Stack
@@ -41,7 +42,7 @@ export const RecipeDetail = () => {
                             <Typography
                             fontWeight="900"
                             >Your Meal:</Typography>
-                            <Typography>{recipeDetail.strMeal}</Typography>
+                            <Typography>{recipeDetail?.strMeal}</Typography>
                         </Stack>
 
                         <Stack
@@ -50,7 +51,7 @@ export const RecipeDetail = () => {
                             <Typography
                             fontWeight="900"
                             >Meal Category:</Typography>
-                            <Typography>{recipeDetail.strCategory}</Typography>
+                            <Typography>{recipeDetail?.strCategory}</Typography>
                         </Stack>
 
                         <Stack
@@ -59,7 +60,7 @@ export const RecipeDetail = () => {
                             <Typography
                             fontWeight="900"
                             >Country Of Origin:</Typography>
-                            <Typography>{recipeDetail.strArea}</Typography>
+                            <Typography>{recipeDetail?.strArea}</Typography>
                         </Stack>
                     </CardContent>
                 </CardActionArea>

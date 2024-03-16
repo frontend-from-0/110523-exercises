@@ -7,9 +7,12 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import CreateIcon from '@mui/icons-material/Create';
 import LogoutIcon from '@mui/icons-material/Logout';
 
+interface NavbarProps {
+    isSignedIn: boolean;
+    setIsSignedIn: any
+}
 
-
-export const Navbar = ({ isSignedIn, setIsSignedIn }) => {
+export const Navbar = ({ isSignedIn, setIsSignedIn }:NavbarProps) => {
 
 
 

@@ -4,18 +4,34 @@ import { MealArea } from "./newRecipeHelper";
 import { handlestrIngredientsAndMeasures } from "./newRecipeHelper"
 import { Button, FormControl, FormLabel, InputLabel, Grid, MenuItem, Select, Typography, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import { Areas, Categories } from "../../models";
 
 
 export const NewRecipe = () => {
+
+    interface DataProps {
+        strMeal : string;
+        strCategory: Categories;
+        strInstructions:string;
+        strIngredientsAndMeasures?:string;
+        strTags:string;
+        strMealThumb:string;
+        strArea:Areas;
+        strSource?:string;
+        strDrinkAlternate?:string;
+        strImageSource?:string;
+        strYoutube?: string | undefined;
+        strCreativeCommonsConfirmed:boolean;
+    }
 
     const {
         register,
         handleSubmit,
         formState: { errors },
         reset
-    } = useForm();
+    } = useForm<DataProps>();
 
-    const onSubmit = (data) => {
+    const onSubmit = (data:DataProps) => {
 
         const dateObject = new Date();
         const formattedDate = dateObject.toISOString();
@@ -25,15 +41,16 @@ export const NewRecipe = () => {
         const cleanedData = {
             ...data,
             strMeal: data.strMeal.trim().replace(/\s+/g, " "),
-            strDrinkAlternate: data.strDrinkAlternate.trim().replace(/\s+/g, " "),
+            strDrinkAlternate: data.strDrinkAlternate ? data.strDrinkAlternate.trim().replace(/\s+/g, " ") : undefined,
             strInstructions: data.strInstructions.trim().replace(/\s+/g, " "),
             strTags: data.strTags.trim().replace(/\s+/g, ""),
-            strYoutube: data.strYoutube.trim().replace(/\s+/g, " "),
+            strYoutube: data.strYoutube ? data.strYoutube.trim().replace(/\s+/g, " ") : undefined,
             dateModified: formattedDate,
             ...ingredientsAndMeasures
         }
 
         console.log(cleanedData);
+        console.log("data:", data);
         reset();
     }
 
@@ -215,7 +232,6 @@ export const NewRecipe = () => {
                     <FormLabel id="strCreativeCommonsConfirmed-label">Is Creative Commons Confirmed</FormLabel>
                     <RadioGroup
                     id="strCreativeCommonsConfirmed"
-                    label="Is Creative Commons Confirmed"
                     {...register("strCreativeCommonsConfirmed", { required: true })}
                     >
                         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
