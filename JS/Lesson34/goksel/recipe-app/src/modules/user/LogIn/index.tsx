@@ -6,7 +6,6 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { boolean } from 'mathjs';
 
 interface LogInProps {
     isSignedIn: boolean;
@@ -105,7 +104,6 @@ export const LogIn = ({ isSignedIn, setIsSignedIn }: LogInProps) => {
                                     type='submit'
                                     fullWidth
                                     variant='contained'
-                                    onClick={onSubmit}
                                 >Sign In
                                 </Button>
                             </Link>

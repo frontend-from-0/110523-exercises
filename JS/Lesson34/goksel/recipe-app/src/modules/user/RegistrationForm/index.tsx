@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, unstable_HistoryRouter } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { Box, Container, Grid, TextField, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, FormControlLabel, Button, Snackbar } from "@mui/material";
+import { Box, Container, Grid, TextField, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, FormControlLabel, Button, Snackbar, FormHelperText } from "@mui/material";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import * as React from 'react';
@@ -14,13 +14,13 @@ interface RegistrationFormProps {
 	setOpen: any;
 	firstName: string;
 	lastName: string;
-	email:string;
-	password:string;
+	email: string;
+	password: string;
 }
 
 export const RegistrationForm = () => {
 
-	const [open, setOpen] =React.useState(false);
+	const [open, setOpen] = React.useState(false);
 
 	const {
 		register,
@@ -30,13 +30,13 @@ export const RegistrationForm = () => {
 	} = useForm<RegistrationFormProps>();
 
 
-	const onSubmit = (data:RegistrationFormProps) => {	
+	const onSubmit = (data: RegistrationFormProps) => {
 		console.log(data);
 		reset();
 		setOpen(true);
 	}
 
-	const [showPassword, setShowPassword] =React.useState(false);
+	const [showPassword, setShowPassword] = React.useState(false);
 
 	const handleClickShowPassword = () => setShowPassword(!showPassword);
 
@@ -68,8 +68,6 @@ export const RegistrationForm = () => {
 							<TextField
 								required
 								fullWidth
-								//@ts-ignore
-								name="lastName"
 								id="lastName"
 								label="Last Name"
 								{...register("lastName")}
@@ -80,8 +78,6 @@ export const RegistrationForm = () => {
 							<TextField
 								required
 								fullWidth
-								//@ts-ignore
-								name="email"
 								id="email"
 								label="Email Adress"
 								type="email"
@@ -104,9 +100,8 @@ export const RegistrationForm = () => {
 								size='medium'
 								fullWidth
 								error={!!errors.password}
-								helperText={errors.password ? errors.password.message : ''}
-
 							>
+
 								<InputLabel htmlFor="password">Password</InputLabel>
 								<OutlinedInput
 									id="password"
@@ -134,11 +129,7 @@ export const RegistrationForm = () => {
 										}
 									})}
 								/>
-								{errors.password && (
-									<Typography variant="body2" color="error">
-										{errors.password.message}
-									</Typography>
-								)}
+								<FormHelperText>{errors.password ? errors.password.message : ''}</FormHelperText>
 							</FormControl>
 						</Grid>
 
@@ -157,20 +148,20 @@ export const RegistrationForm = () => {
 						sx={{ mt: 3, mb: 2 }}>
 						Sign Up
 					</Button>
-					<Snackbar 
-					message="Registration is successfully! Now you can go to the Login page"
-					autoHideDuration={4000}
-					open={open}
-					action={
-						<Button size="small">
-							<Link to="/user/login">Log In</Link>
-						</Button>
-					}
-					anchorOrigin={{
-						vertical:"top",
-						horizontal:"center"
-					}}
-					sx={{top:{xs:50, sm:30}}}
+					<Snackbar
+						message="Registration is successfully! Now you can go to the Login page"
+						autoHideDuration={4000}
+						open={open}
+						action={
+							<Button size="small">
+								<Link to="/user/login">Log In</Link>
+							</Button>
+						}
+						anchorOrigin={{
+							vertical: "top",
+							horizontal: "center"
+						}}
+						sx={{ top: { xs: 50, sm: 30 } }}
 					/>
 
 					<Grid container justifyContent="flex-end">
