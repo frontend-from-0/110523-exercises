@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
-import "./styles.css";
 import { useParams } from "react-router-dom";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea, Stack } from '@mui/material';
+import Alert from '@mui/material/Alert';
 
 export const RecipeDetail = () => {
     const { id } = useParams();
@@ -18,31 +23,53 @@ export const RecipeDetail = () => {
                 }
             })
     }, [id]);
- 
+
     return (
         id ?
-            <div>
+            <Card sx={{ maxWidth: 400, margin:"0 auto", mt:{xs:12, sm:10} }}>
+                <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        height="200"
+                        image={recipeDetail.strMealThumb}
+                        alt={recipeDetail.strMeal}
+                    />
+                    <CardContent>
+                        <Stack
+                        direction="row" alignItems="center"
+                        spacing={1}>
+                            <Typography
+                            fontWeight="900"
+                            >Your Meal:</Typography>
+                            <Typography>{recipeDetail.strMeal}</Typography>
+                        </Stack>
 
-                {recipeDetail.strMeal && (
-                    <div className="recipeDetailForm">
-                        <div className="details">
-                            <h2>Recipe Details</h2>
+                        <Stack
+                        direction="row" alignItems="center"
+                        spacing={1}>
+                            <Typography
+                            fontWeight="900"
+                            >Meal Category:</Typography>
+                            <Typography>{recipeDetail.strCategory}</Typography>
+                        </Stack>
 
-                            <p><strong>Your Meal:</strong>{recipeDetail.strMeal}</p>
+                        <Stack
+                        direction="row" alignItems="center"
+                        spacing={1}>
+                            <Typography
+                            fontWeight="900"
+                            >Country Of Origin:</Typography>
+                            <Typography>{recipeDetail.strArea}</Typography>
+                        </Stack>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
 
-                            <p><strong>Meal Category:</strong>{recipeDetail.strCategory}</p>
-
-                            <p><strong>Country Of Origin:</strong>{recipeDetail.strArea}</p>
-                        </div>
-                        <div className="img">
-                            <img src={recipeDetail.strMealThumb} />
-                        </div>
-
-                    </div>
-                )}
-
-            </div>
             :
-            <p>Recipe Details Not Found</p>
+
+            <Alert severity="warning">Recipe Details Not Found</Alert>
     )
 }
+
+
+

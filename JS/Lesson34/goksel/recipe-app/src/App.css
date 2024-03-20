@@ -1,19 +1,7 @@
-.appRouter {
+.app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.newRecipeBtn {
-  width: 270px;
-  margin-top: 30px;
-  border: none;
-  padding: 10px 0px;
-  border-radius: 12px;
-  background-color: #000;
-  color: #fff;
-  font-weight: 700;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 5px 5px 10px #000;
-}
+

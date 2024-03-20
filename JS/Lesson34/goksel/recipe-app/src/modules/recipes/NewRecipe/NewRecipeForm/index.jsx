@@ -2,8 +2,9 @@ import { useForm } from "react-hook-form";
 import { MealCategory } from "./newRecipeHelper";
 import { MealArea } from "./newRecipeHelper";
 import { handlestrIngredientsAndMeasures } from "./newRecipeHelper"
+import { Button, FormControl, FormLabel, InputLabel, Grid, MenuItem, Select, Typography, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import TextField from '@mui/material/TextField';
 
-import "./styles.css";
 
 export const NewRecipe = () => {
 
@@ -36,33 +37,58 @@ export const NewRecipe = () => {
         reset();
     }
 
+    const ScreenSizes = {xs:300, sm:400, md: 500, lg:600};
+
     return (
-        <div className="newRecipe-form">
-            <form
-                className="recipe-form"
-                noValidate
-                onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="strMeal">Recipe Name</label>
-                <input
+        <Grid
+            container
+            component="form"
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
+            spacing={2}
+            direction="column"
+            alignItems="center"
+            sx={{mt:10}}
+        >
+
+            <Grid item>
+                <TextField
+                    sx={{ minWidth: ScreenSizes}}
                     id="strMeal"
-                    type="text"
+                    label="Recipe Name"
+                    variant="outlined"
+                    size="small"
                     {...register("strMeal", { required: "Recipe name is required", minLength: { value: 5, message: "Recipe Name should be at least 5 characters long" } })}
                 />
                 {errors.strMeal && (
-                    <span className="error-message">{errors.strMeal.message}</span>
+                    <Typography color="error">{errors.strMeal.message}</Typography>
                 )}
+            </Grid>
 
-                <label htmlFor="strCategory">Category</label>
-                <select id="strCategory" {...register("strCategory", { required: true })}>
-                    <option disabled selected>Select Your Category</option>
-                    {MealCategory.map((category) => (
-                        <option key={category.id}>{category.title}</option>
-                    ))}
-                </select>
+            <Grid item>
+                <FormControl sx={{ minWidth: ScreenSizes}}>
+                    <InputLabel id="strCategory-label">Category</InputLabel>
+                    <Select
+                        labelId="strCategory-label"
+                        id="strCategory"
+                        label="Category"
+                        size="small"
+                        {...register("strCategory", { required: true })}
+                    >
+                        {MealCategory.map((category) => (
+                            <MenuItem value={category.title} key={category.id}>{category.title}</MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            </Grid>
 
-                <label htmlFor="strInstructions">Instructions</label>
-                <textarea
+            <Grid item>
+                <TextField
+                    sx={{ minWidth: ScreenSizes}}
                     id="strInstructions"
+                    label="Instructions"
+                    size="small"
+                    multiline
                     {...register("strInstructions", {
                         required: "Instructions are required",
                         minLength: {
@@ -72,13 +98,18 @@ export const NewRecipe = () => {
                     })}
                 />
                 {errors.strInstructions && (
-                    <span className="error-message">{errors.strInstructions.message}</span>
+                    <Typography color="error">{errors.strInstructions.message}</Typography>
                 )}
+            </Grid>
 
-                <label htmlFor="strIngredientsAndMeasures">Ingredients and Measures</label>
-                <textarea
-                    placeholder="Milk - 500ml, eggs - 2, sugar - 2tbsp"
+            <Grid item>
+                <TextField
+                    sx={{ minWidth: ScreenSizes}}
                     id="strIngredientsAndMeasures"
+                    label="Ingredients and Measures"
+                    size="small"
+                    multiline
+                    placeholder="Milk - 500ml, eggs - 2, sugar - 2tbsp"
                     {...register("strIngredientsAndMeasures", {
                         required: "Ingredients and Measures are required",
                         minLength: {
@@ -88,80 +119,115 @@ export const NewRecipe = () => {
                     })}
                 />
                 {errors.strIngredientsAndMeasures && (
-                    <span className="error-message">{errors.strIngredientsAndMeasures.message}</span>
+                    <Typography color="error">{errors.strIngredientsAndMeasures.message}</Typography>
                 )}
+            </Grid>
 
-                <label htmlFor="strTags">Tags</label>
-                <textarea
-                    placeholder="Spicy,fish"
+            <Grid item>
+                <TextField
+                    sx={{ minWidth: ScreenSizes}}
                     id="strTags"
-                    {...register("strTags", {
-                        required: "Tags are required",
-                        minLength: {
-                            value: 3,
-                            message: "Tags should be at least 3 characters long"
-                        }
-                    })}
+                    label="Tags"
+                    variant="outlined"
+                    placeholder="Spicy,fish"
+                    size="small"
+                    {...register("strTags", { required: "Tags are required", minLength: { value: 3, message: "Tags should be at least 3 characters long" } })}
                 />
                 {errors.strTags && (
-                    <span className="error-message">{errors.strTags.message}</span>
+                    <Typography color="error">{errors.strTags.message}</Typography>
                 )}
+            </Grid>
 
-                <label htmlFor="strMealThumb">Please Share Your Image Link</label>
-                <input
+            <Grid item>
+                <TextField
+                    sx={{ minWidth: ScreenSizes}}
                     id="strMealThumb"
-                    type="text"
+                    label="Share Your Image Link"
+                    variant="outlined"
+                    size="small"
                     {...register("strMealThumb")}
                 />
+            </Grid>
 
-                <label htmlFor="strArea">Meal Area</label>
-                <select id="strArea" {...register("strArea", { required: true })}>
-                    <option disabled selected>Select Your Area</option>
-                    {MealArea.map((area) => (
-                        <option key={area.id}>{area.title}</option>
-                    ))}
-                </select>
+            <Grid item>
+                <FormControl sx={{ minWidth: ScreenSizes}}>
+                    <InputLabel id="strArea-label">Meal Area</InputLabel>
+                    <Select
+                        size="small"
+                        labelId="strArea-label"
+                        id="strArea"
+                        label="Meal Area"
+                        {...register("strArea", { required: true })}
+                    >
+                        {MealArea.map((area) => (
+                            <MenuItem value={area.title} key={area.id}>{area.title}</MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            </Grid>
 
-                <label htmlFor="strSource">Source of Your Meal</label>
-                <input
+            <Grid item>
+                <TextField
+                    sx={{ minWidth: ScreenSizes}}
                     id="strSource"
-                    type="text"
+                    label="Source of Your Meal"
+                    variant="outlined"
+                    size="small"
                     {...register("strSource")}
                 />
+            </Grid>
 
-                <label htmlFor="strDrinkAlternate">Drink Alternate</label>
-                <input
+            <Grid item>
+                <TextField
+                    sx={{ minWidth: ScreenSizes}}
                     id="strDrinkAlternate"
-                    type="text"
+                    label="Drink Alternate"
+                    variant="outlined"
+                    size="small"
                     {...register("strDrinkAlternate")}
                 />
+            </Grid>
 
-                <label htmlFor="strImageSource">Source of Your Image</label>
-                <input
+            <Grid item>
+                <TextField
+                    sx={{ minWidth: ScreenSizes}}
                     id="strImageSource"
-                    type="text"
+                    label="Source of Your Image"
+                    variant="outlined"
+                    size="small"
                     {...register("strImageSource")}
                 />
+            </Grid>
 
-                <label htmlFor="strYoutube">Share Youtube Link</label>
-                <input
+            <Grid item>
+                <TextField
+                    sx={{ minWidth: ScreenSizes}}
                     id="strYoutube"
-                    type="text"
+                    label="Share Youtube Link"
+                    variant="outlined"
+                    size="small"
                     {...register("strYoutube")}
                 />
+            </Grid>
 
-                <label htmlFor="strCreativeCommonsConfirmed">Is Creative Commons Confirmed</label>
-                <select id="strCreativeCommonsConfirmed" {...register("strCreativeCommonsConfirmed")}>
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
-                </select>
+            <Grid item>
+                <FormControl sx={{ minWidth: ScreenSizes}}>
+                    <FormLabel id="strCreativeCommonsConfirmed-label">Is Creative Commons Confirmed</FormLabel>
+                    <RadioGroup
+                    id="strCreativeCommonsConfirmed"
+                    label="Is Creative Commons Confirmed"
+                    {...register("strCreativeCommonsConfirmed", { required: true })}
+                    >
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                    </RadioGroup>
+                </FormControl>
+            </Grid>
 
-                <button
-                    type="submit"
-                    className="newRecipe-submitBtn"
-                >Save Recipe</button>
-            </form>
-        </div>
+            <Grid item>
+                <Button variant="contained" type="submit">Save Recipe</Button>
+            </Grid>
 
+        </Grid>
     )
 }

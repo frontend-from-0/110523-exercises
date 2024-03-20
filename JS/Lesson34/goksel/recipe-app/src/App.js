@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import { AppRouter } from './AppRouter';
 import { Navbar } from './components/Navbar';
 
@@ -20,9 +19,8 @@ export const App = () => {
 
 	return (
 		<>
-
 			<Navbar setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />
-			<div className="appRouter" >
+			<div className="app-container" >
 				<AppRouter recipes={recipes} setRecipes={setRecipes} setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />
 			</div>
 		</>

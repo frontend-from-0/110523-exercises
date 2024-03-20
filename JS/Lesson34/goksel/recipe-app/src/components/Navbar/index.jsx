@@ -1,50 +1,105 @@
-import "./styles.css";
 import { Link } from "react-router-dom";
+import Box from '@mui/material/Box';
+import { AppBar, Button, Stack, Toolbar, Typography } from "@mui/material";
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
+import SettingsIcon from '@mui/icons-material/Settings';
+import CreateIcon from '@mui/icons-material/Create';
+import LogoutIcon from '@mui/icons-material/Logout';
+
+
 
 export const Navbar = ({ isSignedIn, setIsSignedIn }) => {
+
+
 
     const handleClick = () => {
         setIsSignedIn(!isSignedIn);
     }
+
     return (
-        <nav className="navbar">
-            <ul>
+        <Box sx={{ flexGrow: 1, mt: 10 }}>
+            <AppBar position="fixed" className="nav">
+
                 {isSignedIn ?
-                    <div className="navbar-btns">
-                        <li>
-                            <Link to="/"><i class="fa-solid fa-house"></i>Home Page</Link>
-                        </li>
+                    <Toolbar>
+                        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                            <Stack direction="column" display="flex" alignItems="flex-start">
+                                <HomeIcon sx={{ ml: 5 }} />
+                                <Button size="small" component={Link} to="/">
+                                    <Typography
+                                    color="white">Home Page</Typography>
+                                </Button>
+                            </Stack>
+                        </Typography>
 
-                        <li onClick={handleClick}>
-                            <Link to="user/login"><i class="fas fa-user"></i>Login</Link>
-                        </li>
-                    </div>
+                        <Stack>
+
+                            <Typography variant="h6">
+                                <Stack direction="column"
+                                    alignItems="center">
+                                    <PersonIcon />
+                                    <Button size="small" component={Link} to="user/login">
+                                        <Typography color="white">LOGIN</Typography>
+                                    </Button>
+                                </Stack>
+                            </Typography>
+
+                        </Stack>
+                    </Toolbar>
                     :
-                    <div className="navbar-btns">
-                        <li>
-                            <Link to="/"><i class="fa-solid fa-house"></i>Home Page</Link>
-                        </li>
+                    <Toolbar>
+                        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                            <Stack direction="column" display="flex" alignItems="flex-start">
+                                <HomeIcon sx={{ ml: 5 }} />
+                                <Button component={Link} size="small" to="/">
+                                    <Typography
+                                    color="white">Home Page</Typography>
+                                </Button>
+                            </Stack>
+                        </Typography>
 
-                        <li>
-                            <Link to="user/register"><i class="fa-regular fa-address-card"></i>Registration Form</Link>
-                        </li>
+                        <Stack direction="row" spacing={{ xs: 2, sm: 6, lg: 10 }}>
+                            <Typography variant="h6">
+                                <Stack direction="column"
+                                    alignItems="center">
+                                    <CreateIcon />
+                                    <Button component={Link} size="small" to="recipes/new">
+                                        <Typography color="white">
+                                            Create New Recipe
+                                        </Typography>
+                                    </Button>
+                                </Stack>
+                            </Typography>
 
-                        <li>
-                            <Link to="recipes/new"><i class="fa-solid fa-folder-plus"></i>Create New Recipe</Link>
-                        </li>
+                            <Typography variant="h6">
+                                <Stack direction="column"
+                                    alignItems="center">
+                                    <SettingsIcon />
+                                    <Button component={Link} size="small" to="user/settings">
+                                        <Typography color="white">
+                                            Setting
+                                        </Typography>
+                                    </Button>
+                                </Stack>
+                            </Typography>
 
-                        <li>
-                            <Link to="user/settings"><i class="fa-solid fa-gear"></i>Setting</Link>
-                        </li>
+                            <Typography variant="h6" onClick={handleClick}>
+                                <Stack direction="column"
+                                    alignItems="center">
+                                    <LogoutIcon />
+                                    <Button component={Link} size="small" to="/">
+                                        <Typography color="white">
+                                            Logout
+                                        </Typography>
+                                    </Button>
+                                </Stack>
+                            </Typography>
+                        </Stack>
+                    </Toolbar>
 
-                        <li onClick={handleClick}>
-                            <Link to="/"><i class="fa-solid fa-right-from-bracket"></i>Logout</Link>
-                        </li>
-
-                    </div>
                 }
-
-            </ul>
-        </nav>
+            </AppBar>
+        </Box>
     )
 }

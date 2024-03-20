@@ -8,7 +8,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #c0bdbb;
+  background-color: #fff;
   margin: 0px;
-  margin-top: 140px;
+}
+
+a {
+  color: blue;
 }
