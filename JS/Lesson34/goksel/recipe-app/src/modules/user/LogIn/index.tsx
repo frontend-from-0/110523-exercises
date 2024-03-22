@@ -3,41 +3,39 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Box, Button, Checkbox, Container, FormControl, FormControlLabel, FormHelperText, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import * as React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { DataProps } from '../models';
+import { useNavigate } from "react-router-dom";
 
 interface LogInProps {
     isSignedIn: boolean;
-    setIsSignedIn: any;
+    setIsSignedIn(isSignedIn: boolean): void;
 }
 
 export const LogIn = ({ isSignedIn, setIsSignedIn }: LogInProps) => {
-
-    interface DataProps {
-        email: string;
-        password: string;
-    }
 
     const {
         register,
         handleSubmit,
     } = useForm<DataProps>();
 
+    const navigate = useNavigate();
+
     const onSubmit = (data: DataProps) => {
         console.log(data);
         setIsSignedIn(!isSignedIn);
+        navigate("/");
     }
 
-    const [showPassword, setShowPassword] = React.useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword(!showPassword);
 
-
-
     return (
         <Container component="main" maxWidth="xs">
-            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }} >
 
                 <Avatar sx={{ marginTop: 8, bgcolor: "primary.main" }}>
                     <LockOutlinedIcon />
@@ -60,7 +58,6 @@ export const LogIn = ({ isSignedIn, setIsSignedIn }: LogInProps) => {
                                 helperText="Please Enter Your Email"
                                 {...register("email")}
                             />
-
                         </Grid>
 
                         <Grid item xs={12}>
@@ -99,14 +96,12 @@ export const LogIn = ({ isSignedIn, setIsSignedIn }: LogInProps) => {
                         </Grid>
 
                         <Grid item xs={12}>
-                            <Link to="/">
-                                <Button
-                                    type='submit'
-                                    fullWidth
-                                    variant='contained'
-                                >Sign In
-                                </Button>
-                            </Link>
+                            <Button
+                                type='submit'
+                                fullWidth
+                                variant='contained'
+                            >Sign In
+                            </Button>
                         </Grid>
 
                         <Grid container sx={{ mt: 2, ml: 2 }}>

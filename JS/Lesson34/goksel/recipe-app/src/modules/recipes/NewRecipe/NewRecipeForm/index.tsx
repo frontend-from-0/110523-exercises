@@ -1,29 +1,12 @@
 import { useForm } from "react-hook-form";
-import { MealCategory } from "./newRecipeHelper";
-import { MealArea } from "./newRecipeHelper";
 import { handlestrIngredientsAndMeasures } from "./newRecipeHelper"
 import { Button, FormControl, FormLabel, InputLabel, Grid, MenuItem, Select, Typography, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import { DataProps } from "./newRecipeHelper";
 import { Areas, Categories } from "../../models";
 
 
 export const NewRecipe = () => {
-
-    interface DataProps {
-        strMeal : string;
-        strCategory: Categories;
-        strInstructions:string;
-        strIngredientsAndMeasures?:string;
-        strTags:string;
-        strMealThumb:string;
-        strArea:Areas;
-        strSource?:string;
-        strDrinkAlternate?:string;
-        strImageSource?:string;
-        strYoutube?: string | undefined;
-        strCreativeCommonsConfirmed:boolean;
-    }
-
     const {
         register,
         handleSubmit,
@@ -31,11 +14,10 @@ export const NewRecipe = () => {
         reset
     } = useForm<DataProps>();
 
-    const onSubmit = (data:DataProps) => {
+    const onSubmit = (data: DataProps) => {
 
         const dateObject = new Date();
         const formattedDate = dateObject.toISOString();
-
         const ingredientsAndMeasures = handlestrIngredientsAndMeasures(data.strIngredientsAndMeasures);
         delete data.strIngredientsAndMeasures;
         const cleanedData = {
@@ -48,13 +30,11 @@ export const NewRecipe = () => {
             dateModified: formattedDate,
             ...ingredientsAndMeasures
         }
-
         console.log(cleanedData);
-        console.log("data:", data);
         reset();
     }
 
-    const ScreenSizes = {xs:300, sm:400, md: 500, lg:600};
+    const ScreenSizes = { xs: 300, sm: 400, md: 500, lg: 600 };
 
     return (
         <Grid
@@ -65,12 +45,12 @@ export const NewRecipe = () => {
             spacing={2}
             direction="column"
             alignItems="center"
-            sx={{mt:10}}
+            sx={{ mt: 10 }}
         >
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: ScreenSizes}}
+                    sx={{ minWidth: ScreenSizes }}
                     id="strMeal"
                     label="Recipe Name"
                     variant="outlined"
@@ -83,7 +63,7 @@ export const NewRecipe = () => {
             </Grid>
 
             <Grid item>
-                <FormControl sx={{ minWidth: ScreenSizes}}>
+                <FormControl sx={{ minWidth: ScreenSizes }}>
                     <InputLabel id="strCategory-label">Category</InputLabel>
                     <Select
                         labelId="strCategory-label"
@@ -92,8 +72,8 @@ export const NewRecipe = () => {
                         size="small"
                         {...register("strCategory", { required: true })}
                     >
-                        {MealCategory.map((category) => (
-                            <MenuItem value={category.title} key={category.id}>{category.title}</MenuItem>
+                        {Object.values(Categories).map((category, index) => (
+                            <MenuItem value={category} key={index}>{category}</MenuItem>
                         ))}
                     </Select>
                 </FormControl>
@@ -101,7 +81,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: ScreenSizes}}
+                    sx={{ minWidth: ScreenSizes }}
                     id="strInstructions"
                     label="Instructions"
                     size="small"
@@ -121,7 +101,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: ScreenSizes}}
+                    sx={{ minWidth: ScreenSizes }}
                     id="strIngredientsAndMeasures"
                     label="Ingredients and Measures"
                     size="small"
@@ -142,7 +122,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: ScreenSizes}}
+                    sx={{ minWidth: ScreenSizes }}
                     id="strTags"
                     label="Tags"
                     variant="outlined"
@@ -157,7 +137,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: ScreenSizes}}
+                    sx={{ minWidth: ScreenSizes }}
                     id="strMealThumb"
                     label="Share Your Image Link"
                     variant="outlined"
@@ -167,7 +147,7 @@ export const NewRecipe = () => {
             </Grid>
 
             <Grid item>
-                <FormControl sx={{ minWidth: ScreenSizes}}>
+                <FormControl sx={{ minWidth: ScreenSizes }}>
                     <InputLabel id="strArea-label">Meal Area</InputLabel>
                     <Select
                         size="small"
@@ -176,8 +156,8 @@ export const NewRecipe = () => {
                         label="Meal Area"
                         {...register("strArea", { required: true })}
                     >
-                        {MealArea.map((area) => (
-                            <MenuItem value={area.title} key={area.id}>{area.title}</MenuItem>
+                        {Object.values(Areas).map((area, index) => (
+                            <MenuItem value={area} key={index}>{area}</MenuItem>
                         ))}
                     </Select>
                 </FormControl>
@@ -185,7 +165,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: ScreenSizes}}
+                    sx={{ minWidth: ScreenSizes }}
                     id="strSource"
                     label="Source of Your Meal"
                     variant="outlined"
@@ -196,7 +176,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: ScreenSizes}}
+                    sx={{ minWidth: ScreenSizes }}
                     id="strDrinkAlternate"
                     label="Drink Alternate"
                     variant="outlined"
@@ -207,7 +187,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: ScreenSizes}}
+                    sx={{ minWidth: ScreenSizes }}
                     id="strImageSource"
                     label="Source of Your Image"
                     variant="outlined"
@@ -218,7 +198,7 @@ export const NewRecipe = () => {
 
             <Grid item>
                 <TextField
-                    sx={{ minWidth: ScreenSizes}}
+                    sx={{ minWidth: ScreenSizes }}
                     id="strYoutube"
                     label="Share Youtube Link"
                     variant="outlined"
@@ -228,11 +208,11 @@ export const NewRecipe = () => {
             </Grid>
 
             <Grid item>
-                <FormControl sx={{ minWidth: ScreenSizes}}>
+                <FormControl sx={{ minWidth: ScreenSizes }}>
                     <FormLabel id="strCreativeCommonsConfirmed-label">Is Creative Commons Confirmed</FormLabel>
                     <RadioGroup
-                    id="strCreativeCommonsConfirmed"
-                    {...register("strCreativeCommonsConfirmed", { required: true })}
+                        id="strCreativeCommonsConfirmed"
+                        {...register("strCreativeCommonsConfirmed", { required: true })}
                     >
                         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />

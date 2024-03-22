@@ -3,15 +3,14 @@ import { Link, unstable_HistoryRouter } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Box, Container, Grid, TextField, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, FormControlLabel, Button, Snackbar, FormHelperText } from "@mui/material";
+import { useState } from "react";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import * as React from 'react';
 import Checkbox from '@mui/material/Checkbox';
-
 
 interface RegistrationFormProps {
 	open: boolean;
-	setOpen: any;
+	setOpen(open: boolean): void;
 	firstName: string;
 	lastName: string;
 	email: string;
@@ -20,7 +19,9 @@ interface RegistrationFormProps {
 
 export const RegistrationForm = () => {
 
-	const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = useState(false);
+
+	const [showPassword, setShowPassword] = useState(false);
 
 	const {
 		register,
@@ -29,19 +30,15 @@ export const RegistrationForm = () => {
 		reset
 	} = useForm<RegistrationFormProps>();
 
-
 	const onSubmit = (data: RegistrationFormProps) => {
 		console.log(data);
 		reset();
 		setOpen(true);
 	}
 
-	const [showPassword, setShowPassword] = React.useState(false);
-
 	const handleClickShowPassword = () => setShowPassword(!showPassword);
 
 	return (
-
 		<Container component="main" maxWidth="xs">
 			<Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
 				<Avatar sx={{ mt: 8, bgcolor: "primary.main" }}>
@@ -56,8 +53,6 @@ export const RegistrationForm = () => {
 							<TextField
 								required
 								fullWidth
-								//@ts-ignore
-								name="firstName"
 								id="firstName"
 								label="First Name"
 								{...register("firstName")}
@@ -101,7 +96,6 @@ export const RegistrationForm = () => {
 								fullWidth
 								error={!!errors.password}
 							>
-
 								<InputLabel htmlFor="password">Password</InputLabel>
 								<OutlinedInput
 									id="password"
@@ -172,7 +166,5 @@ export const RegistrationForm = () => {
 				</Box>
 			</Box>
 		</Container>
-
-
 	);
 };

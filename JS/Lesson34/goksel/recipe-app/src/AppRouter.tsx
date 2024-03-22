@@ -10,9 +10,9 @@ import { Recipe } from "./modules/recipes/models";
 
 interface AppRouterProps {
     recipes : Recipe[];
-    setRecipes : any;
+    setRecipes(recipes : Recipe[]) : void;
     isSignedIn : boolean;
-    setIsSignedIn: any;
+    setIsSignedIn(isSignedIn: boolean): void;
 }
 
 export const AppRouter = ({ recipes, setRecipes, setIsSignedIn, isSignedIn  }:AppRouterProps) => {

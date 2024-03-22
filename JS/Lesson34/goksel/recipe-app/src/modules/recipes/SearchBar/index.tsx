@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Stack } from '@mui/material';
 import Alert from '@mui/material/Alert';
+import { Recipe } from '../models';
 
 interface SearchBarProps {
 	
-	setRecipes:any;
+	setRecipes(recipes : Recipe[]):void;
 }
 
 export const SearchBar = ({ setRecipes }:SearchBarProps) => {

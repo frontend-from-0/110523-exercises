@@ -26,7 +26,7 @@ export const RecipeDetail = () => {
     }, [id]);
 
     return (
-        id ?
+        recipeDetail ?
             <Card sx={{ maxWidth: 400, margin:"0 auto", mt:{xs:12, sm:10} }}>
                 <CardActionArea>
                     <CardMedia
