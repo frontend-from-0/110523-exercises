@@ -8,13 +8,12 @@ import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { DataProps } from '../models';
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleSignIn } from '../userSlice';
 
-interface LogInProps {
-    isSignedIn: boolean;
-    setIsSignedIn(isSignedIn: boolean): void;
-}
+export const LogIn = () => {
 
-export const LogIn = ({ isSignedIn, setIsSignedIn }: LogInProps) => {
+    const dispatch=useDispatch();
 
     const {
         register,
@@ -25,7 +24,7 @@ export const LogIn = ({ isSignedIn, setIsSignedIn }: LogInProps) => {
 
     const onSubmit = (data: DataProps) => {
         console.log(data);
-        setIsSignedIn(!isSignedIn);
+        dispatch(toggleSignIn());
         navigate("/");
     }
 

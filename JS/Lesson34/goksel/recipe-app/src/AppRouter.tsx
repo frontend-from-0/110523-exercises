@@ -6,23 +6,17 @@ import { RecipeDetail } from "./modules/recipes/RecipeDetail";
 import { SearchBar } from "./modules/recipes/SearchBar";
 import { RecipeList } from "./modules/recipes/RecipeList";
 import { LogIn } from "./modules/user/LogIn";
-import { Recipe } from "./modules/recipes/models";
 
-interface AppRouterProps {
-    recipes : Recipe[];
-    setRecipes(recipes : Recipe[]) : void;
-    isSignedIn : boolean;
-    setIsSignedIn(isSignedIn: boolean): void;
-}
 
-export const AppRouter = ({ recipes, setRecipes, setIsSignedIn, isSignedIn  }:AppRouterProps) => {
+
+export const AppRouter = () => {
+
     return (
         <Routes>
             <Route path="user">
-                <Route path="register" element={<RegistrationForm  />} />
-                <Route path="settings" element={<Settings
-                />} />
-                <Route path="login" element={<LogIn setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />}/>
+                <Route path="register" element={<RegistrationForm />} />
+                <Route path="settings" element={<Settings />} />
+                <Route path="login" element={<LogIn />}/>
             </Route>
 
             <Route path="recipes">
@@ -35,8 +29,8 @@ export const AppRouter = ({ recipes, setRecipes, setIsSignedIn, isSignedIn  }:Ap
                 path="/"
                 element={
                     <>
-                        <SearchBar setRecipes={setRecipes} />
-                        <RecipeList recipes={recipes} />
+                        <SearchBar />
+                        <RecipeList />
                     </>
                 }
             />

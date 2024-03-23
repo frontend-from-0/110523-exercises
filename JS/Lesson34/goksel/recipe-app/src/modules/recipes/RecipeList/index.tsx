@@ -4,13 +4,13 @@ import Card from '@mui/material/Card';
 
 import "./styles.css"
 import { Recipe } from '../models';
+import { useDispatch, useSelector } from 'react-redux';
 
-interface RecipeListProps {
-    recipes : Recipe[];
-}
 
-export const RecipeList = ({ recipes }:RecipeListProps) => {
 
+export const RecipeList = () => {
+const dispatch = useDispatch();
+const recipes = useSelector((state: {recipes:Recipe[]})=> state.recipes)
 
     return (
 
