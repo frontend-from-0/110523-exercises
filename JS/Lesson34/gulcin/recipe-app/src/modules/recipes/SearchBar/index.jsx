@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import './styles.css';
 
-export const Search = ({ setRecipes }) => {
+export const Search = ({ setRecipes, setId }) => {
 	const [mainIngredient, setMainIngredient] = useState('');
-  const [inputError, setInputError] = useState(undefined);
+    const [inputError, setInputError] = useState(undefined);
 	const [searchError, setSearchError] = useState(undefined);
 
 	function handleSubmit(e) {
@@ -16,11 +17,13 @@ export const Search = ({ setRecipes }) => {
 			.then((data) => {
 				if (data.meals && data.meals.length > 0) {
 					setRecipes(data.meals);
-          setSearchError(null);
+					setId('');
+                    setSearchError(null);
 				} else {
 					setSearchError(
 						`Could not find any meals with main ingredient ${mainIngredient}`
 					);
+					setRecipes([]);
 				}
 			});
 	};
@@ -39,8 +42,8 @@ export const Search = ({ setRecipes }) => {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor='main-ingredient'>Search meal by main ingredient</label>
+			<form className='search-form'onSubmit={handleSubmit}>
+				<label htmlFor='main-ingredient'>RECIPES</label>
 				<input
 					type='text'
 					name='main-ingredient'
@@ -48,10 +51,10 @@ export const Search = ({ setRecipes }) => {
 					placeholder='chicken breast'
 					onChange={(event) => setMainIngredient(event.target.value)}
 				/>
-        {inputError && <span>{inputError}</span>}
-				<button type='submit'>Search</button>
+                {inputError && <span className='input-error-message'>{inputError}</span>}
+				<button type='submit' className='search-btn'>Search</button>
 			</form>
-			{searchError && <p>{searchError}</p>}
+			{searchError && <p className='error-message'>{searchError}</p>}
 		</>
 	);
 };
