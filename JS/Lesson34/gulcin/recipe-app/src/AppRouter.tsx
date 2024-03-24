@@ -15,7 +15,7 @@ interface AppRouterProps {
     recipes: Recipe[];
     setRecipes: any;
     setSearchError: any;
-    searchError: String | undefined;
+    searchError?: string;
 }
 
 export const AppRouter = ({ recipes , setRecipes, setSearchError, searchError }: AppRouterProps) => {
