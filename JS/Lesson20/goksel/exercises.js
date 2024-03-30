@@ -105,20 +105,67 @@ console.log(minibus.start());
 console.log("----Ex4-----");
 // 4. Create a BankAccount class with balance and interestRate properties, and deposit() and withdraw() methods. Add a transactionHistory property that is an array of objects representing each transaction made on the account, with properties for type (either "deposit" or "withdrawal"), amount, and date ({type: "withdrawal", amount: amount, date: new Date().toLocaleDateString()}). Implement deposit() and withdraw() methods that add new transactions to the transactionHistory array. Implement a get transactionHistory() getter method that returns a copy of the transaction history array, and a get currentBalance() getter method that calculates and returns the current balance of the account based on the transaction history.
 
-function flattenObj(obj, prefix = '') {
-	let flattened = {};
-
-	for (let key in obj) {
-		if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
-
-			const intermediateObject = flattenObj(obj[key], `${prefix}${key}.`);
-      flattened = {...flattened, ...intermediateObject };
-
-		} else { 
-      flattened[`${prefix}${key}`] = obj[key];
+class BankAccount {
+    constructor(balance = 0, interestRate = 0) {
+      this.balance = balance;
+      this.interestRate = interestRate;
+      this._transactionHistory = [];
     }
-	}
-	return flattened;
-}
+  
+    deposit(amount) {
+      if (amount <= 0) {
+        return "Deposit amount must be greater than zero.";
+      }
+      this.balance += amount;
+      this._transactionHistory.push({
+        type: "deposit",
+        amount: amount,
+        date: new Date().toLocaleDateString()
+      });
+      return `Successfully deposited $${amount}.`;
+    }
+  
+    withdraw(amount) {
+      if (amount <= 0) {
+        return "Withdrawal amount must be greater than zero.";
+      }
+      if (amount > this.balance) {
+        return "Insufficient funds.";
+      }
+      this.balance -= amount;
+      this._transactionHistory.push({
+        type: "withdrawal",
+        amount: amount,
+        date: new Date().toLocaleDateString()
+      });
+      return `Successfully withdrew $${amount}.`;
+    }
+  
+    get transactionHistory() {
+      return this._transactionHistory.slice();
+    }
+  
+    get currentBalance() {
+      let balance = this.balance;
+      for (const transaction of this._transactionHistory) {
+        if (transaction.type === "deposit") {
+          balance += transaction.amount;
+        } else if (transaction.type === "withdrawal") {
+          balance -= transaction.amount;
+        }
+      }
+      return balance;
+    }
+  }
+  
+  const account = new BankAccount(1000, 0.05); 
+  
+  console.log(account.deposit(500)); 
+  console.log(account.withdraw(200)); 
+  console.log("Transaction History:");
+  console.log(account.transactionHistory); 
+  console.log("Current Balance:", account.currentBalance);
+  
+  
 
 
