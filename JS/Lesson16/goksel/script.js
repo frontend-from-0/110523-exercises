@@ -265,7 +265,7 @@ function isStudentAllowedToVote(age,student){
 	if(age < 18 && student){
 		console.log("You are a student and not old enough to vote");
 	}
-	else if(age >= 18 && age <= 65 && student === false){
+	else if(age >= 18 && age <= 65 && !student){
 		console.log("You are eligible to vote");
 	}
 	else if(age > 65){
