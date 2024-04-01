@@ -271,7 +271,7 @@ function isStudentAllowedToVote(age,student){
 	else if(age > 65){
 		console.log("You are a senior citizen");
 	}
-	else if(age >= 18 && student === true){
+	else if(age >= 18 && student){
 		console.log("You are old enough to vote");
 	}
 	else{
