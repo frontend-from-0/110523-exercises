@@ -1,0 +1,7 @@
+header > picture > img {
+    background-color: var(--color-darkcyan);
+    object-fit: cover;
+    width: 100vw;
+height: 15vh;
+    }
+

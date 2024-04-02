@@ -20,8 +20,7 @@ export const AppRouter = ({ recipes, setRecipes, setIsSignedIn, isSignedIn  }:Ap
         <Routes>
             <Route path="user">
                 <Route path="register" element={<RegistrationForm  />} />
-                <Route path="settings" element={<Settings
-                />} />
+                <Route path="settings" element={<Settings />} />
                 <Route path="login" element={<LogIn setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />}/>
             </Route>
 
