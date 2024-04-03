@@ -6,8 +6,16 @@ import { RecipeDetail } from "./modules/recipes/RecipeDetail";
 import { SearchBar } from "./modules/recipes/SearchBar";
 import { RecipeList } from "./modules/recipes/RecipeList";
 import { LogIn } from "./modules/user/LogIn";
+import { Recipe } from "./modules/recipes/models";
 
-export const AppRouter = ({ recipes, setRecipes, setIsSignedIn, isSignedIn  }) => {
+interface AppRouterProps {
+    recipes : Recipe[];
+    setRecipes(recipes : Recipe[]) : void;
+    isSignedIn : boolean;
+    setIsSignedIn(isSignedIn: boolean): void;
+}
+
+export const AppRouter = ({ recipes, setRecipes, setIsSignedIn, isSignedIn  }:AppRouterProps) => {
     return (
         <Routes>
             <Route path="user">
@@ -18,7 +26,7 @@ export const AppRouter = ({ recipes, setRecipes, setIsSignedIn, isSignedIn  }) =
 
             <Route path="recipes">
                 <Route path="new" element={<NewRecipe />} />
-                <Route path=":id/details" element={<RecipeDetail recipes={recipes} />} />
+                <Route path=":id/details" element={<RecipeDetail/>} />
                 <Route index element={<Navigate to="/" replace={true}></Navigate>} />
             </Route>
 

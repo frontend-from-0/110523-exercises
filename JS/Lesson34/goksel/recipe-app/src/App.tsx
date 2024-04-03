@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { AppRouter } from './AppRouter';
 import { Navbar } from './components/Navbar';
+import { Recipe } from './modules/recipes/models';
 
 export const App = () => {
-	const [recipes, setRecipes] = useState([]);
-	const [isSignedIn, setIsSignedIn] = useState(true);
+	const [recipes, setRecipes] = useState<Recipe[]>([]);
+	const [isSignedIn, setIsSignedIn] = useState<boolean>(true);
 
 	useEffect(() => {
 		const DB_URL =
@@ -15,7 +16,6 @@ export const App = () => {
 				setRecipes(recipeData.meals)
 			);
 	}, []);
-
 
 	return (
 		<>
