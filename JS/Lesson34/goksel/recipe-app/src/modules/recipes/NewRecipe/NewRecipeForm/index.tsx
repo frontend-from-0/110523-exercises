@@ -4,6 +4,8 @@ import { Button, FormControl, FormLabel, InputLabel, Grid, MenuItem, Select, Typ
 import TextField from '@mui/material/TextField';
 import { DataProps } from "./newRecipeHelper";
 import { Areas, Categories } from "../../models";
+import { useDispatch } from "react-redux";
+import { updateRecipes } from "../../recipesSlice";
 
 
 export const NewRecipe = () => {
@@ -13,6 +15,8 @@ export const NewRecipe = () => {
         formState: { errors },
         reset
     } = useForm<DataProps>();
+
+    const dispatch = useDispatch();
 
     const onSubmit = (data: DataProps) => {
 
@@ -28,9 +32,9 @@ export const NewRecipe = () => {
             strTags: data.strTags.trim().replace(/\s+/g, ""),
             strYoutube: data.strYoutube ? data.strYoutube.trim().replace(/\s+/g, " ") : undefined,
             dateModified: formattedDate,
-            ...ingredientsAndMeasures
+            ...ingredientsAndMeasures,
         }
-        console.log(cleanedData);
+ console.log(cleanedData);
         reset();
     }
 

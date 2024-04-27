@@ -7,7 +7,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import CreateIcon from '@mui/icons-material/Create';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSignIn } from "../../modules/user/userSlice";
+import { signOut } from "../../modules/user/userSlice";
 
 export const Navbar = () => {
 
@@ -15,7 +15,7 @@ export const Navbar = () => {
     const isSignedIn = useSelector((state)=> ( state as any).user.isSignedIn);
 
     const handleClick = () => {
-        dispatch(toggleSignIn());
+        dispatch(signOut());
     }
 
     return (

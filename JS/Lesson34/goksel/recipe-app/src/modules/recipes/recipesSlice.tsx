@@ -19,6 +19,8 @@ export const recipesSlice = createSlice({
 
 });
 
+export const selectorRecipes = (state: {recipes: Recipe[]}) => state.recipes;
+
 export const { updateRecipes } = recipesSlice.actions;
 
 export default recipesSlice.reducer;

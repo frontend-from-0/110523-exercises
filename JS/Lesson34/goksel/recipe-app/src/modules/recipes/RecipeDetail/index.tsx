@@ -7,27 +7,36 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, Stack } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Recipe } from "../models";
+import { useDispatch, useSelector } from "react-redux";
+import { selectorRecipes } from "../recipesSlice";
+
+
 
 export const RecipeDetail = () => {
     const { id } = useParams();
-
-    const [recipeDetail, setRecipeDetail] = useState<Recipe|null>(null);
-
+    const dispatch = useDispatch();
+    const recipes = useSelector(selectorRecipes);
+    const [recipeDetail, setRecipeDetail] = useState<Recipe | null>(null);
 
     useEffect(() => {
-        const URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
-        fetch(URL)
-            .then(res => res.json())
-            .then((data) => {
-                if (data?.meals[0]) {
-                    setRecipeDetail(data.meals[0])
-                }
-            })
-    }, [id]);
+        const existingRecipe = recipes.find(recipe => recipe.idMeal === id);
+        if(existingRecipe){
+            setRecipeDetail(existingRecipe);
+        }else {
+            const URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+            fetch(URL)
+                .then(res => res.json())
+                .then((data) => {
+                    if (data?.meals[0]) {
+                        setRecipeDetail(data.meals[0])
+                    }
+                })
+        }
+    }, [id, recipes])
 
     return (
         recipeDetail ?
-            <Card sx={{ maxWidth: 400, margin:"0 auto", mt:{xs:12, sm:10} }}>
+            <Card sx={{ maxWidth: 400, margin: "0 auto", mt: { xs: 12, sm: 10 } }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
@@ -37,28 +46,28 @@ export const RecipeDetail = () => {
                     />
                     <CardContent>
                         <Stack
-                        direction="row" alignItems="center"
-                        spacing={1}>
+                            direction="row" alignItems="center"
+                            spacing={1}>
                             <Typography
-                            fontWeight="900"
+                                fontWeight="900"
                             >Your Meal:</Typography>
                             <Typography>{recipeDetail?.strMeal}</Typography>
                         </Stack>
 
                         <Stack
-                        direction="row" alignItems="center"
-                        spacing={1}>
+                            direction="row" alignItems="center"
+                            spacing={1}>
                             <Typography
-                            fontWeight="900"
+                                fontWeight="900"
                             >Meal Category:</Typography>
                             <Typography>{recipeDetail?.strCategory}</Typography>
                         </Stack>
 
                         <Stack
-                        direction="row" alignItems="center"
-                        spacing={1}>
+                            direction="row" alignItems="center"
+                            spacing={1}>
                             <Typography
-                            fontWeight="900"
+                                fontWeight="900"
                             >Country Of Origin:</Typography>
                             <Typography>{recipeDetail?.strArea}</Typography>
                         </Stack>

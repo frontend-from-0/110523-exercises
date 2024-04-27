@@ -7,6 +7,8 @@ import { useState } from "react";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Checkbox from '@mui/material/Checkbox';
+import { useDispatch } from "react-redux";
+import { addUser } from "../userSlice";
 
 interface RegistrationFormProps {
 	open: boolean;
@@ -23,6 +25,8 @@ export const RegistrationForm = () => {
 
 	const [showPassword, setShowPassword] = useState(false);
 
+	const dispatch = useDispatch();
+
 	const {
 		register,
 		handleSubmit,
@@ -31,7 +35,7 @@ export const RegistrationForm = () => {
 	} = useForm<RegistrationFormProps>();
 
 	const onSubmit = (data: RegistrationFormProps) => {
-		console.log(data);
+		dispatch(addUser(data));
 		reset();
 		setOpen(true);
 	}
