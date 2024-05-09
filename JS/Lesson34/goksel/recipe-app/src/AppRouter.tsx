@@ -14,9 +14,9 @@ export const AppRouter = () => {
     return (
         <Routes>
             <Route path="user">
-                <Route path="register" element={<RegistrationForm />} />
+                <Route path="register" element={<RegistrationForm  />} />
                 <Route path="settings" element={<Settings />} />
-                <Route path="login" element={<LogIn />}/>
+                <Route path="login" element={<LogIn setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />}/>
             </Route>
 
             <Route path="recipes">

@@ -1,9 +1,17 @@
+import { useTodo, useTodoDispatch, TODO_ACTIONS } from '../../modules/todos/TodoProvider';
 import './styles.css';
 
-export const List = ({todos, setTodos}) => {
-	function handleClick (id) {
+export const List = () => {
+
+	const todos = useTodo();
+	const dispatch = useTodoDispatch();
+
+	function handleClick(id) {
 		console.log('Clicked on item in List component');
-		setTodos(prevState => prevState.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo));
+		dispatch({
+			type: TODO_ACTIONS.todoCompleted, 
+			payload: {id: id}
+		})
 	};
 
 	return (
