@@ -13,7 +13,7 @@ export const recipesSlice = createSlice({
         updateRecipes: (state, action: RecipeAction) => {
             const newRecipes = action.payload.filter(
                 (payloadItem) => !state.some((recipe) => recipe.idMeal === payloadItem.idMeal));
-            return [...state, ...newRecipes];
+            return [...newRecipes, ...state];
         }
     },
 
