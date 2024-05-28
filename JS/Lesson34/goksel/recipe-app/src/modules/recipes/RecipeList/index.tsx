@@ -3,17 +3,12 @@ import { CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/m
 import Card from '@mui/material/Card';
 
 import "./styles.css"
-import { Recipe } from '../models';
+import { useSelector } from 'react-redux';
+import { selectorRecipes } from '../recipesSlice';
 
-interface RecipeListProps {
-    recipes : Recipe[];
-}
-
-export const RecipeList = ({ recipes }:RecipeListProps) => {
-
-
+export const RecipeList = () => {
+const recipes = useSelector(selectorRecipes)
     return (
-
         <Grid container sx={{ mt: 5, paddingLeft: { xs: 12 }, paddingRight: { xs: 10, sm: 10 } }}
             spacing={2}
             direction="row"
@@ -44,7 +39,6 @@ export const RecipeList = ({ recipes }:RecipeListProps) => {
                     </Card>
                 </Grid>
             ))}
-
         </Grid>
     )
 };

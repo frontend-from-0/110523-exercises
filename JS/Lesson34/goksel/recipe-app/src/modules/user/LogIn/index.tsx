@@ -6,32 +6,31 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { DataProps } from '../models';
+import { DataProps } from "../models";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { signIn } from '../userSlice';
 
-interface LogInProps {
-    isSignedIn: boolean;
-    setIsSignedIn(isSignedIn: boolean): void;
-}
+export const LogIn = () => {
 
-export const LogIn = ({ isSignedIn, setIsSignedIn }: LogInProps) => {
+    const [showPassword, setShowPassword] = useState(false);
 
     const {
         register,
         handleSubmit,
     } = useForm<DataProps>();
 
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
+
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
 
     const onSubmit = (data: DataProps) => {
         console.log(data);
-        setIsSignedIn(!isSignedIn);
+        dispatch(signIn());
         navigate("/");
     }
-
-    const [showPassword, setShowPassword] = useState(false);
-
-    const handleClickShowPassword = () => setShowPassword(!showPassword);
 
     return (
         <Container component="main" maxWidth="xs">
